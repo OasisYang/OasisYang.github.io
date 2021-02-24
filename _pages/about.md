@@ -7,7 +7,7 @@ redirect_from:
   - /about/
   - /about.html
 ---
-Yang is currently a Ph.D candidate in Electrical and Computer Engineering (ECE) at University of Illinois at Urbana-Champaign (UIUC). He is currently a research assistant at Image Formation and Processing Group ([IFP](http://ifp-uiuc.github.io/)) let by [Prof. Humphrey Shi](https://www.humphreyshi.com/) of UIUC. Before that, he obtained his M.S. in ECE at UIUC in 2020 under the supervision of [Prof. Thomas S. Huang](https://scholar.google.com/citations?user=rGF6-WkAAAAJ&hl=en&oi=ao) (1936-2020). Before coming to UIUC, he received his B.S. in ECE from Beihang University in 2017.
+Yang is currently a Ph.D candidate in Electrical and Computer Engineering (ECE) at University of Illinois at Urbana-Champaign (UIUC). He is a research assistant at Image Formation and Processing Group ([IFP](http://ifp-uiuc.github.io/)) led by [Prof. Humphrey Shi](https://www.humphreyshi.com/) of UIUC. Before that, he obtained his M.S. in ECE at UIUC in 2020 under the supervision of [Prof. Thomas S. Huang](https://scholar.google.com/citations?user=rGF6-WkAAAAJ&hl=en&oi=ao) (1936-2020). Before coming to UIUC, he received his B.S. in ECE from Beihang University in 2017.
 
 ## Research Interests
 
