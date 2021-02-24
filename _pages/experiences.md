@@ -18,7 +18,7 @@ author_profile: true
   * B.S. in Electrical and Computer Engineering
 
 
-## Internships
+## Industrial Experiences
 <!-- * **Nvidia Research**, Santa Clara, CA, USA (Summer 2021)
   * Position: Research Intern
   * Advisors: Sifei Liu
@@ -37,3 +37,11 @@ author_profile: true
 * **Nokia Bell Lab**, Murray Hill, NJ, USA (Jun, 2018 - Aug, 2018)
   * Position: Research Intern
   * Advisors: Xiaoyang Wang  
+  
+
+## Professional Activities
+* **Reviewer**: 
+  * Conference: ICCV2021, CVPR2021, ECCV2020, MICCAI 2018, etc
+  * Journal: TIP, T-PAMI, IJCV, etc
+* **Organizing Committee**: 
+  * Workshop on Large-scale Video Object Segmentation Challenge (CVPR 2021)
