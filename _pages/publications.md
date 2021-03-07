@@ -33,7 +33,5 @@ author_profile: true
   Hanchao Yu, <b>Yang Fu</b>, Haichao Yu, Yunchao Wei, Xinchao Wang, Jianbo Jiao, Matthew Bramlet, Thenkurussi Kesavadas, Honghui Shi, Zhangyang Wang, Bihan Wen, Thomas Huang
   <br> <i>MIPR 2019</i>
   <br>[[Paper](https://openreview.net/pdf/9824c8c04eb2fd3bbc6d5b5d62a545784d2ca6cc.pdf)]
-<!-- ## Preprint
-1. <b>Learning to Track Instances without Video Annotations</b> <br>
-  <b>Yang Fu</b>, Sifei Liu, Shalini De Mello, Umar Iqbal, Humphrey Shi, Jan Kautz -->
+
 
