@@ -20,6 +20,8 @@ My current research focuses on **computer vision** and **machine learning**. Spe
 
 Please refer to my [Google scholar](https://scholar.google.com/citations?user=bioUtz4AAAAJ&hl=en) for a full list of my publications.
 ## News
+* \[2021.03\] One paper accepted to CVPR 2021 as oral presentation ([paper]()).
+
 * \[2021.02\] We launch The 3rd Large-scale Video Object Segmentation Challenge. The website is [here](https://youtube-vos.org/challenge/2021/).
   
 * \[2021.01\] I will join Nvidia Research again as a research intern in summer 2021.
@@ -28,7 +30,7 @@ Please refer to my [Google scholar](https://scholar.google.com/citations?user=bi
   
 *  \[2020.05\] I started my summer internship at Nvidia Research
 
-*  \[2019.07\] One paper accepted to ICCV 2019 ([paper](https://openaccess.thecvf.com/content_ICCV_2019/papers/Fu_Self-Similarity_Grouping_A_Simple_Unsupervised_Cross_Domain_Adaptation_Approach_for_ICCV_2019_paper.pdf)).
+*  \[2019.07\] One paper accepted to ICCV 2019 as oral presentation ([paper](https://openaccess.thecvf.com/content_ICCV_2019/papers/Fu_Self-Similarity_Grouping_A_Simple_Unsupervised_Cross_Domain_Adaptation_Approach_for_ICCV_2019_paper.pdf)).
   
 *  \[2019.01\] Two papers accepted to AAAI 2019.
 

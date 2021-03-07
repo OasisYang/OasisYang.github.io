@@ -5,6 +5,11 @@ permalink: /publications/
 author_profile: true
 ---
 ## Conference Papers
+1. <b>Learning to Track Instances without Video Annotations</b> <br> 
+   <b>Yang Fu</b>, Sifei Liu, Shalini De Mello, Umar Iqbal, Humphrey Shi, Jan Kautz
+   <br> <i>CVPR 2021</i> Oral
+   <br>[[Paper]]()
+
 1. <b>CompFeat: Comprehensive Feature Aggregation for Video Instance Segmentation</b> <br> 
    <b>Yang Fu</b>, Linjie Yang, Ding Liu, Thomas S. Huang, Humphrey Shi 
    <br> <i>AAAI 2021</i>
