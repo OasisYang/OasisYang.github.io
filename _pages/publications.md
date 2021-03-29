@@ -8,7 +8,7 @@ author_profile: true
 1. <b>Learning to Track Instances without Video Annotations</b> <br> 
    <b>Yang Fu</b>, Sifei Liu, Shalini De Mello, Umar Iqbal, Humphrey Shi, Jan Kautz
    <br> <i>CVPR 2021</i> Oral
-   <br>[[Paper]]()
+   <br>[[Paper]]() | [[Project]](https://github.com/OasisYang/OasisYang.github.io/projects/semi-track/index.html)
 
 1. <b>CompFeat: Comprehensive Feature Aggregation for Video Instance Segmentation</b> <br> 
    <b>Yang Fu</b>, Linjie Yang, Ding Liu, Thomas S. Huang, Humphrey Shi 
