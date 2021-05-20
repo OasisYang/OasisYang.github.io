@@ -6,9 +6,9 @@ author_profile: true
 ---
 
 ## Educations
-* **University of Illinois at Urbana-Champaign**, Urbana, IL, USA (August, 2020 - Present)
+* **University of California San Diego**, San Deigo, CA, USA (May, 2021 - Present)
   * Ph.D. in Electrical and Computer Engineering
-  * Advisor: Thomas S. Huang & Humphrey Shi
+  * Advisor: Xiaolong Wang
 
 * **University of Illinois at Urbana-Champaign**, Urbana, IL, USA (August, 2017 - May, 2020)
   * M.S. in Electrical and Computer Engineering
