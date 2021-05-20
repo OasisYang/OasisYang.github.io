@@ -7,7 +7,7 @@ redirect_from:
   - /about/
   - /about.html
 ---
-Yang is currently a Ph.D student in Electrical and Computer Engineering (ECE) at University of California San Diego (UCSD). Before that, he obtained his M.S. in ECE at UIUC in 2020 under the supervision of [Prof. Thomas S. Huang](https://scholar.google.com/citations?user=rGF6-WkAAAAJ&hl=en&oi=ao) (1936-2020) and [Prof. Humphrey Shi]((https://www.humphreyshi.com/). Before coming to UIUC, he received his B.S. in ECE from Beihang University in 2017.
+Yang is currently a Ph.D student in Electrical and Computer Engineering (ECE) at University of California San Diego (UCSD), advised by [Prof. Xiaolong Wang](https://xiaolonw.github.io/). Before that, he obtained his M.S. in ECE at UIUC in 2020 under the supervision of [Prof. Thomas S. Huang](https://scholar.google.com/citations?user=rGF6-WkAAAAJ&hl=en&oi=ao) (1936-2020) and [Prof. Humphrey Shi]((https://www.humphreyshi.com/). Before coming to UIUC, he received his B.S. in ECE from Beihang University in 2017.
 ## Research Interests
 
 My current research focuses on **computer vision** and **machine learning**. Specifically, I have recently worked in 
