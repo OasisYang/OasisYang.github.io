@@ -6,17 +6,16 @@ author_profile: true
 ---
 
 ## Educations
-* **University of California San Diego**, San Deigo, CA, USA (May, 2021 - Present)
+* **University of California San Diego**, San Deigo, CA, USA
   * Ph.D. in Electrical and Computer Engineering
   * Advisor: Xiaolong Wang
 
-* **University of Illinois at Urbana-Champaign**, Urbana, IL, USA (August, 2017 - May, 2020)
+* **University of Illinois at Urbana-Champaign**, Urbana, IL, USA
   * M.S. in Electrical and Computer Engineering
   * Advisor: Thomas S. Huang
 
-* **Beihang University**, Beijing, China (August, 2013 - May, 2017)
+* **Beihang University**, Beijing, China
   * B.S. in Electrical and Computer Engineering
-
 
 ## Industrial Experiences
 <!-- * **Nvidia Research**, Santa Clara, CA, USA (Summer 2021)
