@@ -31,11 +31,6 @@ author_profile: true
 * **Bytedance AI Lab**, Palo Alto, CA, USA (May, 2019 - Aug, 2019)
   * Position: Research Intern
   * Advisors: Linjie Yang, Ding Liu  
-
-
-* **Nokia Bell Lab**, Murray Hill, NJ, USA (Jun, 2018 - Aug, 2018)
-  * Position: Research Intern
-  * Advisors: Xiaoyang Wang  
   
 
 ## Professional Activities
