@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <!-- <meta name="description"
+        content="Deformable Neural Radiance Fields creates free-viewpoint portraits (nerfies) from casually captured videos.">
+  <meta name="keywords" content="Nerfies, D-NeRF, NeRF">
+  <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+  <title>Category-Level 6D Object Pose Estimation in the Wild: 
+    A Semi-Supervised Learning Approach and A New Dataset</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+
+
+
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">Category-Level 6D Object Pose Estimation in the Wild: A Semi-SupervisedLearning Approach and A New Dataset</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://oasisyang.github.io/">Yang Fu</a><sup>1</sup>,</span>
+            <span class="author-block">
+              <a href="https://xiaolonw.github.io/">Xiaolong Wang</a><sup>1</sup>,</span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>University of California San Diego,</span>
+          </div>
+          <!-- <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>,</span>
+          </div> -->
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <!-- <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span> -->
+              <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <!-- Video Link. -->
+              <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                  </span>
+                  <span>Video</span>
+                </a>
+              </span>
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code (coming soon)</span>
+                  </a>
+              </span>
+              <!-- Dataset Link. -->
+              <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="far fa-images"></i>
+                  </span>
+                  <span>Dataset</span>
+                  </a>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <img src="static/images/teaser.jpg">
+      <p>
+        <b>Left</b>: we train our model with both synthetic data and real-world 
+        data under our proposed semi-supervised setting. <b>Right</b>: during inference, 
+        given the RGBD images, the object pose can be estimated precisely. Green bounding 
+        boxes show the 3D bounding boxes projection results on 2D images.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            We present the first method capable of estimating the category-level 
+            6D object pose for in-the-wild data without using any annotations of
+            real-world data.
+          </p>
+          <p>
+            6D object pose estimation is one of the fundamental problem in computer vision 
+            and robotics research. While a lot of recent efforts have been made on 
+            generalizing pose estimation to novel object instances within the same category, 
+            namely category-level 6D pose estimation, it is still restricted in constrained 
+            environments given limited number of annotated data. In this paper, we collect 
+            <i>Wild6D</i>, a new unlabeled RGBD object video dataset with diverse instances and 
+            backgrounds. We utilize this data to generalize 6D object pose estimation in 
+            the wild with semi-supervised learning. We propose a novel model, 
+            called  <strong>Re</strong>ndering for <strong>Po</strong>se estimation network 
+            (<strong>RePoNet</strong>), that is jointly trained using the free ground-truths with the synthetic data, 
+            and a self-supervised objective on the real-world data. Without using any 3D 
+            annotations on real data, our method outperforms state-of-the-art methods 
+            on previous datasets and our Wild6D test set (with manual annotations for evaluation) 
+            by a large margin.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+
+    <!-- Paper video. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Video</h2>
+        <div class="publication-video">
+          <iframe src="static/videos/release_video.mp4"
+                  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+    <!--/ Paper video. -->
+    <div class="hr"></div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Wild6D Dataset</h2>
+        <div class="content has-text-justified">
+          <p> 
+            <i>Wild6D</i> is a large-scale RGBD video dataset for 6D object 
+            pose estimation in the wild. Each video in the dataset shows multiple
+            views of one or multiple objects. In total, there are more 5,000 videos
+            over 5 categories: bottle, can, mug, laptop and camera.
+          </p>
+        </div>
+        <video id="dollyzoom" autoplay controls muted loop height="100%">
+          <source src="static/videos/1.mp4"
+                  type="video/mp4">
+        </video>
+        <video id="dollyzoom" autoplay controls muted loop height="100%">
+          <source src="static/videos/2.mp4"
+                  type="video/mp4">
+        </video>
+        <video id="dollyzoom" autoplay controls muted loop height="100%">
+          <source src="static/videos/3.mp4"
+                  type="video/mp4">
+        </video>
+        <video id="dollyzoom" autoplay controls muted loop height="100%">
+          <source src="static/videos/4.mp4"
+                  type="video/mp4">
+        </video>
+        <video id="dollyzoom" autoplay controls muted loop height="100%">
+          <source src="static/videos/5.mp4"
+                  type="video/mp4">
+        </video>
+        <video id="dollyzoom" autoplay controls muted loop height="100%">
+          <source src="static/videos/6.mp4"
+                  type="video/mp4">
+        </video>
+      </div>
+    </div>
+
+
+<section class="section">
+  <div class="container">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-two-thirds">
+        <h2 class="title is-3">Method</h2>
+        <img src="static/images/approach.jpg"/>
+        <div class="content has-text-justified">
+          <p>
+            Overview of the proposed method. Given the input image and depth map, 
+            <b>RePoNet</b> estimates the object pose, NOCS map and shape simultaneously 
+            via Pose Network and Shape Network. These two network are bridged via 
+            the differetiable rendering module. By comparing the predicted binary 
+            mask with the input foreground mask, <b>RePoNet</b> can effectively leverage 
+            the real-world data without any annotations.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-two-thirds">
+        <h2 class="title is-3">Semi-supervsed Setting</h2>
+        <img src="static/images/semi_new.jpg"/>
+        <div class="content has-text-justified">
+          <p>
+            Illustration of proposed semi-supervised setting. For the synthetic data, 
+            we supervise it with all the annotations. While for the real-world data, 
+            we train it in a self-supervised manner by comparing the binary mask 
+            generated by rendering module with the object foreground segmentation.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container">
+      <!-- <div class="column is-four-fifths has-text-centered">
+        <h2 class="title is-3">Results</h2>
+      </div>
+      <div class="column is-four-fifths">
+        <h3 class="title is-4">Results on NOCS REAL275</h3>
+      </div> -->
+    <div class="columns is-centered">
+      <div class="column is-four-fifths has-text-centered">
+        <h2 class="title is-3">Results</h2>
+      </div>
+    </div>
+    <div class="container">
+      <div class="column is-four-fifths">
+        <h3 class="title is-4">Results on NOCS REAL275</h3>
+      </div>
+      <div id="results-carousel" class="carousel results-carousel">
+        <img src="static/images/nocs/results_test_scene_1_0009.jpg"
+        class="interpolation-image"
+        alt="Interpolate start reference image."/>
+        <img src="static/images/nocs/results_test_scene_1_0299.jpg"
+        class="interpolation-image"
+        alt="Interpolate start reference image."/>
+        <img src="static/images/nocs/results_test_scene_2_0052.jpg"
+        class="interpolation-image"
+        alt="Interpolate start reference image."/>
+        <img src="static/images/nocs/results_test_scene_2_0315.jpg"
+        class="interpolation-image"
+        alt="Interpolate start reference image."/>
+        <img src="static/images/nocs/results_test_scene_3_0000.jpg"
+        class="interpolation-image"
+        alt="Interpolate start reference image."/>
+        <img src="static/images/nocs/results_test_scene_3_0332.jpg"
+        class="interpolation-image"
+        alt="Interpolate start reference image."/>
+        <img src="static/images/nocs/results_test_scene_4_0027.jpg"
+        class="interpolation-image"
+        alt="Interpolate start reference image."/>
+        <img src="static/images/nocs/results_test_scene_4_0223.jpg"
+        class="interpolation-image"
+        alt="Interpolate start reference image."/>
+        <img src="static/images/nocs/results_test_scene_5_0081.jpg"
+        class="interpolation-image"
+        alt="Interpolate start reference image."/>
+        <img src="static/images/nocs/results_test_scene_5_0243.jpg"
+        class="interpolation-image"
+        alt="Interpolate start reference image."/>
+        <img src="static/images/nocs/results_test_scene_6_0011.jpg"
+        class="interpolation-image"
+        alt="Interpolate start reference image."/>
+        <img src="static/images/nocs/results_test_scene_6_0197.jpg"
+        class="interpolation-image"
+        alt="Interpolate start reference image."/>
+      </div>
+      <div class="content has-text-justified">
+        <p>
+          Green bounding boxes show the prediction results and 
+          the red ones indicate the ground-truths.
+        </p>
+      </div>
+
+      <div class="column is-four-fifths">
+        <h3 class="title is-4">Results on <i>Wild6D</i> </h3>
+      </div>
+      <div id="results-carousel" class="carousel results-carousel">
+        <img src="static/images/wild6d/results_bottle_0004_1_0007.jpg"
+        class="interpolation-image"
+        alt="Interpolate start reference image."/>
+        <img src="static/images/wild6d/results_bottle_0006_3_0254.jpg"
+        class="interpolation-image"
+        alt="Interpolate start reference image."/>
+        <img src="static/images/wild6d/results_bottle_0026_2021-09-16--18-27-07_0001.jpg"
+        class="interpolation-image"
+        alt="Interpolate start reference image."/>
+        <img src="static/images/wild6d/results_bottle_0045_2021-09-16--19-17-43_0008.jpg"
+        class="interpolation-image"
+        alt="Interpolate start reference image."/>
+        <img src="static/images/wild6d/results_bottle_0027_2021-09-16--18-28-10_0094.jpg"
+        class="interpolation-image"
+        alt="Interpolate start reference image."/>
+        <img src="static/images/wild6d/results_bowl_0001_2_0241.jpg"
+        class="interpolation-image"
+        alt="Interpolate start reference image."/>
+        <img src="static/images/wild6d/results_bowl_0009_1_0349.jpg"
+        class="interpolation-image"
+        alt="Interpolate start reference image."/>
+        <img src="static/images/wild6d/results_bowl_0011_3_0009.jpg"
+        class="interpolation-image"
+        alt="Interpolate start reference image."/>
+        <img src="static/images/wild6d/results_bowl_0016_3_0180.jpg"
+        class="interpolation-image"
+        alt="Interpolate start reference image."/>
+        <img src="static/images/wild6d/results_bowl_0023_2021-09-27--11-04-21_0084.jpg"
+        class="interpolation-image"
+        alt="Interpolate start reference image."/>
+        <img src="static/images/wild6d/results_bowl_0039_2021-09-27--11-38-16_0132.jpg"
+        class="interpolation-image"
+        alt="Interpolate start reference image."/>
+        <img src="static/images/wild6d/results_cup_0005_3_0057.jpg"
+        class="interpolation-image"
+        alt="Interpolate start reference image."/>
+        <img src="static/images/wild6d/results_cup_0020_1_0130.jpg"
+        class="interpolation-image"
+        alt="Interpolate start reference image."/>
+        <img src="static/images/wild6d/results_cup_0032_2021-09-27--14-05-16_0109.jpg"
+        class="interpolation-image"
+        alt="Interpolate start reference image."/>
+        <img src="static/images/wild6d/results_cup_0041_2021-09-27--14-32-36_0002.jpg"
+        class="interpolation-image"
+        alt="Interpolate start reference image."/>
+        <img src="static/images/wild6d/results_cup_0050_2021-09-27--14-47-51_0018.jpg"
+        class="interpolation-image"
+        alt="Interpolate start reference image."/>
+        <img src="static/images/wild6d/results_laptop_0001_1_0113.jpg"
+        class="interpolation-image"
+        alt="Interpolate start reference image."/>
+        <img src="static/images/wild6d/results_laptop_0002_3_0251.jpg"
+        class="interpolation-image"
+        alt="Interpolate start reference image."/>
+        <img src="static/images/wild6d/results_laptop_0003_2_0359.jpg"
+        class="interpolation-image"
+        alt="Interpolate start reference image."/>
+        <img src="static/images/wild6d/results_laptop_0006_3_0475.jpg"
+        class="interpolation-image"
+        alt="Interpolate start reference image."/>
+        <img src="static/images/wild6d/results_camera_0001_2021-09-03--10-37-41_0006.jpg"
+        class="interpolation-image"
+        alt="Interpolate start reference image."/>
+        <img src="static/images/wild6d/results_camera_0003_2021-09-03--10-47-13_0076.jpg"
+        class="interpolation-image"
+        alt="Interpolate start reference image."/>
+      </div>
+      <div class="content has-text-justified">
+        <p>
+          Green bounding boxes show the prediction results and 
+          the red ones indicate the ground-truths.
+        </p>
+      </div>      
+    </div>
+  </div>
+</section>
+
+
+<!-- <section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@article{park2021nerfies,
+  author    = {Park, Keunhong and Sinha, Utkarsh and Barron, Jonathan T. and Bouaziz, Sofien and Goldman, Dan B and Seitz, Steven M. and Martin-Brualla, Ricardo},
+  title     = {Nerfies: Deformable Neural Radiance Fields},
+  journal   = {ICCV},
+  year      = {2021},
+}</code></pre>
+  </div>
+</section> -->
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <a class="icon-link"
+         href="https://homes.cs.washington.edu/~kpar/nerfies/videos/nerfies_paper.pdf">
+        <i class="fas fa-file-pdf"></i>
+      </a>
+      <a class="icon-link" href="https://github.com/keunhong" class="external-link" disabled>
+        <i class="fab fa-github"></i>
+      </a>
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website is licensed under a <a rel="license"
+                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+          <p>
+            This means you are free to borrow the <a
+              href="https://github.com/nerfies/nerfies.github.io">source code</a> of this website,
+            we just ask that you link back to this page in the footer.
+            Please remember to remove the analytics code included in the header of the website which
+            you do not want on your website.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
