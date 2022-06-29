@@ -111,7 +111,7 @@
                 <a href=""
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
-                      <i class="far fa-images"></i>
+                      <i class="fa fa-database"></i>
                   </span>
                   <span>Dataset</span>
                   </a>
@@ -127,13 +127,13 @@
 <section class="hero teaser">
   <div class="container is-max-desktop">
     <div class="hero-body">
-      <img src="static/images/teaser.jpg">
-      <p>
-        <b>Left</b>: we train our model with both synthetic data and real-world 
-        data under our proposed semi-supervised setting. <b>Right</b>: during inference, 
-        given the RGBD images, the object pose can be estimated precisely. Green bounding 
-        boxes show the 3D bounding boxes projection results on 2D images.
-      </p>
+      <video id="teaser" autoplay muted loop playsinline height="100%">
+        <source src="static/videos/teaser_vid_new.mov"
+                type="video/mp4">
+      </video>
+      <h2 class="subtitle has-text-centered" style="margin-top: 15px">
+        TL;DR: Our collected Wild6D dataset consists of a large amount of RGBD videos and the 6D pose of different objects can be estimated precisely.
+      </h2>
     </div>
   </div>
 </section>
@@ -186,11 +186,18 @@
   </div>
 </section>
 
+
 <section class="section">
-  <div class="container is-max-desktop">
-    <div class="columns is-centered has-text-centered">
+  <div class="container">
+      <!-- <div class="column is-four-fifths has-text-centered">
+        <h2 class="title is-3">Results</h2>
+      </div>
       <div class="column is-four-fifths">
-        <h2 class="title is-3">Wild6D Dataset</h2>
+        <h3 class="title is-4">Results on NOCS REAL275</h3>
+      </div> -->
+    <div class="columns is-centered">
+      <div class="column is-four-fifths has-text-centered">
+        <h2 class="title is-3">Wild6D</h2>
         <div class="content has-text-justified">
           <p> 
             <i>Wild6D</i> is a large-scale RGBD video dataset for 6D object 
@@ -199,6 +206,10 @@
             over 5 categories: bottle, can, mug, laptop and camera.
           </p>
         </div>
+      </div>
+    </div>
+    <div class="container">
+      <div id="results-carousel" class="carousel results-carousel">
         <video id="dollyzoom" autoplay controls muted loop height="100%">
           <source src="static/videos/1.mp4"
                   type="video/mp4">
@@ -223,8 +234,100 @@
           <source src="static/videos/6.mp4"
                   type="video/mp4">
         </video>
+        <video id="dollyzoom" autoplay controls muted loop height="100%">
+          <source src="static/videos/2021-10-07--10-26-54.mp4"
+                  type="video/mp4">
+        </video>
+        <video id="dollyzoom" autoplay controls muted loop height="100%">
+          <source src="static/videos/2021-10-07--10-24-28.mp4"
+                  type="video/mp4">
+        </video>
+        <video id="dollyzoom" autoplay controls muted loop height="100%">
+          <source src="static/videos/2021-10-05--11-35-31.mp4"
+                  type="video/mp4">
+        </video>
+        <video id="dollyzoom" autoplay controls muted loop height="100%">
+          <source src="static/videos/2021-10-05--11-02-30.mp4"
+                  type="video/mp4">
+        </video>
+        <video id="dollyzoom" autoplay controls muted loop height="100%">
+          <source src="static/videos/2021-08-29--12-43-48.mp4"
+                  type="video/mp4">
+        </video>
+        <video id="dollyzoom" autoplay controls muted loop height="100%">
+          <source src="static/videos/2021-08-31--14-49-03.mp4"
+                  type="video/mp4">
+        </video>
+        <video id="dollyzoom" autoplay controls muted loop height="100%">
+          <source src="static/videos/2021-08-29--12-58-10.mp4"
+                  type="video/mp4">
+        </video>
       </div>
     </div>
+  </div>
+</section>
+
+
+
+<!-- <section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Wild6D Dataset</h2>
+        <div class="content has-text-justified">
+          <p> 
+            <i>Wild6D</i> is a large-scale RGBD video dataset for 6D object 
+            pose estimation in the wild. Each video in the dataset shows multiple
+            views of one or multiple objects. In total, there are more 5,000 videos
+            over 5 categories: bottle, can, mug, laptop and camera.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="columns is-centered">
+      <div class="column content">
+        <video id="dollyzoom" autoplay controls muted loop height="100%">
+          <source src="static/videos/1.mp4"
+                  type="video/mp4">
+        </video>
+      </div>
+      <div class="column content">
+        <video id="dollyzoom" autoplay controls muted loop height="100%">
+          <source src="static/videos/2.mp4"
+                  type="video/mp4">
+        </video>
+      </div>
+    </div>
+    <div class="columns is-centered">
+      <div class="column content">
+        <video id="dollyzoom" autoplay controls muted loop height="100%">
+          <source src="static/videos/3.mp4"
+                  type="video/mp4">
+        </video>
+      </div>
+      <div class="column content">
+        <video id="dollyzoom" autoplay controls muted loop height="100%">
+          <source src="static/videos/4.mp4"
+                  type="video/mp4">
+        </video>
+      </div>
+    </div>
+    <div class="columns is-centered">
+      <div class="column content">
+        <video id="dollyzoom" autoplay controls muted loop height="100%">
+          <source src="static/videos/5.mp4"
+                  type="video/mp4">
+        </video>
+      </div>
+      <div class="column content">
+        <video id="dollyzoom" autoplay controls muted loop height="100%">
+          <source src="static/videos/6.mp4"
+                  type="video/mp4">
+        </video>
+      </div>
+    </div>
+  </div>
+</section> -->
 
 
 <section class="section">
@@ -269,144 +372,167 @@
 
 
 <section class="section">
-  <div class="container">
-      <!-- <div class="column is-four-fifths has-text-centered">
-        <h2 class="title is-3">Results</h2>
-      </div>
-      <div class="column is-four-fifths">
-        <h3 class="title is-4">Results on NOCS REAL275</h3>
-      </div> -->
-    <div class="columns is-centered">
-      <div class="column is-four-fifths has-text-centered">
-        <h2 class="title is-3">Results</h2>
-      </div>
-    </div>
-    <div class="container">
-      <div class="column is-four-fifths">
-        <h3 class="title is-4">Results on NOCS REAL275</h3>
-      </div>
-      <div id="results-carousel" class="carousel results-carousel">
-        <img src="static/images/nocs/results_test_scene_1_0009.jpg"
-        class="interpolation-image"
-        alt="Interpolate start reference image."/>
-        <img src="static/images/nocs/results_test_scene_1_0299.jpg"
-        class="interpolation-image"
-        alt="Interpolate start reference image."/>
-        <img src="static/images/nocs/results_test_scene_2_0052.jpg"
-        class="interpolation-image"
-        alt="Interpolate start reference image."/>
-        <img src="static/images/nocs/results_test_scene_2_0315.jpg"
-        class="interpolation-image"
-        alt="Interpolate start reference image."/>
-        <img src="static/images/nocs/results_test_scene_3_0000.jpg"
-        class="interpolation-image"
-        alt="Interpolate start reference image."/>
-        <img src="static/images/nocs/results_test_scene_3_0332.jpg"
-        class="interpolation-image"
-        alt="Interpolate start reference image."/>
-        <img src="static/images/nocs/results_test_scene_4_0027.jpg"
-        class="interpolation-image"
-        alt="Interpolate start reference image."/>
-        <img src="static/images/nocs/results_test_scene_4_0223.jpg"
-        class="interpolation-image"
-        alt="Interpolate start reference image."/>
-        <img src="static/images/nocs/results_test_scene_5_0081.jpg"
-        class="interpolation-image"
-        alt="Interpolate start reference image."/>
-        <img src="static/images/nocs/results_test_scene_5_0243.jpg"
-        class="interpolation-image"
-        alt="Interpolate start reference image."/>
-        <img src="static/images/nocs/results_test_scene_6_0011.jpg"
-        class="interpolation-image"
-        alt="Interpolate start reference image."/>
-        <img src="static/images/nocs/results_test_scene_6_0197.jpg"
-        class="interpolation-image"
-        alt="Interpolate start reference image."/>
-      </div>
-      <div class="content has-text-justified">
-        <p>
-          Green bounding boxes show the prediction results and 
-          the red ones indicate the ground-truths.
-        </p>
-      </div>
+  <div class="container is-max-desktop">
 
-      <div class="column is-four-fifths">
-        <h3 class="title is-4">Results on <i>Wild6D</i> </h3>
+    <!-- Results. -->
+    <div class="columns is-centered ">
+      <div class="column is-full-width">
+        <h2 class="title is-3 has-text-centered" style="margin-top: -30px">Results</h2>
+
+        <h3 class="title is-4">Wild6D</h3>
+        <div class="content has-text-justified">
+          <p>
+            We test our method on the Wild6D testset. 
+            Green bounding boxes show the prediction results and the red ones indicate the ground-truths.
+          </p>
+        </div>
+        <div class="columns is-centered">
+          <div class="column content">
+            <img src="static/images/wild6d/results_bottle_0001_1_0160.jpg"
+            class="interpolation-image"
+            alt="Interpolate start reference image."/>
+          </div>
+          <div class="column content">
+            <img src="static/images/wild6d/results_bowl_0001_2_0241.jpg"
+            class="interpolation-image"
+            alt="Interpolate start reference image."/>
+          </div>
+          <div class="column content">
+            <img src="static/images/wild6d/results_cup_0005_3_0057.jpg"
+            class="interpolation-image"
+            alt="Interpolate start reference image."/>
+          </div>
+          <div class="column content">
+            <img src="static/images/wild6d/results_cup_0020_1_0130.jpg"
+            class="interpolation-image"
+            alt="Interpolate start reference image."/>
+          </div>
+          <div class="column content">
+            <img src="static/images/wild6d/results_laptop_0001_1_0233.jpg"
+            class="interpolation-image"
+            alt="Interpolate start reference image."/>
+          </div>
+        </div>
+        <div class="columns is-centered">
+          <div class="column content">
+            <img src="static/images/wild6d/results_bottle_0004_1_0007.jpg"
+            class="interpolation-image"
+            alt="Interpolate start reference image."/>
+          </div>
+          <div class="column content">
+            <img src="static/images/wild6d/results_bowl_0009_1_0349.jpg"
+            class="interpolation-image"
+            alt="Interpolate start reference image."/>
+          </div>
+          <div class="column content">
+            <img src="static/images/wild6d/results_bottle_0006_3_0254.jpg"
+            class="interpolation-image"
+            alt="Interpolate start reference image."/>
+          </div>
+          <div class="column content">
+            <img src="static/images/wild6d/results_camera_0003_2021-09-03--10-47-13_0076.jpg"
+            class="interpolation-image"
+            alt="Interpolate start reference image."/>
+          </div>
+          <div class="column content">
+            <img src="static/images/wild6d/results_cup_0006_3_0043.jpg"
+            class="interpolation-image"
+            alt="Interpolate start reference image."/>
+          </div>
+        </div>
+
+        <div class="columns is-centered">
+          <div class="column content">
+            <img src="static/images/wild6d/results_bottle_0027_2021-09-16--18-28-10_0094.jpg"
+            class="interpolation-image"
+            alt="Interpolate start reference image."/>
+          </div>
+          <div class="column content">
+            <img src="static/images/wild6d/results_bowl_0016_3_0180.jpg"
+            class="interpolation-image"
+            alt="Interpolate start reference image."/>
+          </div>
+          <div class="column content">
+            <img src="static/images/wild6d/results_bowl_0023_2021-09-27--11-04-21_0085.jpg"
+            class="interpolation-image"
+            alt="Interpolate start reference image."/>
+          </div>
+          <div class="column content">
+            <img src="static/images/wild6d/results_camera_0001_2021-09-03--10-37-41_0006.jpg"
+            class="interpolation-image"
+            alt="Interpolate start reference image."/>
+          </div>
+          <div class="column content">
+            <img src="static/images/wild6d/results_laptop_0002_1_0174.jpg"
+            class="interpolation-image"
+            alt="Interpolate start reference image."/>
+          </div>
+        </div>
+
+        <div class="columns is-centered">
+          <div class="column content">
+            <img src="static/images/wild6d/results_bottle_0042_2021-09-16--19-12-18_0180.jpg"
+            class="interpolation-image"
+            alt="Interpolate start reference image."/>
+          </div>
+          <div class="column content">
+            <img src="static/images/wild6d/results_bowl_0039_2021-09-27--11-38-16_0132.jpg"
+            class="interpolation-image"
+            alt="Interpolate start reference image."/>
+          </div>
+          <div class="column content">
+            <img src="static/images/wild6d/results_bottle_0045_2021-09-16--19-17-43_0008.jpg"
+            class="interpolation-image"
+            alt="Interpolate start reference image."/>
+          </div>
+          <div class="column content">
+            <img src="static/images/wild6d/results_laptop_0003_2_0359.jpg"
+            class="interpolation-image"
+            alt="Interpolate start reference image."/>
+          </div>
+          <div class="column content">
+            <img src="static/images/wild6d/results_camera_0006_2021-09-03--10-15-41_0143.jpg"
+            class="interpolation-image"
+            alt="Interpolate start reference image."/>
+          </div>
+        </div>
+  
+        <h3 class="title is-4">NOCS</h3>
+        <div class="content has-text-justified">
+          <p>
+            We test our method on the NOCS REAL275 test set. 
+            Green bounding boxes show the prediction results and the red ones indicate the ground-truths.
+          </p>
+        </div>
+        <div class="columns is-centered">
+          <div class="column content">
+            <img src="static/images/nocs/results_test_scene_1_0010.jpg"
+            class="interpolation-image"
+            alt="Interpolate start reference image."/>
+          </div>
+          <div class="column content">
+            <img src="static/images/nocs/results_test_scene_2_0084.jpg"
+            class="interpolation-image"
+            alt="Interpolate start reference image."/>
+          </div>
+          <div class="column content">
+            <img src="static/images/nocs/results_test_scene_3_0332.jpg"
+            class="interpolation-image"
+            alt="Interpolate start reference image."/>
+          </div>
+          <div class="column content">
+            <img src="static/images/nocs/results_test_scene_4_0226.jpg"
+            class="interpolation-image"
+            alt="Interpolate start reference image."/>
+          </div>
+          <div class="column content">
+            <img src="static/images/nocs/results_test_scene_5_0121.jpg"
+            class="interpolation-image"
+            alt="Interpolate start reference image."/>
+          </div>
+        </div>
+
       </div>
-      <div id="results-carousel" class="carousel results-carousel">
-        <img src="static/images/wild6d/results_bottle_0004_1_0007.jpg"
-        class="interpolation-image"
-        alt="Interpolate start reference image."/>
-        <img src="static/images/wild6d/results_bottle_0006_3_0254.jpg"
-        class="interpolation-image"
-        alt="Interpolate start reference image."/>
-        <img src="static/images/wild6d/results_bottle_0026_2021-09-16--18-27-07_0001.jpg"
-        class="interpolation-image"
-        alt="Interpolate start reference image."/>
-        <img src="static/images/wild6d/results_bottle_0045_2021-09-16--19-17-43_0008.jpg"
-        class="interpolation-image"
-        alt="Interpolate start reference image."/>
-        <img src="static/images/wild6d/results_bottle_0027_2021-09-16--18-28-10_0094.jpg"
-        class="interpolation-image"
-        alt="Interpolate start reference image."/>
-        <img src="static/images/wild6d/results_bowl_0001_2_0241.jpg"
-        class="interpolation-image"
-        alt="Interpolate start reference image."/>
-        <img src="static/images/wild6d/results_bowl_0009_1_0349.jpg"
-        class="interpolation-image"
-        alt="Interpolate start reference image."/>
-        <img src="static/images/wild6d/results_bowl_0011_3_0009.jpg"
-        class="interpolation-image"
-        alt="Interpolate start reference image."/>
-        <img src="static/images/wild6d/results_bowl_0016_3_0180.jpg"
-        class="interpolation-image"
-        alt="Interpolate start reference image."/>
-        <img src="static/images/wild6d/results_bowl_0023_2021-09-27--11-04-21_0084.jpg"
-        class="interpolation-image"
-        alt="Interpolate start reference image."/>
-        <img src="static/images/wild6d/results_bowl_0039_2021-09-27--11-38-16_0132.jpg"
-        class="interpolation-image"
-        alt="Interpolate start reference image."/>
-        <img src="static/images/wild6d/results_cup_0005_3_0057.jpg"
-        class="interpolation-image"
-        alt="Interpolate start reference image."/>
-        <img src="static/images/wild6d/results_cup_0020_1_0130.jpg"
-        class="interpolation-image"
-        alt="Interpolate start reference image."/>
-        <img src="static/images/wild6d/results_cup_0032_2021-09-27--14-05-16_0109.jpg"
-        class="interpolation-image"
-        alt="Interpolate start reference image."/>
-        <img src="static/images/wild6d/results_cup_0041_2021-09-27--14-32-36_0002.jpg"
-        class="interpolation-image"
-        alt="Interpolate start reference image."/>
-        <img src="static/images/wild6d/results_cup_0050_2021-09-27--14-47-51_0018.jpg"
-        class="interpolation-image"
-        alt="Interpolate start reference image."/>
-        <img src="static/images/wild6d/results_laptop_0001_1_0113.jpg"
-        class="interpolation-image"
-        alt="Interpolate start reference image."/>
-        <img src="static/images/wild6d/results_laptop_0002_3_0251.jpg"
-        class="interpolation-image"
-        alt="Interpolate start reference image."/>
-        <img src="static/images/wild6d/results_laptop_0003_2_0359.jpg"
-        class="interpolation-image"
-        alt="Interpolate start reference image."/>
-        <img src="static/images/wild6d/results_laptop_0006_3_0475.jpg"
-        class="interpolation-image"
-        alt="Interpolate start reference image."/>
-        <img src="static/images/wild6d/results_camera_0001_2021-09-03--10-37-41_0006.jpg"
-        class="interpolation-image"
-        alt="Interpolate start reference image."/>
-        <img src="static/images/wild6d/results_camera_0003_2021-09-03--10-47-13_0076.jpg"
-        class="interpolation-image"
-        alt="Interpolate start reference image."/>
-      </div>
-      <div class="content has-text-justified">
-        <p>
-          Green bounding boxes show the prediction results and 
-          the red ones indicate the ground-truths.
-        </p>
-      </div>      
     </div>
   </div>
 </section>
