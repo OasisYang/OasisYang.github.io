@@ -128,13 +128,21 @@
   <div class="container is-max-desktop">
     <div class="hero-body">
       <video id="teaser" autoplay muted loop playsinline height="100%">
-        <source src="static/videos/teaser_vid_new.mov"
+        <source src="static/videos/teaser_vid.mp4"
                 type="video/mp4">
       </video>
       <h2 class="subtitle has-text-centered" style="margin-top: 15px">
-        TL;DR: Our collected Wild6D dataset consists of a large amount of RGBD videos and the 6D pose of different objects can be estimated precisely.
+        TL;DR: Our collected Wild6D dataset consists of a large amount of object-centric RGBD videos.
+      </h2>
+      <video id="teaser" autoplay muted loop playsinline height="100%">
+        <source src="static/videos/teaser_demo.mov"
+                type="video/mp4">
+      </video>
+      <h2 class="subtitle has-text-centered" style="margin-top: 15px">
+        Accurate 6D pose estimation results on diverse daily objects without additional supervision. 
       </h2>
     </div>
+
   </div>
 </section>
 
@@ -208,6 +216,8 @@
         </div>
       </div>
     </div>
+    <div class="hero-body is-light is-small">
+
     <div class="container">
       <div id="results-carousel" class="carousel results-carousel">
         <video id="dollyzoom" autoplay controls muted loop height="100%">
@@ -262,6 +272,7 @@
           <source src="static/videos/2021-08-29--12-58-10.mp4"
                   type="video/mp4">
         </video>
+      </div>
       </div>
     </div>
   </div>
@@ -525,8 +536,25 @@
             class="interpolation-image"
             alt="Interpolate start reference image."/>
           </div>
+        </div>
+        <div class="columns is-centered">
           <div class="column content">
             <img src="static/images/nocs/results_test_scene_5_0121.jpg"
+            class="interpolation-image"
+            alt="Interpolate start reference image."/>
+          </div>
+          <div class="column content">
+            <img src="static/images/nocs/results_test_scene_6_0051.jpg"
+            class="interpolation-image"
+            alt="Interpolate start reference image."/>
+          </div>
+          <div class="column content">
+            <img src="static/images/nocs/results_test_scene_2_0315.jpg"
+            class="interpolation-image"
+            alt="Interpolate start reference image."/>
+          </div>
+          <div class="column content">
+            <img src="static/images/nocs/results_test_scene_3_0388.jpg"
             class="interpolation-image"
             alt="Interpolate start reference image."/>
           </div>
