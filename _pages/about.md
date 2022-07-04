@@ -20,13 +20,13 @@ My current research focuses on **computer vision** and **machine learning**. Spe
 
 Please refer to my [Google scholar](https://scholar.google.com/citations?user=bioUtz4AAAAJ&hl=en) for a full list of my publications.
 ## News
-* \[2022.06\] Check out our [Category-Level 6D Object Pose Estimation in the Wild: A Semi-Supervised Learning Approach and A New Dataset](https://oasisyang.github.io/semi-pose/) which introduces an in-the-wild object-centric RGBD dataset with 5000+ videos over 1700+ objects. We peforms semi-supervised 6D object pose estimation on it without human annotations. 
+* \[2022.06\] Check out our [Category-Level 6D Object Pose Estimation in the Wild: A Semi-Supervised Learning Approach and A New Dataset](https://oasisyang.github.io/semi-pose/) which introduces an in-the-wild object-centric RGBD dataset with 5000+ videos over 1700+ objects. We peform semi-supervised 6D object pose estimation on it without human annotations. 
 
-* \[2022.06\] I started my summer internship at Nvidia Research.
+* \[2022.06\] I start my summer internship at Nvidia Research.
 
 * \[2022.06\] I'm co-organizing The 4th Large-scale Video Object Segmentation Challenge at CVPR 2022. The website is [here](https://youtube-vos.org/challenge/2022/).
 
-* \[2022.06\] I started my Ph.D journey at UCSD under the supervision of [Prof. Xiaolong Wang]((https://xiaolonw.github.io/)).
+* \[2022.06\] I start my Ph.D journey at UCSD under the supervision of [Prof. Xiaolong Wang]((https://xiaolonw.github.io/)).
 
 * \[2021.03\] One paper accepted to CVPR 2021 as oral presentation ([paper](https://arxiv.org/pdf/2104.00287.pdf)).
 
@@ -34,7 +34,7 @@ Please refer to my [Google scholar](https://scholar.google.com/citations?user=bi
   
 * \[2020.12\] One paper accepted to AAAI 2021.
   
-*  \[2020.05\] I started my summer internship at Nvidia Research
+*  \[2020.05\] I start my summer internship at Nvidia Research
 
 *  \[2019.07\] One paper accepted to ICCV 2019 as oral presentation ([paper](https://openaccess.thecvf.com/content_ICCV_2019/papers/Fu_Self-Similarity_Grouping_A_Simple_Unsupervised_Cross_Domain_Adaptation_Approach_for_ICCV_2019_paper.pdf)).
   
