@@ -13,18 +13,24 @@ Yang is currently a Ph.D student in Electrical and Computer Engineering (ECE) at
 
 My current research focuses on **computer vision** and **machine learning**. Specifically, I have recently worked in 
 * _**Computer Vision**_
-  * video instance/object segmentation, pose tracking, visual correspondence learning, person re-identification
+  * 6D pose estimation, video instance/object segmentation, pose tracking, visual correspondence learning.
 
 * _**Machine Learning**_
-  * domain adaptation, semi-supervised learning, self-supervised representation learning, test-time training.
+  * semi-supervised learning, self-supervised representation learning, test-time training.
 
 Please refer to my [Google scholar](https://scholar.google.com/citations?user=bioUtz4AAAAJ&hl=en) for a full list of my publications.
 ## News
+* \[2022.06\] Check out our [Category-Level 6D Object Pose Estimation in the Wild: A Semi-Supervised Learning Approach and A New Dataset](https://oasisyang.github.io/semi-pose/) which introduces an in-the-wild object-centric RGBD dataset with 5000+ videos over 1700+ objects. We peforms semi-supervised 6D object pose estimation on it without human annotations. 
+
+* \[2022.06\] I started my summer internship at Nvidia Research.
+
+* \[2022.06\] I'm co-organizing The 4th Large-scale Video Object Segmentation Challenge at CVPR 2022. The website is [here](https://youtube-vos.org/challenge/2022/).
+
+* \[2022.06\] I started my Ph.D journey at UCSD under the supervision of [Prof. Xiaolong Wang]((https://xiaolonw.github.io/)).
+
 * \[2021.03\] One paper accepted to CVPR 2021 as oral presentation ([paper](https://arxiv.org/pdf/2104.00287.pdf)).
 
-* \[2021.02\] We launch The 3rd Large-scale Video Object Segmentation Challenge. The website is [here](https://youtube-vos.org/challenge/2021/).
-  
-* \[2021.01\] I will join Nvidia Research again as a research intern in summer 2021.
+* \[2021.02\] I'm co-organizing The 3rd Large-scale Video Object Segmentation Challenge at CVPR 2021. The website is [here](https://youtube-vos.org/challenge/2021/).
   
 * \[2020.12\] One paper accepted to AAAI 2021.
   
