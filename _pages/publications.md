@@ -1,19 +1,20 @@
 ---
 layout: archive
-title: "Selected Publications"
+title: "Publications"
 permalink: /publications/
 author_profile: true
 ---
-## Preprint
+## Conference Papers
 1. <b>Category-Level 6D Object Pose Estimation in the Wild: A Semi-Supervised Learning Approach and A New Dataset</b> <br> 
    <b>Yang Fu</b>, Xiaolong Wang
+   <br> <i>NeurIPS 2022</i>
    <br>[[Paper]](https://arxiv.org/abs/2206.15436) | [[Project]](https://oasisyang.github.io/semi-pose)
 
 1. <b>DexMV: Imitation Learning for Dexterous Manipulation from Human Videos</b> <br> 
    Yuzhe Qin, Yueh-Hua Wu, Shaowei Liu, Hanwen Jiang, Ruihan Yang, <b>Yang Fu</b>, Xiaolong Wang
+   <br> <i>ECCV 2022</i>
    <br>[[Paper]](https://arxiv.org/abs/2108.05877) | [[Project]](https://yzqin.github.io/dexmv/)
 
-## Conference Papers
 1. <b>Learning to Track Instances without Video Annotations</b> <br> 
    <b>Yang Fu</b>, Sifei Liu, Shalini De Mello, Umar Iqbal, Humphrey Shi, Jan Kautz
    <br> <i>CVPR 2021</i> Oral

@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>mpi-nerf</title>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+
+        gtag('config', 'G-PYVRSFMDRL');
+
+
+
+    </script>
+
+    <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+    <link rel="stylesheet" href="./static/css/bulma.min.css">
+    <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+    <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+    <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+    <link rel="stylesheet" href="./static/css/index.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script defer src="./static/js/fontawesome.all.min.js"></script>
+    <script src="./static/js/bulma-carousel.min.js"></script>
+    <script src="./static/js/bulma-slider.min.js"></script>
+    <script src="./static/js/index.js"></script>
+</head>
+
+<body>
+    <section class="hero">
+        <div class="hero-body">
+            <div class="container is-max-desktop">
+                <div class="columns is-centered">
+                    <div class="column has-text-centered">
+                        <h1 class="title is-1 publication-title">Multiplane NeRF-Supervised Disentanglement of <br>
+                            Depth and Camera Pose from Videos</h1>
+                        <div class="is-size-5 publication-authors">
+                            <span class="author-block">
+                                <a href="https://oasisyang.github.io/">Yang Fu</a>,</span>
+                            <span class="author-block">
+                                <a href="https://imisra.github.io/">Ishan Misra</a>,</span>
+                            <span class="author-block">
+                                <a href="https://xiaolonw.github.io/">Xiaolong Wang</a></span>
+                        </div>
+
+                        <div class="is-size-5 publication-authors">
+                            <span class="author-block">University of California San Diego</span>
+                        </div>
+                        <!-- <div class="is-size-5 publication-authors">
+                  <span class="author-block"><sup>1</sup>,</span>
+                </div> -->
+
+                        <div class="column has-text-centered">
+                            <div class="publication-links">
+                                <!-- PDF Link. -->
+                                <!-- <span class="link-block">
+                      <a href=""
+                         class="external-link button is-normal is-rounded is-dark">
+                        <span class="icon">
+                            <i class="fas fa-file-pdf"></i>
+                        </span>
+                        <span>Paper</span>
+                      </a>
+                    </span> -->
+                                <span class="link-block">
+                                    <a href="https://arxiv.org/abs/2206.15436"
+                                        class="external-link button is-normal is-rounded is-dark">
+                                        <span class="icon">
+                                            <i class="ai ai-arxiv"></i>
+                                        </span>
+                                        <span>arXiv</span>
+                                    </a>
+                                </span>
+                                <!-- Video Link. -->
+                                <span class="link-block">
+                                    <a href="https://www.youtube.com/watch?v=pYvig8rL_1s"
+                                        class="external-link button is-normal is-rounded is-dark">
+                                        <span class="icon">
+                                            <i class="fab fa-youtube"></i>
+                                        </span>
+                                        <span>Video</span>
+                                    </a>
+                                </span>
+                                <!-- Code Link. -->
+                                <span class="link-block">
+                                    <a href="" class="external-link button is-normal is-rounded is-dark">
+                                        <span class="icon">
+                                            <i class="fab fa-github"></i>
+                                        </span>
+                                        <span>Code (coming soon)</span>
+                                    </a>
+                                </span>
+                                <!-- Dataset Link. -->
+                                <!-- <span class="link-block">
+                                    <a href="https://drive.google.com/drive/folders/1SjWUcuSvYMM5rPPd4aQhK0jo1IHbCJbT?usp=sharing"
+                                        class="external-link button is-normal is-rounded is-dark">
+                                        <span class="icon">
+                                            <i class="fa fa-database"></i>
+                                        </span>
+                                        <span>Dataset</span>
+                                    </a>
+                                </span> -->
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="hero teaser">
+        <div class="container is-max-desktop">
+            <div class="hero-body">
+                <video id="teaser" autoplay muted loop playsinline height="100%">
+                    <source src="static/videos/teaser_video.mp4" type="video/mp4">
+                </video>
+                <h2 class="subtitle has-text" style="margin-top: 15px">
+                    Given a short clip of video, our model aims to learn disentanglement representation of depth and
+                    camera pose.
+                    The disentangled representations learned can be applied to depth estimation, novel view synthesis,
+                    and camera pose estimation.
+                </h2>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container is-max-desktop">
+            <!-- Abstract. -->
+            <div class="columns is-centered has-text-centered">
+                <div class="column is-four-fifths">
+                    <h2 class="title is-3 has-text-centered" style="margin-top: -30px">Abstract</h2>
+                    <div class="content has-text-justified">
+                        <p>
+                            We propose to perform self-supervised disentanglement of depth and camera pose 
+                            from large-scale videos. We introduce an Autoencoder-based method to reconstruct 
+                            the input video frames for training, without using any ground-truth annotations of 
+                            depth and camera. The model encoders estimate the monocular depth and the camera pose. 
+                            The decoder then constructs a Multiplane NeRF representation based on the depth encoder 
+                            feature, and renders the input frames with the estimated camera. The learning is 
+                            supervised by the reconstruction error, based on the assumption that the scene structure 
+                            does not change in short periods of time in videos. Once the model is learned, it can be 
+                            applied to multiple applications including depth estimation, camera pose estimation, 
+                            and single image novel view synthesis. We show substantial improvements over previous 
+                            self-supervised approaches on all tasks and even better results than counterparts trained 
+                            with camera ground-truths in some applications.
+                        </p>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="section">
+        <div class="container is-max-desktop">
+            <!-- Method. -->
+            <div class="columns is-centered has-text-centered">
+                <div class="column is-full-width">
+                    <h2 class="title is-3 has-text-centered" style="margin-top: -30px">Method</h2>
+                    <video autoplay muted loop playsinline height="100%">
+                        <source src="static/videos/method_video.mp4"
+                            type="video/mp4">
+                    </video>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="section">
+        <div class="container is-max-desktop">
+            <!-- Results. -->
+            <div class="columns is-centered ">
+                <div class="column is-full-width">
+                    <h2 class="title is-3 has-text-centered" style="margin-top: -30px">Results</h2>
+                    <h3 class="title is-3">Depth Estimation</h3>
+                    <div class="columns is-centered">
+                        <div class="column has-text-centered">
+                            <h4>Input video</h4>
+                            <video autoplay muted loop playsinline height="100%">
+                                <source src="static/videos/depth/04ec725465dc5329_04ec725465dc5329_rgb.mp4"
+                                    type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="column has-text-centered">
+                            <h4>Estimated Depth</h4>
+                            <video autoplay muted loop playsinline height="100%">
+                                <source src="static/videos/depth/04ec725465dc5329_04ec725465dc5329_depth.mp4"
+                                    type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="column has-text-centered">
+                            <h4>Input video</h4>
+                            <video autoplay muted loop playsinline height="100%">
+                                <source src="static/videos/depth/0598fec76ecc7bd6_0598fec76ecc7bd6_rgb.mp4"
+                                    type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="column has-text-centered">
+                            <h4>Estimated Depth</h4>
+                            <video autoplay muted loop playsinline height="100%">
+                                <source src="static/videos/depth/0598fec76ecc7bd6_0598fec76ecc7bd6_depth.mp4"
+                                    type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+                    <div class="columns is-centered">
+                        <div class="column has-text-centered">
+                            <h4>Input video</h4>
+                            <video autoplay muted loop playsinline height="100%">
+                                <source src="static/videos/depth/007876f71baf453f_007876f71baf453f_rgb.mp4"
+                                    type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="column has-text-centered">
+                            <h4>Estimated Depth</h4>
+                            <video autoplay muted loop playsinline height="100%">
+                                <source src="static/videos/depth/007876f71baf453f_007876f71baf453f_depth.mp4"
+                                    type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="column has-text-centered">
+                            <h4>Input video</h4>
+                            <video autoplay muted loop playsinline height="100%">
+                                <source src="static/videos/depth/059058768c222bd6_059058768c222bd6_rgb.mp4"
+                                    type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="column has-text-centered">
+                            <h4>Estimated Depth</h4>
+                            <video autoplay muted loop playsinline height="100%">
+                                <source src="static/videos/depth/059058768c222bd6_059058768c222bd6_depth.mp4"
+                                    type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+                    <div class="columns is centered">
+                        <div class="column has-text-centered">
+                            <h4>Input video</h4>
+                            <video autoplay muted loop playsinline height="100%">
+                                <source src="static/videos/depth/scene0709_00_scene0709_00_rgb.mp4"
+                                    type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="column has-text-centered">
+                            <h4>Estimated Depth</h4>
+                            <video autoplay muted loop playsinline height="100%">
+                                <source src="static/videos/depth/scene0709_00_scene0709_00_depth.mp4"
+                                    type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="column has-text-centered">
+                            <h4>Input video</h4>
+                            <video autoplay muted loop playsinline height="100%">
+                                <source src="static/videos/depth/scene0718_00_scene0718_00_rgb.mp4"
+                                    type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="column has-text-centered">
+                            <h4>Estimated Depth</h4>
+                            <video autoplay muted loop playsinline height="100%">
+                                <source src="static/videos/depth/scene0718_00_scene0718_00_depth.mp4"
+                                    type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+                    <div class="columns is centered">
+                        <div class="column has-text-centered">
+                            <h4>Input video</h4>
+                            <video autoplay muted loop playsinline height="100%">
+                                <source src="static/videos/depth/scene0733_00_scene0733_00_rgb.mp4"
+                                    type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="column has-text-centered">
+                            <h4>Estimated Depth</h4>
+                            <video autoplay muted loop playsinline height="100%">
+                                <source src="static/videos/depth/scene0733_00_scene0733_00_depth.mp4"
+                                    type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="column has-text-centered">
+                            <h4>Input video</h4>
+                            <video autoplay muted loop playsinline height="100%">
+                                <source src="static/videos/depth/scene0739_00_scene0739_00_rgb.mp4"
+                                    type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="column has-text-centered">
+                            <h4>Estimated Depth</h4>
+                            <video autoplay muted loop playsinline height="100%">
+                                <source src="static/videos/depth/scene0739_00_scene0739_00_depth.mp4"
+                                    type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+                    <h3 class="title is-3">Novel View Synthesis</h3>
+                    <div class="columns is-centered">
+                        <div class="column has-text-centered">
+                            <h4>Input view</h4>
+                            <img src="static/videos/novel_view/49482767.jpg">
+                        </div>
+                        <div class="column has-text-centered">
+                            <h4>Novel views</h4>
+                            <video autoplay muted loop playsinline height="100%">
+                                <source src="static/videos/novel_view/000c3ab189999a83_49482767.mp4"
+                                    type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="column has-text-centered">
+                            <h4>Input view</h4>
+                            <img src="static/videos/novel_view/231798233.jpg">
+                        </div>
+                        <div class="column has-text-centered">
+                            <h4>Novel views</h4>
+                            <video autoplay muted loop playsinline height="100%">
+                                <source src="static/videos/novel_view/01aaf4ebb084dc16_231798233.mp4"
+                                    type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+                    <div class="columns is-centered">
+                        <div class="column has-text-centered">
+                            <h4>Input view</h4>
+                            <img src="static/videos/novel_view/91091000.jpg">
+                        </div>
+                        <div class="column has-text-centered">
+                            <h4>Novel views</h4>
+                            <video autoplay muted loop playsinline height="100%">
+                                <source src="static/videos/novel_view/01eca393f86d37c5_91091000.mp4"
+                                    type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="column has-text-centered">
+                            <h4>Input view</h4>
+                            <img src="static/videos/novel_view/276843233.jpg">
+                        </div>
+                        <div class="column has-text-centered">
+                            <h4>Novel views</h4>
+                            <video autoplay muted loop playsinline height="100%">
+                                <source src="static/videos/novel_view/01fa6190cd47d125_276843233.mp4"
+                                    type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+                    <div class="columns is-centered">
+                        <div class="column has-text-centered">
+                            <h4>Input view</h4>
+                            <img src="static/videos/novel_view/69002267.jpg">
+                        </div>
+                        <div class="column has-text-centered">
+                            <h4>Novel views</h4>
+                            <video autoplay muted loop playsinline height="100%">
+                                <source src="static/videos/novel_view/007b4ae7c05f2ea2_69002267.mp4"
+                                    type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="column has-text-centered">
+                            <h4>Input view</h4>
+                            <img src="static/videos/novel_view/105572133.jpg">
+                        </div>
+                        <div class="column has-text-centered">
+                            <h4>Novel views</h4>
+                            <video autoplay muted loop playsinline height="100%">
+                                <source src="static/videos/novel_view/0196dedebec3dad2_105572133.mp4"
+                                    type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+                    <h3 class="title is-3">Camera Trajectory</h3>
+                    <div class="columns is-centered">
+                        <div class="column has-text-centered">
+                            <h4>Input Video</h4>
+                            <video autoplay muted loop playsinline height="100%">
+                                <source src="static/videos/camera/01aaf4ebb084dc16_rgb.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="column has-text-centered">
+                            <h4>Eestimated Camera</h4>
+                            <video autoplay muted loop playsinline height="100%">
+                                <source src="static/videos/camera/01aaf4ebb084dc16_cam.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="column has-text-centered">
+                            <h4>Input Video</h4>
+                            <video autoplay muted loop playsinline height="100%">
+                                <source src="static/videos/camera/01cefee9563f691a_rgb.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="column has-text-centered">
+                            <h4>Eestimated Camera</h4>
+                            <video autoplay muted loop playsinline height="100%">
+                                <source src="static/videos/camera/01cefee9563f691a_cam.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+                    <div class="columns is-centered">
+                        <div class="column has-text-centered">
+                            <h4>Input Video</h4>
+                            <video autoplay muted loop playsinline height="100%">
+                                <source src="static/videos/camera/02ee66b3efbf3b0a_rgb.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="column has-text-centered">
+                            <h4>Eestimated Camera</h4>
+                            <video autoplay muted loop playsinline height="100%">
+                                <source src="static/videos/camera/02ee66b3efbf3b0a_cam.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="column has-text-centered">
+                            <h4>Input Video</h4>
+                            <video autoplay muted loop playsinline height="100%">
+                                <source src="static/videos/camera/0181b66a65650830_rgb.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="column has-text-centered">
+                            <h4>Eestimated Camera</h4>
+                            <video autoplay muted loop playsinline height="100%">
+                                <source src="static/videos/camera/0181b66a65650830_cam.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+</body>
+
+</html>

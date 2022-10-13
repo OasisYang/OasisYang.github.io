@@ -20,6 +20,10 @@ My current research focuses on **computer vision** and **machine learning**. Spe
 
 Please refer to my [Google scholar](https://scholar.google.com/citations?user=bioUtz4AAAAJ&hl=en) for a full list of my publications.
 ## News
+* \[2022.09\] [Category-Level 6D Object Pose Estimation in the Wild: A Semi-Supervised Learning Approach and A New Dataset](https://oasisyang.github.io/semi-pose/) is accepted to NeurIPS 2022.
+
+* \[2022.06\] One paper is accepted to ECCV 2022.
+
 * \[2022.06\] Check out our [Category-Level 6D Object Pose Estimation in the Wild: A Semi-Supervised Learning Approach and A New Dataset](https://oasisyang.github.io/semi-pose/) which introduces an in-the-wild object-centric RGBD dataset with 5000+ videos over 1700+ objects. We peform semi-supervised 6D object pose estimation on it without human annotations. 
 
 * \[2022.06\] I start my summer internship at Nvidia Research.
