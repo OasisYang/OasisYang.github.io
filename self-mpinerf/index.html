@@ -44,7 +44,8 @@
             <div class="container is-max-desktop">
                 <div class="columns is-centered">
                     <div class="column has-text-centered">
-                        <h2 class="title is-2 publication-title">Multiplane NeRF-Supervised Disentanglement of Depth and Camera Pose from Videos</h2>
+                        <h2 class="title is-2 publication-title">Multiplane NeRF-Supervised Disentanglement of Depth and
+                            Camera Pose from Videos</h2>
                         <div class="is-size-5 publication-authors">
                             <span class="author-block">
                                 <a href="https://oasisyang.github.io/">Yang Fu</a><sup>1</sup>,</span>
@@ -75,7 +76,7 @@
                       </a>
                     </span> -->
                                 <span class="link-block">
-                                    <a href="https://arxiv.org/abs/2206.15436"
+                                    <a href="https://arxiv.org/abs/2210.07181"
                                         class="external-link button is-normal is-rounded is-dark">
                                         <span class="icon">
                                             <i class="ai ai-arxiv"></i>
@@ -85,7 +86,7 @@
                                 </span>
                                 <!-- Video Link. -->
                                 <span class="link-block">
-                                    <a href="https://www.youtube.com/watch?v=pYvig8rL_1s"
+                                    <a href=""
                                         class="external-link button is-normal is-rounded is-dark">
                                         <span class="icon">
                                             <i class="fab fa-youtube"></i>
@@ -139,45 +140,48 @@
 
     <section class="hero is-light is-small">
         <div class="hero-body">
-          <div class="container is-max-desktop">
-            <!-- Abstract. -->
-            <div class="columns is-centered has-text-centered">
-                <div class="column is-full-width">
-                    <h2 class="title is-3 has-text-centered">Abstract</h2>
-                    <div class="content has-text-justified">
-                        <p>
-                            We propose to perform self-supervised disentanglement of depth and camera pose 
-                            from large-scale videos. We introduce an Autoencoder-based method to reconstruct 
-                            the input video frames for training, without using any ground-truth annotations of 
-                            depth and camera. The model encoders estimate the monocular depth and the camera pose. 
-                            The decoder then constructs a Multiplane NeRF representation based on the depth encoder 
-                            feature, and renders the input frames with the estimated camera. The learning is 
-                            supervised by the reconstruction error, based on the assumption that the scene structure 
-                            does not change in short periods of time in videos. Once the model is learned, it can be 
-                            applied to multiple applications including depth estimation, camera pose estimation, 
-                            and single image novel view synthesis. We show substantial improvements over previous 
-                            self-supervised approaches on all tasks and even better results than counterparts trained 
-                            with camera ground-truths in some applications.
-                        </p>
+            <div class="container is-max-desktop">
+                <!-- Abstract. -->
+                <div class="columns is-centered has-text-centered">
+                    <div class="column is-full-width">
+                        <h2 class="title is-3 has-text-centered">Abstract</h2>
+                        <div class="content has-text-justified">
+                            <p>
+                                We propose to perform self-supervised disentanglement of depth and camera pose
+                                from large-scale videos. We introduce an Autoencoder-based method to reconstruct
+                                the input video frames for training, without using any ground-truth annotations of
+                                depth and camera. The model encoders estimate the monocular depth and the camera pose.
+                                The decoder then constructs a Multiplane NeRF representation based on the depth encoder
+                                feature, and renders the input frames with the estimated camera. The learning is
+                                supervised by the reconstruction error, based on the assumption that the scene structure
+                                does not change in short periods of time in videos. Once the model is learned, it can be
+                                applied to multiple applications including depth estimation, camera pose estimation,
+                                and single image novel view synthesis. We show substantial improvements over previous
+                                self-supervised approaches on all tasks and even better results than counterparts
+                                trained
+                                with camera ground-truths in some applications.
+                            </p>
 
+                        </div>
                     </div>
                 </div>
-            </div>
-            <!-- Paper video. -->
-            <div class="columns is-centered has-text-centered">
-                <div class="column is-full-width">
-                <h2 class="title is-3">Video</h2>
-                <video autoplay loop playsinline controls width="100%">
-                    <source src="https://drive.google.com/uc?export=download&id=1LdBVEGJDQyt0-0QM2AOCw6UZJWmL_GoZ" type="video/mp4">
-                  </video>
-                <!-- <div class="publication-video">
+                <!-- Paper video. -->
+                <div class="columns is-centered has-text-centered">
+                    <div class="column is-full-width">
+                        <h2 class="title is-3">Video</h2>
+                        <video autoplay loop playsinline controls width="100%">
+                            <source
+                                src="https://drive.google.com/uc?export=download&id=1LdBVEGJDQyt0-0QM2AOCw6UZJWmL_GoZ"
+                                type="video/mp4">
+                        </video>
+                        <!-- <div class="publication-video">
                     <iframe width="640" height="480" src="https://drive.google.com/file/d/1LdBVEGJDQyt0-0QM2AOCw6UZJWmL_GoZ/preview" title="YouTube video player" 
                     frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
                     allowfullscreen></iframe>
                 </div> -->
+                    </div>
                 </div>
             </div>
-        </div>
     </section>
     <section class="section">
         <div class="container is-max-desktop">
@@ -186,8 +190,7 @@
                 <div class="column is-full-width">
                     <h2 class="title is-3 has-text-centered">Method</h2>
                     <video autoplay muted loop playsinline height="100%">
-                        <source src="static/videos/method_video.mp4"
-                            type="video/mp4">
+                        <source src="static/videos/method_video.mp4" type="video/mp4">
                     </video>
                 </div>
             </div>
@@ -264,29 +267,25 @@
                         <div class="column has-text-centered">
                             <h4>Input video</h4>
                             <video autoplay muted loop playsinline height="100%">
-                                <source src="static/videos/depth/scene0709_00_scene0709_00_rgb.mp4"
-                                    type="video/mp4">
+                                <source src="static/videos/depth/scene0709_00_scene0709_00_rgb.mp4" type="video/mp4">
                             </video>
                         </div>
                         <div class="column has-text-centered">
                             <h4>Estimated Depth</h4>
                             <video autoplay muted loop playsinline height="100%">
-                                <source src="static/videos/depth/scene0709_00_scene0709_00_depth.mp4"
-                                    type="video/mp4">
+                                <source src="static/videos/depth/scene0709_00_scene0709_00_depth.mp4" type="video/mp4">
                             </video>
                         </div>
                         <div class="column has-text-centered">
                             <h4>Input video</h4>
                             <video autoplay muted loop playsinline height="100%">
-                                <source src="static/videos/depth/scene0718_00_scene0718_00_rgb.mp4"
-                                    type="video/mp4">
+                                <source src="static/videos/depth/scene0718_00_scene0718_00_rgb.mp4" type="video/mp4">
                             </video>
                         </div>
                         <div class="column has-text-centered">
                             <h4>Estimated Depth</h4>
                             <video autoplay muted loop playsinline height="100%">
-                                <source src="static/videos/depth/scene0718_00_scene0718_00_depth.mp4"
-                                    type="video/mp4">
+                                <source src="static/videos/depth/scene0718_00_scene0718_00_depth.mp4" type="video/mp4">
                             </video>
                         </div>
                     </div>
@@ -294,29 +293,25 @@
                         <div class="column has-text-centered">
                             <h4>Input video</h4>
                             <video autoplay muted loop playsinline height="100%">
-                                <source src="static/videos/depth/scene0733_00_scene0733_00_rgb.mp4"
-                                    type="video/mp4">
+                                <source src="static/videos/depth/scene0733_00_scene0733_00_rgb.mp4" type="video/mp4">
                             </video>
                         </div>
                         <div class="column has-text-centered">
                             <h4>Estimated Depth</h4>
                             <video autoplay muted loop playsinline height="100%">
-                                <source src="static/videos/depth/scene0733_00_scene0733_00_depth.mp4"
-                                    type="video/mp4">
+                                <source src="static/videos/depth/scene0733_00_scene0733_00_depth.mp4" type="video/mp4">
                             </video>
                         </div>
                         <div class="column has-text-centered">
                             <h4>Input video</h4>
                             <video autoplay muted loop playsinline height="100%">
-                                <source src="static/videos/depth/scene0739_00_scene0739_00_rgb.mp4"
-                                    type="video/mp4">
+                                <source src="static/videos/depth/scene0739_00_scene0739_00_rgb.mp4" type="video/mp4">
                             </video>
                         </div>
                         <div class="column has-text-centered">
                             <h4>Estimated Depth</h4>
                             <video autoplay muted loop playsinline height="100%">
-                                <source src="static/videos/depth/scene0739_00_scene0739_00_depth.mp4"
-                                    type="video/mp4">
+                                <source src="static/videos/depth/scene0739_00_scene0739_00_depth.mp4" type="video/mp4">
                             </video>
                         </div>
                     </div>
@@ -329,8 +324,7 @@
                         <div class="column has-text-centered">
                             <h4>Novel views</h4>
                             <video autoplay muted loop playsinline height="100%">
-                                <source src="static/videos/novel_view/000c3ab189999a83_49482767.mp4"
-                                    type="video/mp4">
+                                <source src="static/videos/novel_view/000c3ab189999a83_49482767.mp4" type="video/mp4">
                             </video>
                         </div>
                         <div class="column has-text-centered">
@@ -340,8 +334,7 @@
                         <div class="column has-text-centered">
                             <h4>Novel views</h4>
                             <video autoplay muted loop playsinline height="100%">
-                                <source src="static/videos/novel_view/01aaf4ebb084dc16_231798233.mp4"
-                                    type="video/mp4">
+                                <source src="static/videos/novel_view/01aaf4ebb084dc16_231798233.mp4" type="video/mp4">
                             </video>
                         </div>
                     </div>
@@ -353,8 +346,7 @@
                         <div class="column has-text-centered">
                             <h4>Novel views</h4>
                             <video autoplay muted loop playsinline height="100%">
-                                <source src="static/videos/novel_view/01eca393f86d37c5_91091000.mp4"
-                                    type="video/mp4">
+                                <source src="static/videos/novel_view/01eca393f86d37c5_91091000.mp4" type="video/mp4">
                             </video>
                         </div>
                         <div class="column has-text-centered">
@@ -364,8 +356,7 @@
                         <div class="column has-text-centered">
                             <h4>Novel views</h4>
                             <video autoplay muted loop playsinline height="100%">
-                                <source src="static/videos/novel_view/01fa6190cd47d125_276843233.mp4"
-                                    type="video/mp4">
+                                <source src="static/videos/novel_view/01fa6190cd47d125_276843233.mp4" type="video/mp4">
                             </video>
                         </div>
                     </div>
@@ -377,8 +368,7 @@
                         <div class="column has-text-centered">
                             <h4>Novel views</h4>
                             <video autoplay muted loop playsinline height="100%">
-                                <source src="static/videos/novel_view/007b4ae7c05f2ea2_69002267.mp4"
-                                    type="video/mp4">
+                                <source src="static/videos/novel_view/007b4ae7c05f2ea2_69002267.mp4" type="video/mp4">
                             </video>
                         </div>
                         <div class="column has-text-centered">
@@ -388,8 +378,7 @@
                         <div class="column has-text-centered">
                             <h4>Novel views</h4>
                             <video autoplay muted loop playsinline height="100%">
-                                <source src="static/videos/novel_view/0196dedebec3dad2_105572133.mp4"
-                                    type="video/mp4">
+                                <source src="static/videos/novel_view/0196dedebec3dad2_105572133.mp4" type="video/mp4">
                             </video>
                         </div>
                     </div>
@@ -451,6 +440,29 @@
             </div>
         </div>
     </section>
+
+    <section class="section" id="BibTeX">
+        <div class="container is-max-desktop content">
+            <h2 class="title">BibTeX</h2>
+            <pre><code>
+            -
+          </code></pre>
+        </div>
+    </section>
+
+
+    <footer class="footer">
+        <div class="container">
+            <div class="columns is-centered">
+                <div class="content">
+                    <p>
+                        The template is borrowed from <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
 
 </body>
 
