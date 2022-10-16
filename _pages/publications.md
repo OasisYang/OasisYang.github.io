@@ -9,6 +9,7 @@ author_profile: true
 </b> <br> 
    <b>Yang Fu</b>, Ishan Misra, Xiaolong Wang
    <br>[[Paper]](https://arxiv.org/abs/2210.07181) | [[Project]](https://oasisyang.github.io/self-mpinerf/)
+   
 1. <b>Self-supervised Geometric Correspondence for Category-level 6D Object Pose Estimation in the Wild</b> <br> 
    Kaifeng Zhang, <b>Yang Fu</b>, Shubhankar Borse, Hong Cai, Fatih Porikli, Xiaolong Wang
    <br>[[Paper]](https://arxiv.org/abs/2210.07199)  | [[Project]](https://kywind.github.io/self-pose)
