@@ -12,6 +12,7 @@ author_profile: true
 ## Conference Papers
 1. <b>Self-supervised Geometric Correspondence for Category-level 6D Object Pose Estimation in the Wild</b> <br>
     Kaifeng Zhang, <b>Yang Fu</b>, Shubhankar Borse, Hong Cai, Fatih Porikli, Xiaolong Wang
+    <br><i>ICLR 2023</i>
     <br>[[Paper]](https://arxiv.org/abs/2210.07199)  | [[Project]](https://kywind.github.io/self-pose)
 
 1. <b>Category-Level 6D Object Pose Estimation in the Wild: A Semi-Supervised Learning Approach and A New Dataset</b> <br> 
