@@ -4,12 +4,15 @@ title: "Publications"
 permalink: /publications/
 author_profile: true
 ---
-## Preprint
-1. <b>Multiplane NeRF-Supervised Disentanglement of Depth and Camera Pose from Videos</b> <br> 
-   <b>Yang Fu</b>, Ishan Misra, Xiaolong Wang
-   <br>[[Paper]](https://arxiv.org/abs/2210.07181) | [[Project]](https://oasisyang.github.io/self-mpinerf/)
+<!-- ## Preprint
+1.  -->
 
 ## Conference Papers
+1. <b>MonoNeRF: Learning Generalizable NeRFs from Monocular Videos without Camera Poses</b> <br> 
+   <b>Yang Fu</b>, Ishan Misra, Xiaolong Wang
+   <br><i>ICML 2023</i>
+   <br>[[Paper]](https://arxiv.org/abs/2210.07181) | [[Project]](https://oasisyang.github.io/mononerf/)
+
 1. <b>Self-supervised Geometric Correspondence for Category-level 6D Object Pose Estimation in the Wild</b> <br>
     Kaifeng Zhang, <b>Yang Fu</b>, Shubhankar Borse, Hong Cai, Fatih Porikli, Xiaolong Wang
     <br><i>ICLR 2023</i>

@@ -20,6 +20,7 @@ My current research focuses on **computer vision** and **machine learning**. Spe
 
 Please refer to my [Google scholar](https://scholar.google.com/citations?user=bioUtz4AAAAJ&hl=en) for a full list of my publications.
 ## News
+* \[2023.05\] [MonoNeRF: Learning Generalizable NeRFs from Monocular Videos without Camera Poses](https://oasisyang.github.io/mononerf/) is accepted to ICML 2023.
 * \[2023.01\] [Self-Supervised Geometric Correspondence for Category-Level 6D Object Pose Estimation in the Wild](https://kywind.github.io/self-pose) is accepted to ICLR 2023.
 * \[2022.09\] [Category-Level 6D Object Pose Estimation in the Wild: A Semi-Supervised Learning Approach and A New Dataset](https://oasisyang.github.io/semi-pose/) is accepted to NeurIPS 2022.
 
