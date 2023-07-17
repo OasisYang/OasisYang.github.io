@@ -110,7 +110,7 @@
   </div>
 </section>
 
-<section class="hero teaser">
+<!-- <section class="hero teaser">
   <div class="container is-max-desktop">
     <div class="hero-body">
       <video id="teaser" autoplay muted loop playsinline height="100%">
@@ -130,7 +130,7 @@
     </div>
 
   </div>
-</section>
+</section> -->
 
 <section class="section">
   <div class="container is-max-desktop">
@@ -152,6 +152,15 @@
           OTA scene reconstruction performance and efficiency, but it also supports single-image novel-view synthesis, 
           which is under-explored in neural fields.
         </div>
+        <div class="content has-text-justified">
+          <img src="static/images/framework_new.png" width="100%">
+          <p>Given the RGBD input, we first extract the  geometric and texture pixel feature using two encoders. 
+            Then, we construct the continuous surface representation upon the discrete surface feature.
+            Next, we introduce a two-stage paradigm to learn the generalizable geometric and texture prior, 
+            optimized via multiple objectives. Finally, the learnt prior can be further optimized on a specific scene 
+            to obatin a high-fidelity reconstruction.
+          </p>
+        </div>
       </div>
     </div>
 
@@ -169,87 +178,12 @@
   </div>
 </section>
 
-
-<section class="section">
-  <div class="container is-max-desktop">
-    <h2 class="title is-3">Method Overview</h2>
-    <div class="content has-text-justified">
-      <p>Given an RGB-D image, we propose to decompose the NFPs into the geometric neural prior 
-        and the texuture neural prior, and contruct the signed distance fields and 
-        the radiance fields from a continuous surface representation,</p>
-      
-      <video id="dollyzoom" autoplay controls muted loop height="100%">
-        <source src="static/videos/npf_method_animation.m4v"
-                type="video/mp4">
-      </video>
-
-    </div>
-    <div class="content has-text-justified">
-      <p>With the pretrained NFPs, we could achieve the reconstruction by a single feedwarding step without any optimization. 
-        To obtain high-fidelity reconstruction, we further optimize the priors along with the pretrained decoders.</p>
-      <video id="dollyzoom" autoplay controls muted loop height="100%">
-        <source src="static/videos/npf_optim_animation.m4v"
-                type="video/mp4">
-      </video>
-
-    </div>
-  </div>
-</section>
-
 <section class="section">
   <div class="container">
     <div class="columns is-centered">
       <div class="column is-four-fifths">
         <h2 class="title is-3 has-text-centered">Qualitative Resutls</h2>
-        <h3 class="title is-4">Per-scene optimization</h3>
-        <table style="table-layout: centered; width: 90%;"><thead><tr><th>ManhattanSDF*</th><th>MonoSDF*</th><th>Ours (NFP)</th><th>GT</th></tr></thead></table>
-        <div class="content has-text-justified">
-
-          <video id="dollyzoom" autoplay controls muted loop height="100%">
-            <source src="static/videos/scene0050_merge.mp4"
-                    type="video/mp4">
-          </video>
-          <video id="dollyzoom" autoplay controls muted loop height="100%">
-            <source src="static/videos/scene0084_merge.mp4"
-                    type="video/mp4">
-          </video>
-          <video id="dollyzoom" autoplay controls muted loop height="100%">
-            <source src="static/videos/scene0580_merge.mp4"
-                    type="video/mp4">
-          </video>
-          <video id="dollyzoom" autoplay controls muted loop height="100%">
-            <source src="static/videos/scene0616_merge.mp4"
-                    type="video/mp4">
-          </video>
-          <p>
-            Note that the ManhattanSDF* and MonoSDF* are trained under the same setting with ground truth depths as ours.
-          </p>
-        </div>
-        <h3 class="title is-4">Feed-forwarding Reconstruction results</h3>
-        <div class="content has-text-justified">
-
-          <video id="dollyzoom" autoplay controls muted loop height="100%">
-            <source src="static/videos/scene0050_priro.mp4"
-                    type="video/mp4">
-          </video>
-          <video id="dollyzoom" autoplay controls muted loop height="100%">
-            <source src="static/videos/scene0084_prior.mp4"
-                    type="video/mp4">
-          </video>
-          <video id="dollyzoom" autoplay controls muted loop height="100%">
-            <source src="static/videos/scene0580_prior.mp4"
-                    type="video/mp4">
-          </video>
-          <video id="dollyzoom" autoplay controls muted loop height="100%">
-            <source src="static/videos/scene0616_prior.mp4"
-                    type="video/mp4">
-          </video>
-          <p>Feed-forwarding reconstruction results are shown in the left column, 
-            while the per-scene optimizaiton results are shown in the right column 
-            as the reference.</p>
-        </div>
-
-        <h3 class="title is-4">Reconstruction with textures</h3>
+        <h3 class="title is-4">Per-scene Reconstruction with Textures</h3>
           <div class="row justify-content-left">
             <div class="col-sm-6">
               <video id="dollyzoom" autoplay controls muted loop height="100%">
@@ -336,19 +270,91 @@
               Select “Matcap” to inspect the geometry without textures.</p>
           </div>
 
+        <h3 class="title is-4">Comparision with State-of-the-arts</h3>
+        <table style="table-layout: centered; width: 90%;"><thead><tr><th>ManhattanSDF*</th><th>MonoSDF*</th><th>Ours (NFP)</th><th>GT</th></tr></thead></table>
+        <div class="content has-text-justified">
+
+          <video id="dollyzoom" autoplay controls muted loop height="100%">
+            <source src="static/videos/scene0050_merge.mp4"
+                    type="video/mp4">
+          </video>
+          <video id="dollyzoom" autoplay controls muted loop height="100%">
+            <source src="static/videos/scene0084_merge.mp4"
+                    type="video/mp4">
+          </video>
+          <video id="dollyzoom" autoplay controls muted loop height="100%">
+            <source src="static/videos/scene0580_merge.mp4"
+                    type="video/mp4">
+          </video>
+          <video id="dollyzoom" autoplay controls muted loop height="100%">
+            <source src="static/videos/scene0616_merge.mp4"
+                    type="video/mp4">
+          </video>
+          <p>
+            Note that the ManhattanSDF* and MonoSDF* are trained under the same setting with ground truth depths as ours.
+          </p>
+        </div>
+        <h3 class="title is-4">Feed-forwarding Reconstruction</h3>
+        <div class="content has-text-justified">
+
+          <video id="dollyzoom" autoplay controls muted loop height="100%">
+            <source src="static/videos/scene0050_priro.mp4"
+                    type="video/mp4">
+          </video>
+          <video id="dollyzoom" autoplay controls muted loop height="100%">
+            <source src="static/videos/scene0084_prior.mp4"
+                    type="video/mp4">
+          </video>
+          <video id="dollyzoom" autoplay controls muted loop height="100%">
+            <source src="static/videos/scene0580_prior.mp4"
+                    type="video/mp4">
+          </video>
+          <video id="dollyzoom" autoplay controls muted loop height="100%">
+            <source src="static/videos/scene0616_prior.mp4"
+                    type="video/mp4">
+          </video>
+          <p>Feed-forwarding reconstruction results are shown in the left column, 
+            while the per-scene optimizaiton results are shown in the right column 
+            as the reference.</p>
+        </div>
+        
         <h3 class="title is-4">Reconstruction on self-captured living room</h3>
         <div class="embed-responsive embed-responsive-16by9">
             <iframe style="clip-path: inset(1px 1px)" width="100%" height="100%" src="https://sketchfab.com/models/21991a574c9241ed9ea2c8bedab747ae/embed?autostart=1" 
             frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; fullscreen" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
         </div>
-        <!-- <p> Zoom in by scrolling. You can toggle the “Single Sided” option in Model Inspector (pressing I key) to enable back-face culling (see through walls). 
-            Select “Matcap” to inspect the geometry without textures.</p> -->
+        <p>The video is captured from the living room of Isaac Deutsch@NVIDIA. We would like to thank Isaac Deutsch for sharing this data.</p>
 
       </div>
     </div>
     
 
 
+    <section class="section">
+      <div class="container is-max-desktop">
+        <h2 class="title is-3 has-text-centered">Approach</h2>
+        <div class="content has-text-justified">
+          <p>Given an RGB-D image, we propose to decompose the NFPs into the geometric neural prior 
+            and the texuture neural prior, and contruct the signed distance fields and 
+            the radiance fields from a continuous surface representation,</p>
+          
+          <video id="dollyzoom" autoplay controls muted loop height="100%">
+            <source src="static/videos/npf_method_animation.m4v"
+                    type="video/mp4">
+          </video>
+    
+        </div>
+        <div class="content has-text-justified">
+          <p>With the pretrained NFPs, we could achieve the reconstruction by a single feedwarding step without any optimization. 
+            To obtain high-fidelity reconstruction, we further optimize the priors along with the pretrained decoders.</p>
+          <video id="dollyzoom" autoplay controls muted loop height="100%">
+            <source src="static/videos/npf_optim_animation.m4v"
+                    type="video/mp4">
+          </video>
+    
+        </div>
+      </div>
+    </section>
 
 
 
@@ -419,12 +425,8 @@
 <section class="section" id="BibTeX">
   <div class="container is-max-desktop content">
     <h2 class="title">BibTeX</h2>
-    <pre><code>@article{Fu2022Wild6D,
-  author    = {Fu, Yang and Wang, Xiaolong},
-  title     = {Category-Level 6D Object Pose Estimation in the Wild: A Semi-Supervised Learning Approach and A New Dataset},
-  journal   = {arXiv:2206.15436},
-  year      = {2022},
-}</code></pre>
+    <pre><code>@article{}
+</code></pre>
   </div>
 </section>
 
