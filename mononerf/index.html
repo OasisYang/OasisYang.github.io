@@ -5,23 +5,6 @@
     <meta charset="utf-8">
     <title>MonoNeRF: Learning Generalizable NeRFs from Monocular Videos without Camera Poses</title>
 
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-
-        function gtag() {
-            dataLayer.push(arguments);
-        }
-
-        gtag('js', new Date());
-
-        gtag('config', 'G-PYVRSFMDRL');
-
-
-
-    </script>
-
     <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
 
     <link rel="stylesheet" href="./static/css/bulma.min.css">
@@ -30,6 +13,11 @@
     <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
     <link rel="stylesheet" href="./static/css/index.css">
+
+    <!-- Bootstrap -->
+    <link href="./static/css/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script defer src="./static/js/fontawesome.all.min.js"></script>
@@ -85,7 +73,7 @@
                                 </span>
                                 <!-- Video Link. -->
                                 <span class="link-block">
-                                    <a href=""
+                                    <a href="https://youtu.be/Vu5p29R-wRM"
                                         class="external-link button is-normal is-rounded is-dark">
                                         <span class="icon">
                                             <i class="fab fa-youtube"></i>
@@ -128,10 +116,8 @@
                     <source src="static/videos/teaser_video.mp4" type="video/mp4">
                 </video>
                 <h2 class="subtitle has-text" style="margin-top: 15px">
-                    Given a short clip of video, our model aims to learn disentanglement representation of depth and
-                    camera pose.
-                    The disentangled representations can be applied to depth estimation, novel view synthesis,
-                    and camera pose estimation.
+                    Given a short clip of monoculr video, we learn a MonoNeRF from monocular videos that can be applied to 
+                    depth estimation, novel view synthesis, and camera pose estimation.
                 </h2>
             </div>
         </div>
@@ -142,44 +128,22 @@
             <div class="container is-max-desktop">
                 <!-- Abstract. -->
                 <div class="columns is-centered has-text-centered">
-                    <div class="column is-full-width">
+                    <div class="column is-four-fifths">
                         <h2 class="title is-3 has-text-centered">Abstract</h2>
                         <div class="content has-text-justified">
                             <p>
-                                We propose to perform self-supervised disentanglement of depth and camera pose
-                                from large-scale videos. We introduce an Autoencoder-based method to reconstruct
-                                the input video frames for training, without using any ground-truth annotations of
-                                depth and camera. The model encoders estimate the monocular depth and the camera pose.
-                                The decoder then constructs a Multiplane NeRF representation based on the depth encoder
-                                feature, and renders the input frames with the estimated camera. The learning is
-                                supervised by the reconstruction error, based on the assumption that the scene structure
-                                does not change in short periods of time in videos. Once the model is learned, it can be
-                                applied to multiple applications including depth estimation, camera pose estimation,
-                                and single image novel view synthesis. We show substantial improvements over previous
-                                self-supervised approaches on all tasks and even better results than counterparts
-                                trained
-                                with camera ground-truths in some applications.
+                            We propose a generalizable neural radiance fields - MonoNeRF, that can be trained on large-scale
+                            monocular videos of moving in static scenes without any ground-truth annotations of depth 
+                            and camera poses. MonoNeRF follows an Autoencoder-based architecture, where the encoder estimates 
+                            the monocular depth and the camera pose, and the decoder constructs a Multiplane NeRF representation 
+                            based on the depth encoder feature, and renders the input frames with the estimated camera. 
+                            The learning is supervised by the reconstruction error. Once the model is learned, it can be applied 
+                            to multiple applications including depth estimation, camera pose estimation, and single-image novel view synthesis.
                             </p>
-
                         </div>
                     </div>
                 </div>
                 <!-- Paper video. -->
-                <div class="columns is-centered has-text-centered">
-                    <div class="column is-full-width">
-                        <h2 class="title is-3">Video</h2>
-                        <video autoplay loop playsinline controls width="100%">
-                            <source
-                                src="https://drive.google.com/uc?export=download&id=1LdBVEGJDQyt0-0QM2AOCw6UZJWmL_GoZ"
-                                type="video/mp4">
-                        </video>
-                        <!-- <div class="publication-video">
-                    <iframe width="640" height="480" src="https://drive.google.com/file/d/1LdBVEGJDQyt0-0QM2AOCw6UZJWmL_GoZ/preview" title="YouTube video player" 
-                    frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                    allowfullscreen></iframe>
-                </div> -->
-                    </div>
-                </div>
             </div>
     </section>
     <section class="section">
@@ -188,7 +152,7 @@
             <div class="columns is-centered has-text-centered">
                 <div class="column is-full-width">
                     <h2 class="title is-3 has-text-centered">Method</h2>
-                    <video autoplay muted loop playsinline height="100%">
+                     <video id="dollyzoom" autoplay controls muted loop height="100%">
                         <source src="static/videos/method_video.mp4" type="video/mp4">
                     </video>
                 </div>
@@ -197,245 +161,227 @@
     </section>
     <section class="section">
         <div class="container is-max-desktop">
-            <!-- Results. -->
             <div class="columns is-centered ">
                 <div class="column is-full-width">
                     <h2 class="title is-3 has-text-centered">Results</h2>
-                    <h3 class="title is-3">Depth Estimation</h3>
+
+
+                    <h3 class="title is-4">Novel View Synthesis</h3>
                     <div class="columns is-centered">
                         <div class="column has-text-centered">
-                            <h4>Input video</h4>
-                            <video autoplay muted loop playsinline height="100%">
+                            <h6>Input view</h6>
+                            <video id="dollyzoom" autoplay controls muted loop height="100%">
+                                <source src="static/videos/novel_view/000c3ab189999a83_45979267_rgb.mp4" type="video/mp4">
+                            </video>
+
+                            <video id="dollyzoom" autoplay controls muted loop height="100%">
+                                <source src="static/videos/novel_view/01eca393f86d37c5_91257833_rgb.mp4" type="video/mp4">
+                            </video>
+
+                            <video id="dollyzoom" autoplay controls muted loop height="100%">
+                                <source src="static/videos/novel_view/01fa6190cd47d125_276843233_rgb.mp4" type="video/mp4">
+                            </video>
+
+                            <video id="dollyzoom" autoplay controls muted loop height="100%">
+                                <source src="static/videos/novel_view/02ee66b3efbf3b0a_74508000_rgb.mp4" type="video/mp4">
+                            </video>
+
+
+                        </div>
+                        <div class="column has-text-centered">
+                            <h6>Novel views</h6>
+                             <video id="dollyzoom" autoplay controls muted loop height="100%">
+                                <source src="static/videos/novel_view/000c3ab189999a83_45979267_nvs.mp4" type="video/mp4">
+                            </video>
+                            <video id="dollyzoom" autoplay controls muted loop height="100%">
+                                <source src="static/videos/novel_view/01eca393f86d37c5_91257833_nvs.mp4" type="video/mp4">
+                            </video>
+                            <video id="dollyzoom" autoplay controls muted loop height="100%">
+                                <source src="static/videos/novel_view/01fa6190cd47d125_276843233_nvs.mp4" type="video/mp4">
+                            </video>
+                            <video id="dollyzoom" autoplay controls muted loop height="100%">
+                                <source src="static/videos/novel_view/02ee66b3efbf3b0a_74508000_nvs.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="column has-text-centered">
+                            <h6>Input view</h6>
+                            <video id="dollyzoom" autoplay controls muted loop height="100%">
+                                <source src="static/videos/novel_view/04db26572a791881_46479767_rgb.mp4" type="video/mp4">
+                            </video>
+
+                            <video id="dollyzoom" autoplay controls muted loop height="100%">
+                                <source src="static/videos/novel_view/05ef56b2656c9318_143076267_rgb.mp4" type="video/mp4">
+                            </video>
+
+                            <video id="dollyzoom" autoplay controls muted loop height="100%">
+                                <source src="static/videos/novel_view/007b4ae7c05f2ea2_67500767_rgb.mp4" type="video/mp4">
+                            </video>
+                            <video id="dollyzoom" autoplay controls muted loop height="100%">
+                                <source src="static/videos/novel_view/021575237abe0684_154904000_rgb.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="column has-text-centered">
+                            <h6>Novel views</h6>
+                             <video id="dollyzoom" autoplay controls muted loop height="100%">
+                                <source src="static/videos/novel_view/04db26572a791881_46479767_nvs.mp4" type="video/mp4">
+                            </video>
+                            <video id="dollyzoom" autoplay controls muted loop height="100%">
+                                <source src="static/videos/novel_view/05ef56b2656c9318_143076267_nvs.mp4" type="video/mp4">
+                            </video>
+                            <video id="dollyzoom" autoplay controls muted loop height="100%">
+                                <source src="static/videos/novel_view/007b4ae7c05f2ea2_67500767_nvs.mp4" type="video/mp4">
+                            </video>
+                            <video id="dollyzoom" autoplay controls muted loop height="100%">
+                                <source src="static/videos/novel_view/021575237abe0684_154904000_nvs.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+
+                    <h3 class="title is-4">Depth Estimation</h3>
+                    <div class="columns is-centered">
+                        <div class="column has-text-centered">
+                            <h6>Input video</h6>
+                            <video id="dollyzoom" autoplay controls muted loop height="100%">
                                 <source src="static/videos/depth/04ec725465dc5329_04ec725465dc5329_rgb.mp4"
                                     type="video/mp4">
                             </video>
-                        </div>
-                        <div class="column has-text-centered">
-                            <h4>Estimated Depth</h4>
-                            <video autoplay muted loop playsinline height="100%">
-                                <source src="static/videos/depth/04ec725465dc5329_04ec725465dc5329_depth.mp4"
-                                    type="video/mp4">
-                            </video>
-                        </div>
-                        <div class="column has-text-centered">
-                            <h4>Input video</h4>
-                            <video autoplay muted loop playsinline height="100%">
-                                <source src="static/videos/depth/0598fec76ecc7bd6_0598fec76ecc7bd6_rgb.mp4"
-                                    type="video/mp4">
-                            </video>
-                        </div>
-                        <div class="column has-text-centered">
-                            <h4>Estimated Depth</h4>
-                            <video autoplay muted loop playsinline height="100%">
-                                <source src="static/videos/depth/0598fec76ecc7bd6_0598fec76ecc7bd6_depth.mp4"
-                                    type="video/mp4">
-                            </video>
-                        </div>
-                    </div>
-                    <div class="columns is-centered">
-                        <div class="column has-text-centered">
-                            <h4>Input video</h4>
-                            <video autoplay muted loop playsinline height="100%">
+                            <video id="dollyzoom" autoplay controls muted loop height="100%">
                                 <source src="static/videos/depth/007876f71baf453f_007876f71baf453f_rgb.mp4"
                                     type="video/mp4">
                             </video>
-                        </div>
-                        <div class="column has-text-centered">
-                            <h4>Estimated Depth</h4>
-                            <video autoplay muted loop playsinline height="100%">
-                                <source src="static/videos/depth/007876f71baf453f_007876f71baf453f_depth.mp4"
-                                    type="video/mp4">
-                            </video>
-                        </div>
-                        <div class="column has-text-centered">
-                            <h4>Input video</h4>
-                            <video autoplay muted loop playsinline height="100%">
-                                <source src="static/videos/depth/059058768c222bd6_059058768c222bd6_rgb.mp4"
-                                    type="video/mp4">
-                            </video>
-                        </div>
-                        <div class="column has-text-centered">
-                            <h4>Estimated Depth</h4>
-                            <video autoplay muted loop playsinline height="100%">
-                                <source src="static/videos/depth/059058768c222bd6_059058768c222bd6_depth.mp4"
-                                    type="video/mp4">
-                            </video>
-                        </div>
-                    </div>
-                    <div class="columns is centered">
-                        <div class="column has-text-centered">
-                            <h4>Input video</h4>
-                            <video autoplay muted loop playsinline height="100%">
+                            <video id="dollyzoom" autoplay controls muted loop height="100%">
                                 <source src="static/videos/depth/scene0709_00_scene0709_00_rgb.mp4" type="video/mp4">
                             </video>
-                        </div>
-                        <div class="column has-text-centered">
-                            <h4>Estimated Depth</h4>
-                            <video autoplay muted loop playsinline height="100%">
-                                <source src="static/videos/depth/scene0709_00_scene0709_00_depth.mp4" type="video/mp4">
-                            </video>
-                        </div>
-                        <div class="column has-text-centered">
-                            <h4>Input video</h4>
-                            <video autoplay muted loop playsinline height="100%">
-                                <source src="static/videos/depth/scene0718_00_scene0718_00_rgb.mp4" type="video/mp4">
-                            </video>
-                        </div>
-                        <div class="column has-text-centered">
-                            <h4>Estimated Depth</h4>
-                            <video autoplay muted loop playsinline height="100%">
-                                <source src="static/videos/depth/scene0718_00_scene0718_00_depth.mp4" type="video/mp4">
-                            </video>
-                        </div>
-                    </div>
-                    <div class="columns is centered">
-                        <div class="column has-text-centered">
-                            <h4>Input video</h4>
-                            <video autoplay muted loop playsinline height="100%">
+                             <video id="dollyzoom" autoplay controls muted loop height="100%">
                                 <source src="static/videos/depth/scene0733_00_scene0733_00_rgb.mp4" type="video/mp4">
                             </video>
                         </div>
                         <div class="column has-text-centered">
-                            <h4>Estimated Depth</h4>
-                            <video autoplay muted loop playsinline height="100%">
+                            <h6>Estimated Depth</h6>
+                            <video id="dollyzoom" autoplay controls muted loop height="100%">
+                                <source src="static/videos/depth/04ec725465dc5329_04ec725465dc5329_depth.mp4"
+                                    type="video/mp4">
+                            </video>
+                            <video id="dollyzoom" autoplay controls muted loop height="100%">
+                                <source src="static/videos/depth/007876f71baf453f_007876f71baf453f_depth.mp4"
+                                    type="video/mp4">
+                            </video>
+                             <video id="dollyzoom" autoplay controls muted loop height="100%">
+                                <source src="static/videos/depth/scene0709_00_scene0709_00_depth.mp4" type="video/mp4">
+                            </video>
+                             <video id="dollyzoom" autoplay controls muted loop height="100%">
                                 <source src="static/videos/depth/scene0733_00_scene0733_00_depth.mp4" type="video/mp4">
                             </video>
                         </div>
                         <div class="column has-text-centered">
-                            <h4>Input video</h4>
-                            <video autoplay muted loop playsinline height="100%">
+                            <h6>Input video</h6>
+                            <video id="dollyzoom" autoplay controls muted loop height="100%">
+                                <source src="static/videos/depth/0598fec76ecc7bd6_0598fec76ecc7bd6_rgb.mp4"
+                                    type="video/mp4">
+                            </video>
+                             <video id="dollyzoom" autoplay controls muted loop height="100%">
+                                <source src="static/videos/depth/059058768c222bd6_059058768c222bd6_rgb.mp4"
+                                    type="video/mp4">
+                            </video>
+                             <video id="dollyzoom" autoplay controls muted loop height="100%">
+                                <source src="static/videos/depth/scene0718_00_scene0718_00_rgb.mp4" type="video/mp4">
+                            </video>
+                             <video id="dollyzoom" autoplay controls muted loop height="100%">
                                 <source src="static/videos/depth/scene0739_00_scene0739_00_rgb.mp4" type="video/mp4">
                             </video>
                         </div>
                         <div class="column has-text-centered">
-                            <h4>Estimated Depth</h4>
-                            <video autoplay muted loop playsinline height="100%">
+                            <h6>Estimated Depth</h6>
+                            <video id="dollyzoom" autoplay controls muted loop height="100%">
+                                <source src="static/videos/depth/0598fec76ecc7bd6_0598fec76ecc7bd6_depth.mp4"
+                                    type="video/mp4">
+                            </video>
+                             <video id="dollyzoom" autoplay controls muted loop height="100%">
+                                <source src="static/videos/depth/059058768c222bd6_059058768c222bd6_depth.mp4"
+                                    type="video/mp4">
+                            </video>
+                             <video id="dollyzoom" autoplay controls muted loop height="100%">
+                                <source src="static/videos/depth/scene0718_00_scene0718_00_depth.mp4" type="video/mp4">
+                            </video>
+                             <video id="dollyzoom" autoplay controls muted loop height="100%">
                                 <source src="static/videos/depth/scene0739_00_scene0739_00_depth.mp4" type="video/mp4">
                             </video>
                         </div>
                     </div>
-                    <h3 class="title is-3">Novel View Synthesis</h3>
+                    <!-- <div class="columns is-centered">
+                        <div class="column has-text-centered">
+ 
+                        </div>
+                        <div class="column has-text-centered">
+
+                        </div>
+                        <div class="column has-text-centered">
+     
+                        </div>
+                        <div class="column has-text-centered">
+
+                        </div>
+                    </div> -->
+
+                    <h3 class="title is-4">Camera Trajectory</h3>
                     <div class="columns is-centered">
                         <div class="column has-text-centered">
-                            <h4>Input view</h4>
-                            <img src="static/videos/novel_view/49482767.jpg">
-                        </div>
-                        <div class="column has-text-centered">
-                            <h4>Novel views</h4>
-                            <video autoplay muted loop playsinline height="100%">
-                                <source src="static/videos/novel_view/000c3ab189999a83_49482767.mp4" type="video/mp4">
-                            </video>
-                        </div>
-                        <div class="column has-text-centered">
-                            <h4>Input view</h4>
-                            <img src="static/videos/novel_view/231798233.jpg">
-                        </div>
-                        <div class="column has-text-centered">
-                            <h4>Novel views</h4>
-                            <video autoplay muted loop playsinline height="100%">
-                                <source src="static/videos/novel_view/01aaf4ebb084dc16_231798233.mp4" type="video/mp4">
-                            </video>
-                        </div>
-                    </div>
-                    <div class="columns is-centered">
-                        <div class="column has-text-centered">
-                            <h4>Input view</h4>
-                            <img src="static/videos/novel_view/91091000.jpg">
-                        </div>
-                        <div class="column has-text-centered">
-                            <h4>Novel views</h4>
-                            <video autoplay muted loop playsinline height="100%">
-                                <source src="static/videos/novel_view/01eca393f86d37c5_91091000.mp4" type="video/mp4">
-                            </video>
-                        </div>
-                        <div class="column has-text-centered">
-                            <h4>Input view</h4>
-                            <img src="static/videos/novel_view/276843233.jpg">
-                        </div>
-                        <div class="column has-text-centered">
-                            <h4>Novel views</h4>
-                            <video autoplay muted loop playsinline height="100%">
-                                <source src="static/videos/novel_view/01fa6190cd47d125_276843233.mp4" type="video/mp4">
-                            </video>
-                        </div>
-                    </div>
-                    <div class="columns is-centered">
-                        <div class="column has-text-centered">
-                            <h4>Input view</h4>
-                            <img src="static/videos/novel_view/69002267.jpg">
-                        </div>
-                        <div class="column has-text-centered">
-                            <h4>Novel views</h4>
-                            <video autoplay muted loop playsinline height="100%">
-                                <source src="static/videos/novel_view/007b4ae7c05f2ea2_69002267.mp4" type="video/mp4">
-                            </video>
-                        </div>
-                        <div class="column has-text-centered">
-                            <h4>Input view</h4>
-                            <img src="static/videos/novel_view/105572133.jpg">
-                        </div>
-                        <div class="column has-text-centered">
-                            <h4>Novel views</h4>
-                            <video autoplay muted loop playsinline height="100%">
-                                <source src="static/videos/novel_view/0196dedebec3dad2_105572133.mp4" type="video/mp4">
-                            </video>
-                        </div>
-                    </div>
-                    <h3 class="title is-3">Camera Trajectory</h3>
-                    <div class="columns is-centered">
-                        <div class="column has-text-centered">
-                            <h4>Input Video</h4>
-                            <video autoplay muted loop playsinline height="100%">
+                            <h6>Input Video</h6>
+                             <video id="dollyzoom" autoplay controls muted loop height="100%">
                                 <source src="static/videos/camera/01aaf4ebb084dc16_rgb.mp4" type="video/mp4">
                             </video>
-                        </div>
-                        <div class="column has-text-centered">
-                            <h4>Eestimated Camera</h4>
-                            <video autoplay muted loop playsinline height="100%">
-                                <source src="static/videos/camera/01aaf4ebb084dc16_cam.mp4" type="video/mp4">
-                            </video>
-                        </div>
-                        <div class="column has-text-centered">
-                            <h4>Input Video</h4>
-                            <video autoplay muted loop playsinline height="100%">
-                                <source src="static/videos/camera/01cefee9563f691a_rgb.mp4" type="video/mp4">
-                            </video>
-                        </div>
-                        <div class="column has-text-centered">
-                            <h4>Eestimated Camera</h4>
-                            <video autoplay muted loop playsinline height="100%">
-                                <source src="static/videos/camera/01cefee9563f691a_cam.mp4" type="video/mp4">
-                            </video>
-                        </div>
-                    </div>
-                    <div class="columns is-centered">
-                        <div class="column has-text-centered">
-                            <h4>Input Video</h4>
-                            <video autoplay muted loop playsinline height="100%">
+                            <video id="dollyzoom" autoplay controls muted loop height="100%">
                                 <source src="static/videos/camera/02ee66b3efbf3b0a_rgb.mp4" type="video/mp4">
                             </video>
                         </div>
                         <div class="column has-text-centered">
-                            <h4>Eestimated Camera</h4>
-                            <video autoplay muted loop playsinline height="100%">
+                            <h6>Eestimated Camera</h6>
+                             <video id="dollyzoom" autoplay controls muted loop height="100%">
+                                <source src="static/videos/camera/01aaf4ebb084dc16_cam.mp4" type="video/mp4">
+                            </video>
+                            <video id="dollyzoom" autoplay controls muted loop height="100%">
                                 <source src="static/videos/camera/02ee66b3efbf3b0a_cam.mp4" type="video/mp4">
                             </video>
                         </div>
                         <div class="column has-text-centered">
-                            <h4>Input Video</h4>
-                            <video autoplay muted loop playsinline height="100%">
+                            <h6>Input Video</h6>
+                             <video id="dollyzoom" autoplay controls muted loop height="100%">
+                                <source src="static/videos/camera/01cefee9563f691a_rgb.mp4" type="video/mp4">
+                            </video>
+                            <video id="dollyzoom" autoplay controls muted loop height="100%">
                                 <source src="static/videos/camera/0181b66a65650830_rgb.mp4" type="video/mp4">
                             </video>
                         </div>
                         <div class="column has-text-centered">
-                            <h4>Eestimated Camera</h4>
-                            <video autoplay muted loop playsinline height="100%">
+                            <h6>Eestimated Camera</h6>
+                             <video id="dollyzoom" autoplay controls muted loop height="100%">
+                                <source src="static/videos/camera/01cefee9563f691a_cam.mp4" type="video/mp4">
+                            </video>
+                            <video id="dollyzoom" autoplay controls muted loop height="100%">
                                 <source src="static/videos/camera/0181b66a65650830_cam.mp4" type="video/mp4">
                             </video>
                         </div>
                     </div>
                 </div>
 
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="columns is-centered has-text-centered">
+                <div class="column is-four-fifths">
+                    <h2 class="title is-3">Video</h2>
+                    <div class="publication-video">
+                        <iframe width="560" height="315" 
+                        src="https://www.youtube.com/embed/Vu5p29R-wRM" 
+                        title="YouTube video player" frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; 
+                            picture-in-picture; web-share" allowfullscreen>
+                        </iframe>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
