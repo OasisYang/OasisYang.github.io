@@ -110,10 +110,24 @@
   </div>
 </section>
 
-<!-- <section class="hero teaser">
+<section class="hero teaser">
   <div class="container is-max-desktop">
     <div class="hero-body">
-      <video id="teaser" autoplay muted loop playsinline height="100%">
+      <div class="row justify-content-left">
+        <div class="col-sm-6">
+          <video id="teaser" autoplay muted loop playsinline height="100%">
+            <source src="static/videos/priors/scene0000.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="col-sm-6">
+          <video id="teaser" autoplay muted loop playsinline height="100%">
+            <source src="static/videos/scene0001_track.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+      </div>
+      <!-- <video id="teaser" autoplay muted loop playsinline height="100%">
         <source src="static/videos/teaser_vid.mp4"
                 type="video/mp4">
       </video>
@@ -126,11 +140,10 @@
       </video>
       <h2 class="subtitle has-text-centered" style="margin-top: 15px">
 
-      </h2>
+      </h2> -->
     </div>
-
   </div>
-</section> -->
+</section>
 
 <section class="section">
   <div class="container is-max-desktop">
@@ -184,6 +197,10 @@
       <div class="column is-four-fifths">
         <h2 class="title is-3 has-text-centered">Qualitative Resutls</h2>
         <h3 class="title is-4">Per-scene Reconstruction with Textures</h3>
+        <div class="content has-text-justified">
+          <p> Here we show the per-scene reconstruction results on ScanNet. With the learnt NFP, 
+            we can achieve the high-fidelity reconstruction with photo-realisitc texture within 20 mins.</p>
+        </div>
           <div class="row justify-content-left">
             <div class="col-sm-6">
               <video id="dollyzoom" autoplay controls muted loop height="100%">
@@ -193,7 +210,7 @@
             </div>
             <div class="col-sm-6">
               <div class="embed-responsive embed-responsive-16by9">
-                <iframe style="clip-path: inset(1px 1px)" width="100%" height="100%" src="https://sketchfab.com/models/c61aaac0f4b74eeca63d2bb6ce2576d5/embed" 
+                <iframe style="clip-path: inset(1px 1px)" width="100%" height="100%" src="https://sketchfab.com/models/c61aaac0f4b74eeca63d2bb6ce2576d5/embed?autostart=1" 
                 frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; fullscreen" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
               </div>
               <br>
@@ -209,7 +226,7 @@
             </div>
             <div class="col-sm-6">
               <div class="embed-responsive embed-responsive-16by9">
-                <iframe style="clip-path: inset(1px 1px)" width="100%" height="100%" src="https://sketchfab.com/models/af9286af9947474b8e47bfec1deb0c63/embed" 
+                <iframe style="clip-path: inset(1px 1px)" width="100%" height="100%" src="https://sketchfab.com/models/af9286af9947474b8e47bfec1deb0c63/embed?autostart=1" 
                 frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; fullscreen" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
               </div>
               <br>
@@ -225,7 +242,7 @@
             </div>
             <div class="col-sm-6">
               <div class="embed-responsive embed-responsive-16by9">
-                <iframe style="clip-path: inset(1px 1px)" width="100%" height="100%" src="https://sketchfab.com/models/4f479c7ae1a64d419c2aaa39da4527a1/embed" 
+                <iframe style="clip-path: inset(1px 1px)" width="100%" height="100%" src="https://sketchfab.com/models/4f479c7ae1a64d419c2aaa39da4527a1/embed?autostart=1" 
                 frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; fullscreen" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
               </div>
               <br>
@@ -241,7 +258,7 @@
             </div>
             <div class="col-sm-6">
               <div class="embed-responsive embed-responsive-16by9">
-                <iframe style="clip-path: inset(1px 1px)" width="100%" height="100%" src="https://sketchfab.com/models/facfaa2af26d4a189cc70515436fb433/embed" 
+                <iframe style="clip-path: inset(1px 1px)" width="100%" height="100%" src="https://sketchfab.com/models/9ada082c2b274a84b00e186330919842/embed?autostart=1" 
                 frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; fullscreen" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
               </div>
               <br>
@@ -249,7 +266,7 @@
           </div>
           
 
-          <div class="row justify-content-left">
+          <!-- <div class="row justify-content-left">
             <div class="col-sm-6">
               <video id="dollyzoom" autoplay controls muted loop height="100%">
                 <source src="static/videos/scene0001_track.mp4"
@@ -263,7 +280,7 @@
               </div>
               <br>
             </div>
-          </div>
+          </div> -->
 
           <div class="content has-text-justified">
             <p> Zoom in the model viewer by scrolling. You can toggle the “Single Sided” option in Model Inspector (pressing I key) to enable back-face culling (see through walls). 
@@ -271,23 +288,23 @@
           </div>
 
         <h3 class="title is-4">Comparision with State-of-the-arts</h3>
-        <table style="table-layout: centered; width: 90%;"><thead><tr><th>ManhattanSDF*</th><th>MonoSDF*</th><th>Ours (NFP)</th><th>GT</th></tr></thead></table>
+        <table style="table-layout: centered; width: 90%;"><thead><tr><th>ManhattanSDF*</th><th>MonoSDF*</th><th>Ours (NFP)</th></tr></thead></table>
         <div class="content has-text-justified">
 
           <video id="dollyzoom" autoplay controls muted loop height="100%">
-            <source src="static/videos/scene0050_merge.mp4"
+            <source src="static/videos/scene0050_compare.mp4"
                     type="video/mp4">
           </video>
           <video id="dollyzoom" autoplay controls muted loop height="100%">
-            <source src="static/videos/scene0084_merge.mp4"
+            <source src="static/videos/scene0084_compare.mp4"
                     type="video/mp4">
           </video>
           <video id="dollyzoom" autoplay controls muted loop height="100%">
-            <source src="static/videos/scene0580_merge.mp4"
+            <source src="static/videos/scene0580_compare.mp4"
                     type="video/mp4">
           </video>
           <video id="dollyzoom" autoplay controls muted loop height="100%">
-            <source src="static/videos/scene0616_merge.mp4"
+            <source src="static/videos/scene0616_compare.mp4"
                     type="video/mp4">
           </video>
           <p>
@@ -296,8 +313,59 @@
         </div>
         <h3 class="title is-4">Feed-forwarding Reconstruction</h3>
         <div class="content has-text-justified">
-
-          <video id="dollyzoom" autoplay controls muted loop height="100%">
+          <p>We additionally show the feed-forwarding reconstruction results without any optimizations, 
+            which could further demonstrate the generalizability of our learnt priors. 
+            Comparing with the existing works which require time-consuming per-scene optimization, 
+            our method can achieve comparable results in around 10 sceonds.
+            Feed-forwarding reconstruction results are shown in the left column, 
+            while the per-scene optimizaiton results are shown in the right column 
+            as the reference.</p>
+        </div>
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h6>Feed-forwarding Reconstruction</h6>
+            <video autoplay muted loop playsinline height="100%">
+              <source src="static/videos/priors/scene0158_prior.mp4" type="video/mp4">
+            </video>
+            <video autoplay muted loop playsinline height="100%">
+              <source src="static/videos/priors/scene0316_prior.mp4" type="video/mp4">
+            </video>
+            <video autoplay muted loop playsinline height="100%">
+              <source src="static/videos/priors/scene0521_prior.mp4" type="video/mp4">
+            </video>
+            <video autoplay muted loop playsinline height="100%">
+              <source src="static/videos/priors/scene0653_prior.mp4" type="video/mp4">
+            </video>
+            <video autoplay muted loop playsinline height="100%">
+              <source src="static/videos/priors/scene0711_prior.mp4" type="video/mp4">
+            </video>
+            <video autoplay muted loop playsinline height="100%">
+              <source src="static/videos/priors/scene0784_prior.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="column has-text-centered">
+            <h6>Feed-forwarding Reconstruction</h6>
+            <video autoplay muted loop playsinline height="100%">
+              <source src="static/videos/priors/scene0158.mp4" type="video/mp4">
+            </video>
+            <video autoplay muted loop playsinline height="100%">
+              <source src="static/videos/priors/scene0316.mp4" type="video/mp4">
+            </video>
+            <video autoplay muted loop playsinline height="100%">
+              <source src="static/videos/priors/scene0521.mp4" type="video/mp4">
+            </video>
+            <video autoplay muted loop playsinline height="100%">
+              <source src="static/videos/priors/scene0653.mp4" type="video/mp4">
+            </video>
+            <video autoplay muted loop playsinline height="100%">
+              <source src="static/videos/priors/scene0711.mp4" type="video/mp4">
+            </video>
+            <video autoplay muted loop playsinline height="100%">
+              <source src="static/videos/priors/scene0784.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
+          <!-- <video id="dollyzoom" autoplay controls muted loop height="100%">
             <source src="static/videos/scene0050_priro.mp4"
                     type="video/mp4">
           </video>
@@ -316,7 +384,7 @@
           <p>Feed-forwarding reconstruction results are shown in the left column, 
             while the per-scene optimizaiton results are shown in the right column 
             as the reference.</p>
-        </div>
+        </div> -->
         
         <h3 class="title is-4">Reconstruction on self-captured living room</h3>
         <div class="embed-responsive embed-responsive-16by9">
