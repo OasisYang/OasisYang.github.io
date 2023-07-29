@@ -13,13 +13,14 @@ Yang is currently a Ph.D student in Electrical and Computer Engineering (ECE) at
 
 My current research focuses on **computer vision** and **machine learning**. Specifically, I have recently worked in 
 * _**Computer Vision**_
-  * 6D pose estimation, video instance/object segmentation, pose tracking, visual correspondence learning.
+  * Neural Radiance Fields, 6D pose estimation, video instance/object segmentation.
 
 * _**Machine Learning**_
   * semi-supervised learning, self-supervised representation learning, test-time training.
 
 Please refer to my [Google scholar](https://scholar.google.com/citations?user=bioUtz4AAAAJ&hl=en) for a full list of my publications.
 ## News
+* \[2023.07\] I'm selected to be a recipient of [Qualcomm Innovation Fellowship 2023](https://www.qualcomm.com/research/university-relations/innovation-fellowship/2023-north-america).
 * \[2023.05\] [MonoNeRF: Learning Generalizable NeRFs from Monocular Videos without Camera Poses](https://oasisyang.github.io/mononerf/) is accepted to ICML 2023.
 * \[2023.01\] [Self-Supervised Geometric Correspondence for Category-Level 6D Object Pose Estimation in the Wild](https://kywind.github.io/self-pose) is accepted to ICLR 2023.
 * \[2022.09\] [Category-Level 6D Object Pose Estimation in the Wild: A Semi-Supervised Learning Approach and A New Dataset](https://oasisyang.github.io/semi-pose/) is accepted to NeurIPS 2022.
@@ -36,7 +37,7 @@ Please refer to my [Google scholar](https://scholar.google.com/citations?user=bi
 
 * \[2021.03\] One paper accepted to CVPR 2021 as oral presentation ([paper](https://arxiv.org/pdf/2104.00287.pdf)).
 
-* \[2021.02\] I'm co-organizing The 3rd Large-scale Video Object Segmentation Challenge at CVPR 2021. The website is [here](https://youtube-vos.org/challenge/2021/).
+<!-- * \[2021.02\] I'm co-organizing The 3rd Large-scale Video Object Segmentation Challenge at CVPR 2021. The website is [here](https://youtube-vos.org/challenge/2021/).
   
 * \[2020.12\] One paper accepted to AAAI 2021.
   
@@ -44,5 +45,5 @@ Please refer to my [Google scholar](https://scholar.google.com/citations?user=bi
 
 *  \[2019.07\] One paper accepted to ICCV 2019 as oral presentation ([paper](https://openaccess.thecvf.com/content_ICCV_2019/papers/Fu_Self-Similarity_Grouping_A_Simple_Unsupervised_Cross_Domain_Adaptation_Approach_for_ICCV_2019_paper.pdf)).
   
-*  \[2019.01\] Two papers accepted to AAAI 2019.
+*  \[2019.01\] Two papers accepted to AAAI 2019. -->
 
