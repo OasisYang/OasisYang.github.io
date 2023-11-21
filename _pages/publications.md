@@ -4,8 +4,11 @@ title: "Publications"
 permalink: /publications/
 author_profile: true
 ---
-<!-- ## Preprint
-1.  -->
+## Preprint
+1. <b>3D Reconstruction with Generalizable Neural Fields using Scene Priors</b> <br> 
+   <b>Yang Fu</b>,  Shalini De Mello, Xueting Li, Amey Kulkarni, Jan Kautz, Xiaolong Wang, Sifei Liu
+   <!-- <br><i>ICML 2023</i> -->
+   <br>[[Paper]](https://arxiv.org/abs/2309.15164v2) | [[Project]](https://oasisyang.github.io/neural-prior/)
 
 ## Conference Papers
 1. <b>MonoNeRF: Learning Generalizable NeRFs from Monocular Videos without Camera Poses</b> <br> 
