@@ -11,11 +11,12 @@ author_profile: true
    <b>Yang Fu</b>, Sifei Liu, Amey Kulkarni, Jan Kautz, Alexei A. Efros, Xiaolong Wang
    <br>[[Paper]](https://arxiv.org/abs/2312.07504) | [[Project]](https://oasisyang.github.io/colmap-free-3dgs/)
 
+## Conference Papers
+
 1. <b>3D Reconstruction with Generalizable Neural Fields using Scene Priors</b> <br>
    <b>Yang Fu</b>, Shalini De Mello, Xueting Li, Amey Kulkarni, Jan Kautz, Xiaolong Wang, Sifei Liu
+   <br><i>ICLR 2024</i>
    <br>[[Paper]](https://arxiv.org/abs/2309.15164v2) | [[Project]](https://oasisyang.github.io/neural-prior/)
-
-## Conference Papers
 
 1. <b>MonoNeRF: Learning Generalizable NeRFs from Monocular Videos without Camera Poses</b> <br>
    <b>Yang Fu</b>, Ishan Misra, Xiaolong Wang
