@@ -11,6 +11,12 @@ author_profile: true
    <b>Yang Fu</b>, Sifei Liu, Amey Kulkarni, Jan Kautz, Alexei A. Efros, Xiaolong Wang
    <br>[[Paper]](https://arxiv.org/abs/2312.07504) | [[Project]](https://oasisyang.github.io/colmap-free-3dgs/)
 
+1. <b>RGBD Objects in the Wild: Scaling Real-World 3D Object Learning from RGB-D Videos</b> <br>
+   Hongchi Xia, <b>Yang Fu\*</b>, Amey Kulkarni, Jan Kautz, Alexei A. Efros, Xiaolong Wang
+   <br>
+   \*Equal contribution
+   <br>[[Paper]](https://arxiv.org/abs/2401.12592) | [[Project]](https://wildrgbd.github.io/) | [[Data]](https://github.com/wildrgbd/wildrgbd)
+
 ## Conference Papers
 
 1. <b>3D Reconstruction with Generalizable Neural Fields using Scene Priors</b> <br>
