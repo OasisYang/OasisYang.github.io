@@ -97,6 +97,7 @@ body {
 
     overflow: hidden;
     border-radius: 10px !important;
+    /* max-width: 1440px; */
 }
 
 .publication-video iframe {
