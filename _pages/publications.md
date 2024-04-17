@@ -11,7 +11,7 @@ author_profile: true
 
 1. <b>COLMAP-Free 3D Gaussian Splatting</b> <br>
    <b>Yang Fu</b>, Sifei Liu, Amey Kulkarni, Jan Kautz, Alexei A. Efros, Xiaolong Wang
-   <br><i>CVPR 2024</i>
+   <br><i>CVPR 2024</i> <span style="color:Red">_Highlight_</span>
    <br>[[Paper]](https://arxiv.org/abs/2312.07504) | [[Project]](https://oasisyang.github.io/colmap-free-3dgs/)
 
 1. <b>RGBD Objects in the Wild: Scaling Real-World 3D Object Learning from RGB-D Videos</b> <br>
@@ -20,6 +20,13 @@ author_profile: true
    <b>\*Equal contribution</b>
    <br><i>CVPR 2024</i>
    <br>[[Paper]](https://arxiv.org/abs/2401.12592) | [[Project]](https://wildrgbd.github.io/) | [[Data]](https://github.com/wildrgbd/wildrgbd)
+
+1. <b>HOIDiffusion: Generating Realistic 3D Hand-Object Interaction Data</b> <br>
+   Mengqi Zhang\*, <b>Yang Fu\*</b>, Zheng Ding, Sifei Liu, Zhuowen Tu, Xiaolong Wang.
+   <br>
+   <b>\*Equal contribution</b>
+   <br><i>CVPR 2024</i>
+   <br>[[Paper]](https://arxiv.org/abs/2403.12011) | [[Project]](https://mq-zhang1.github.io/HOIDiffusion/)
 
 1. <b>3D Reconstruction with Generalizable Neural Fields using Scene Priors</b> <br>
    <b>Yang Fu</b>, Shalini De Mello, Xueting Li, Amey Kulkarni, Jan Kautz, Xiaolong Wang, Sifei Liu
@@ -58,7 +65,7 @@ author_profile: true
 
 1. <b>Self-similarity grouping: A simple unsupervised cross domain adaptation approach for person re-identification</b> <br>
    <b>Yang Fu</b>, Yunchao Wei, Guanshuo Wang, Yuqian Zhou, Honghui Shi, Thomas S Huang
-   <br> <i>ICCV 2019</i> Oral
+   <br> <i>ICCV 2019</i> <span style="color:Red">_Oral_</span>
    <br>[[Paper]](http://openaccess.thecvf.com/content_ICCV_2019/papers/Fu_Self-Similarity_Grouping_A_Simple_Unsupervised_Cross_Domain_Adaptation_Approach_for_ICCV_2019_paper.pdf) | [[Code]](https://github.com/SHI-Labs/Self-Similarity-Grouping)<br>
 
 1. <b>STA: Spatial-Temporal Attention for Large-Scale Video-based Person Re-Identification</b> <br>
