@@ -8,7 +8,9 @@ redirect_from:
   - /about.html
 ---
 
-Yang is currently a Ph.D student in Electrical and Computer Engineering (ECE) at University of California San Diego (UCSD), advised by [Prof. Xiaolong Wang](https://xiaolonw.github.io/). Before that, he obtained his M.S. in ECE at UIUC in 2020 under the supervision of [Prof. Thomas S. Huang](https://scholar.google.com/citations?user=rGF6-WkAAAAJ&hl=en&oi=ao) (1936-2020) and [Prof. Humphrey Shi](https://www.humphreyshi.com/).
+Yang is currently a Ph.D student in Electrical and Computer Engineering (ECE) at University of California San Diego (UCSD), advised by [Prof. Xiaolong Wang](https://xiaolonw.github.io/). I've received [Qualcomm Innovation Fellowship](https://www.qualcomm.com/research/university-relations/innovation-fellowship/2023-north-america) (2023).
+
+Before that, he obtained his M.S. in ECE at UIUC in 2020 under the supervision of [Prof. Thomas S. Huang](https://scholar.google.com/citations?user=rGF6-WkAAAAJ&hl=en&oi=ao) (1936-2020) and [Prof. Humphrey Shi](https://www.humphreyshi.com/).
 
 ## Research Interests
 
