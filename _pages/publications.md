@@ -22,6 +22,7 @@ author_profile: true
 1. <b>A Construct-Optimize Approach to Sparse View Synthesis without Camera Pose</b> <br>
    Kaiwen Jiang, <b>Yang Fu</b>, Yash Belhe, Xiaolong Wang, Hao Su, Ravi Ramamoorthi
    <br><i>SIGGRAPH 2024</i>
+   <br>[[Paper]](https://arxiv.org/abs/2405.03659) | [[Project]](https://raymondjiangkw.github.io/cogs.github.io/)
 
 1. <b>COLMAP-Free 3D Gaussian Splatting</b> <br>
    <b>Yang Fu</b>, Sifei Liu, Amey Kulkarni, Jan Kautz, Alexei A. Efros, Xiaolong Wang
