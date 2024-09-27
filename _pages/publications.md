@@ -13,11 +13,12 @@ author_profile: true
    <b>\*Equal contribution</b>
    <br>[[Paper]](https://arxiv.org/abs/2403.07563) | [[Project]](https://geff-b1.github.io/)
 
+## Conference Papers
+
 1. <b>SpatialRGPT: Grounded Spatial Reasoning in Vision Language Model</b> <br>
    An-Chieh Cheng, Hongxu Yin, <b>Yang Fu</b>, Qiushan Guo, Ruihan Yang, Jan Kautz, Xiaolong Wang, Sifei Liu
+   <br><i>NeurIPS 2024</i>
    <br>[[Paper]](https://arxiv.org/abs/2406.01584) | [[Project]](https://www.anjiecheng.me/SpatialRGPT)
-
-## Conference Papers
 
 1. <b>A Construct-Optimize Approach to Sparse View Synthesis without Camera Pose</b> <br>
    Kaiwen Jiang, <b>Yang Fu</b>, Yash Belhe, Xiaolong Wang, Hao Su, Ravi Ramamoorthi

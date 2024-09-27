@@ -12,6 +12,8 @@ Yang is currently a Ph.D student in Electrical and Computer Engineering (ECE) at
 
 ## News
 
+- \[2024.09\] [SpatialRGPT: Grounded Spatial Reasoning in Vision Language Model](https://www.anjiecheng.me/SpatialRGPT) is accepted to NeurIPS 2024.
+
 - \[2024.03\] [A Construct-Optimize Approach to Sparse View Synthesis without Camera Pose](https://raymondjiangkw.github.io/cogs.github.io/) is accepted to SIGGRAPH 2024.
 
 - \[2024.02\] Three papers([CF3DGS](https://oasisyang.github.io/colmap-free-3dgs), [HOIDiffusion](https://mq-zhang1.github.io/HOIDiffusion/) and [WILD RGBD](https://wildrgbd.github.io/)) are accepted to CVPR 2024.
