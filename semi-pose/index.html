@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <!-- <meta name="description"
+        content="Deformable Neural Radiance Fields creates free-viewpoint portraits (nerfies) from casually captured videos.">
+  <meta name="keywords" content="Nerfies, D-NeRF, NeRF">
+  <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+  <title>Category-Level 6D Object Pose Estimation in the Wild: 
+    A Semi-Supervised Learning Approach and A New Dataset</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+
+
+
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">Category-Level 6D Object Pose Estimation in the Wild: A Semi-Supervised Learning Approach and A New Dataset</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://oasisyang.github.io/">Yang Fu</a>,</span>
+            <span class="author-block">
+              <a href="https://xiaolonw.github.io/">Xiaolong Wang</a></span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">University of California San Diego</span>
+          </div>
+          <!-- <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>,</span>
+          </div> -->
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <!-- <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span> -->
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/2206.15436"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <!-- Video Link. -->
+              <span class="link-block">
+                <a href="https://www.youtube.com/watch?v=pYvig8rL_1s"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                  </span>
+                  <span>Video</span>
+                </a>
+              </span>
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://github.com/OasisYang/Wild6D"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+              <!-- Dataset Link. -->
+              <span class="link-block">
+                <a href="https://drive.google.com/drive/folders/1SjWUcuSvYMM5rPPd4aQhK0jo1IHbCJbT?usp=sharing"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fa fa-database"></i>
+                  </span>
+                  <span>Dataset</span>
+                  </a>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <video id="teaser" autoplay muted loop playsinline height="100%">
+        <source src="static/videos/teaser_vid.mp4"
+                type="video/mp4">
+      </video>
+      <h2 class="subtitle has-text-centered" style="margin-top: 15px">
+        Our collected Wild6D dataset consists of a large number of object-centric RGBD videos.
+      </h2>
+      <video id="teaser" autoplay muted loop playsinline height="100%">
+        <source src="static/videos/teaser_demo.mp4"
+                type="video/mp4">
+      </video>
+      <h2 class="subtitle has-text-centered" style="margin-top: 15px">
+        Accurate 6D pose estimation results on diverse daily objects without any human annotations. 
+      </h2>
+    </div>
+
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            We present the first method capable of estimating the category-level 
+            6D object pose for in-the-wild data without using any annotations of
+            real-world data.
+          </p>
+          <p>
+            6D object pose estimation is one of the fundamental problem in computer vision 
+            and robotics research. While a lot of recent efforts have been made on 
+            generalizing pose estimation to novel object instances within the same category, 
+            namely category-level 6D pose estimation, it is still restricted in constrained 
+            environments given limited number of annotated data. In this paper, we collect 
+            <i>Wild6D</i>, a new unlabeled RGBD object video dataset with diverse instances and 
+            backgrounds. We utilize this data to generalize 6D object pose estimation in 
+            the wild with semi-supervised learning. We propose a novel model, 
+            called  <strong>Re</strong>ndering for <strong>Po</strong>se estimation network 
+            (<strong>RePoNet</strong>), that is jointly trained using the free ground-truths with the synthetic data, 
+            and a self-supervised objective on the real-world data. Without using any 3D 
+            annotations on real data, our method outperforms state-of-the-art methods 
+            on previous datasets and our Wild6D test set (with manual annotations for evaluation) 
+            by a large margin.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+
+    <!-- Paper video. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Video</h2>
+        <div class="publication-video">
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/pYvig8rL_1s" title="YouTube video player" 
+          frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+          allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+    <!--/ Paper video. -->
+    <div class="hr"></div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container">
+      <!-- <div class="column is-four-fifths has-text-centered">
+        <h2 class="title is-3">Results</h2>
+      </div>
+      <div class="column is-four-fifths">
+        <h3 class="title is-4">Results on NOCS REAL275</h3>
+      </div> -->
+    <div class="columns is-centered">
+      <div class="column is-four-fifths has-text-centered">
+        <h2 class="title is-3">Wild6D</h2>
+        <div class="content has-text-justified">
+          <p> 
+            <i>Wild6D</i> is a large-scale RGBD video dataset for 6D object 
+            pose estimation in the wild. Each video in the dataset shows multiple
+            views of one or multiple objects. In total, there are more 5,000 videos
+            over 5 categories: bottle, can, mug, laptop and camera.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="hero-body is-light is-small">
+
+    <div class="container">
+      <div id="results-carousel" class="carousel results-carousel">
+        <video id="dollyzoom" autoplay controls muted loop height="100%">
+          <source src="static/videos/1.mp4"
+                  type="video/mp4">
+        </video>
+        <video id="dollyzoom" autoplay controls muted loop height="100%">
+          <source src="static/videos/2.mp4"
+                  type="video/mp4">
+        </video>
+        <video id="dollyzoom" autoplay controls muted loop height="100%">
+          <source src="static/videos/3.mp4"
+                  type="video/mp4">
+        </video>
+        <video id="dollyzoom" autoplay controls muted loop height="100%">
+          <source src="static/videos/4.mp4"
+                  type="video/mp4">
+        </video>
+        <video id="dollyzoom" autoplay controls muted loop height="100%">
+          <source src="static/videos/5.mp4"
+                  type="video/mp4">
+        </video>
+        <video id="dollyzoom" autoplay controls muted loop height="100%">
+          <source src="static/videos/6.mp4"
+                  type="video/mp4">
+        </video>
+        <video id="dollyzoom" autoplay controls muted loop height="100%">
+          <source src="static/videos/2021-10-07--10-26-54.mp4"
+                  type="video/mp4">
+        </video>
+        <video id="dollyzoom" autoplay controls muted loop height="100%">
+          <source src="static/videos/2021-10-07--10-24-28.mp4"
+                  type="video/mp4">
+        </video>
+        <video id="dollyzoom" autoplay controls muted loop height="100%">
+          <source src="static/videos/2021-10-05--11-35-31.mp4"
+                  type="video/mp4">
+        </video>
+        <video id="dollyzoom" autoplay controls muted loop height="100%">
+          <source src="static/videos/2021-10-05--11-02-30.mp4"
+                  type="video/mp4">
+        </video>
+        <video id="dollyzoom" autoplay controls muted loop height="100%">
+          <source src="static/videos/2021-08-29--12-43-48.mp4"
+                  type="video/mp4">
+        </video>
+        <video id="dollyzoom" autoplay controls muted loop height="100%">
+          <source src="static/videos/2021-08-31--14-49-03.mp4"
+                  type="video/mp4">
+        </video>
+        <video id="dollyzoom" autoplay controls muted loop height="100%">
+          <source src="static/videos/2021-08-29--12-58-10.mp4"
+                  type="video/mp4">
+        </video>
+      </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- <section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Wild6D Dataset</h2>
+        <div class="content has-text-justified">
+          <p> 
+            <i>Wild6D</i> is a large-scale RGBD video dataset for 6D object 
+            pose estimation in the wild. Each video in the dataset shows multiple
+            views of one or multiple objects. In total, there are more 5,000 videos
+            over 5 categories: bottle, can, mug, laptop and camera.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="columns is-centered">
+      <div class="column content">
+        <video id="dollyzoom" autoplay controls muted loop height="100%">
+          <source src="static/videos/1.mp4"
+                  type="video/mp4">
+        </video>
+      </div>
+      <div class="column content">
+        <video id="dollyzoom" autoplay controls muted loop height="100%">
+          <source src="static/videos/2.mp4"
+                  type="video/mp4">
+        </video>
+      </div>
+    </div>
+    <div class="columns is-centered">
+      <div class="column content">
+        <video id="dollyzoom" autoplay controls muted loop height="100%">
+          <source src="static/videos/3.mp4"
+                  type="video/mp4">
+        </video>
+      </div>
+      <div class="column content">
+        <video id="dollyzoom" autoplay controls muted loop height="100%">
+          <source src="static/videos/4.mp4"
+                  type="video/mp4">
+        </video>
+      </div>
+    </div>
+    <div class="columns is-centered">
+      <div class="column content">
+        <video id="dollyzoom" autoplay controls muted loop height="100%">
+          <source src="static/videos/5.mp4"
+                  type="video/mp4">
+        </video>
+      </div>
+      <div class="column content">
+        <video id="dollyzoom" autoplay controls muted loop height="100%">
+          <source src="static/videos/6.mp4"
+                  type="video/mp4">
+        </video>
+      </div>
+    </div>
+  </div>
+</section> -->
+
+
+<section class="section">
+  <div class="container">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-two-thirds">
+        <h2 class="title is-3">Method</h2>
+        <img src="static/images/approach.jpg"/>
+        <div class="content has-text-justified">
+          <p>
+            Overview of the proposed method. Given the input image and depth map, 
+            <b>RePoNet</b> estimates the object pose, NOCS map and shape simultaneously 
+            via Pose Network and Shape Network. These two network are bridged via 
+            the differetiable rendering module. By comparing the predicted binary 
+            mask with the input foreground mask, <b>RePoNet</b> can effectively leverage 
+            the real-world data without any annotations.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-two-thirds">
+        <h2 class="title is-3">Semi-supervsed Setting</h2>
+        <img src="static/images/semi_new.jpg"/>
+        <div class="content has-text-justified">
+          <p>
+            Illustration of proposed semi-supervised setting. For the synthetic data, 
+            we supervise it with all the annotations. While for the real-world data, 
+            we train it in a self-supervised manner by comparing the binary mask 
+            generated by rendering module with the object foreground segmentation.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+
+    <!-- Results. -->
+    <div class="columns is-centered ">
+      <div class="column is-full-width">
+        <h2 class="title is-3 has-text-centered" style="margin-top: -30px">Results</h2>
+
+        <h3 class="title is-4">Wild6D</h3>
+        <div class="content has-text-justified">
+          <p>
+            We test our method on the Wild6D testset. 
+            Green bounding boxes show the prediction results and the red ones indicate the ground-truths.
+          </p>
+        </div>
+        <div class="columns is-centered">
+          <div class="column content">
+            <img src="static/images/wild6d/results_bottle_0001_1_0160.jpg"
+            class="interpolation-image"
+            alt="Interpolate start reference image."/>
+          </div>
+          <div class="column content">
+            <img src="static/images/wild6d/results_bowl_0001_2_0241.jpg"
+            class="interpolation-image"
+            alt="Interpolate start reference image."/>
+          </div>
+          <div class="column content">
+            <img src="static/images/wild6d/results_cup_0005_3_0057.jpg"
+            class="interpolation-image"
+            alt="Interpolate start reference image."/>
+          </div>
+          <div class="column content">
+            <img src="static/images/wild6d/results_cup_0020_1_0130.jpg"
+            class="interpolation-image"
+            alt="Interpolate start reference image."/>
+          </div>
+          <div class="column content">
+            <img src="static/images/wild6d/results_laptop_0001_1_0233.jpg"
+            class="interpolation-image"
+            alt="Interpolate start reference image."/>
+          </div>
+        </div>
+        <div class="columns is-centered">
+          <div class="column content">
+            <img src="static/images/wild6d/results_bottle_0004_1_0007.jpg"
+            class="interpolation-image"
+            alt="Interpolate start reference image."/>
+          </div>
+          <div class="column content">
+            <img src="static/images/wild6d/results_bowl_0009_1_0349.jpg"
+            class="interpolation-image"
+            alt="Interpolate start reference image."/>
+          </div>
+          <div class="column content">
+            <img src="static/images/wild6d/results_bottle_0006_3_0254.jpg"
+            class="interpolation-image"
+            alt="Interpolate start reference image."/>
+          </div>
+          <div class="column content">
+            <img src="static/images/wild6d/results_camera_0003_2021-09-03--10-47-13_0076.jpg"
+            class="interpolation-image"
+            alt="Interpolate start reference image."/>
+          </div>
+          <div class="column content">
+            <img src="static/images/wild6d/results_cup_0006_3_0043.jpg"
+            class="interpolation-image"
+            alt="Interpolate start reference image."/>
+          </div>
+        </div>
+
+        <div class="columns is-centered">
+          <div class="column content">
+            <img src="static/images/wild6d/results_bottle_0027_2021-09-16--18-28-10_0094.jpg"
+            class="interpolation-image"
+            alt="Interpolate start reference image."/>
+          </div>
+          <div class="column content">
+            <img src="static/images/wild6d/results_bowl_0016_3_0180.jpg"
+            class="interpolation-image"
+            alt="Interpolate start reference image."/>
+          </div>
+          <div class="column content">
+            <img src="static/images/wild6d/results_bowl_0023_2021-09-27--11-04-21_0085.jpg"
+            class="interpolation-image"
+            alt="Interpolate start reference image."/>
+          </div>
+          <div class="column content">
+            <img src="static/images/wild6d/results_camera_0001_2021-09-03--10-37-41_0006.jpg"
+            class="interpolation-image"
+            alt="Interpolate start reference image."/>
+          </div>
+          <div class="column content">
+            <img src="static/images/wild6d/results_laptop_0002_1_0174.jpg"
+            class="interpolation-image"
+            alt="Interpolate start reference image."/>
+          </div>
+        </div>
+
+        <div class="columns is-centered">
+          <div class="column content">
+            <img src="static/images/wild6d/results_bottle_0042_2021-09-16--19-12-18_0180.jpg"
+            class="interpolation-image"
+            alt="Interpolate start reference image."/>
+          </div>
+          <div class="column content">
+            <img src="static/images/wild6d/results_bowl_0039_2021-09-27--11-38-16_0132.jpg"
+            class="interpolation-image"
+            alt="Interpolate start reference image."/>
+          </div>
+          <div class="column content">
+            <img src="static/images/wild6d/results_bottle_0045_2021-09-16--19-17-43_0008.jpg"
+            class="interpolation-image"
+            alt="Interpolate start reference image."/>
+          </div>
+          <div class="column content">
+            <img src="static/images/wild6d/results_laptop_0003_2_0359.jpg"
+            class="interpolation-image"
+            alt="Interpolate start reference image."/>
+          </div>
+          <div class="column content">
+            <img src="static/images/wild6d/results_camera_0006_2021-09-03--10-15-41_0143.jpg"
+            class="interpolation-image"
+            alt="Interpolate start reference image."/>
+          </div>
+        </div>
+  
+        <h3 class="title is-4">NOCS</h3>
+        <div class="content has-text-justified">
+          <p>
+            We test our method on the NOCS REAL275 test set. 
+            Green bounding boxes show the prediction results and the red ones indicate the ground-truths.
+          </p>
+        </div>
+        <div class="columns is-centered">
+          <div class="column content">
+            <img src="static/images/nocs/results_test_scene_1_0010.jpg"
+            class="interpolation-image"
+            alt="Interpolate start reference image."/>
+          </div>
+          <div class="column content">
+            <img src="static/images/nocs/results_test_scene_2_0084.jpg"
+            class="interpolation-image"
+            alt="Interpolate start reference image."/>
+          </div>
+          <div class="column content">
+            <img src="static/images/nocs/results_test_scene_3_0332.jpg"
+            class="interpolation-image"
+            alt="Interpolate start reference image."/>
+          </div>
+          <div class="column content">
+            <img src="static/images/nocs/results_test_scene_4_0226.jpg"
+            class="interpolation-image"
+            alt="Interpolate start reference image."/>
+          </div>
+        </div>
+        <div class="columns is-centered">
+          <div class="column content">
+            <img src="static/images/nocs/results_test_scene_5_0121.jpg"
+            class="interpolation-image"
+            alt="Interpolate start reference image."/>
+          </div>
+          <div class="column content">
+            <img src="static/images/nocs/results_test_scene_6_0051.jpg"
+            class="interpolation-image"
+            alt="Interpolate start reference image."/>
+          </div>
+          <div class="column content">
+            <img src="static/images/nocs/results_test_scene_2_0315.jpg"
+            class="interpolation-image"
+            alt="Interpolate start reference image."/>
+          </div>
+          <div class="column content">
+            <img src="static/images/nocs/results_test_scene_3_0388.jpg"
+            class="interpolation-image"
+            alt="Interpolate start reference image."/>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@article{Fu2022Wild6D,
+  author    = {Fu, Yang and Wang, Xiaolong},
+  title     = {Category-Level 6D Object Pose Estimation in the Wild: A Semi-Supervised Learning Approach and A New Dataset},
+  journal   = {arXiv:2206.15436},
+  year      = {2022},
+}</code></pre>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            <!-- This website is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>. -->
+            This webpage template is from <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>. 
+            We sincerely thank <a href="https://keunhong.com/">Keunhong Park</a> for developing and open-sourcing this template.
+          </p>
+        </div>
+      </div>
+          <p></p>
+        </div>
+      </div>
+</footer>
+
+</body>
+</html>

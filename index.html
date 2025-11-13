@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yang Fu | Robotics &amp; Vision</title>
+    <meta name="description" content="Yang Fu's academic homepage focusing on robotic manipulation, generalizable policy learning, and 3D perception.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.9.4/css/academicons.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="fixed-top-nav">
+    <header>
+        <nav id="navbar" class="navbar" role="navigation">
+            <div class="nav-container">
+                <a class="brand" href="#about">Yang Fu</a>
+                <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <ul class="nav-links" id="nav-links">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#about">About <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#publications">Publications</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="assets/pdf/cv.pdf" target="_blank" rel="noopener">CV</a>
+                    </li>
+                    <li class="nav-item toggle-container">
+                        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+                            <i class="fas fa-moon"></i>
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <progress id="progress" value="0" max="100">
+            <div class="progress-container">
+                <span class="progress-bar"></span>
+            </div>
+        </progress>
+    </header>
+
+    <main class="container" role="main">
+        <article class="post">
+            <section id="about" class="about">
+                <div class="about-text">
+                    <header class="post-header">
+                        <h1 class="post-title">Yang Fu</h1>
+                    </header>
+                    <p>
+                        I am a Ph.D. candidate in Computer Science at
+                        <a href="https://www.ucsd.edu/" target="_blank" rel="noopener">UC San Diego</a>
+                        where I am fortunate to work with
+                        <a href="https://xiaolonw.github.io/" target="_blank" rel="noopener">Prof. Xiaolong Wang</a>.
+                        During my Ph.D., I was fortunate to receive the 
+                        <a href="https://www.qualcomm.com/research/university-relations/innovation-fellowship/2023-north-america" target="_blank" rel="noopener">Qualcomm Innovation Fellowship (2023)</a>.
+                        Before that, I obtained my M.S. in ECE at 
+                        <a href="https://illinois.edu/" target="_blank" rel="noopener">University of Illinois at Urbana-Champaign</a>
+                        in 2020 under the supervision of 
+                        <a href="https://www.ifp.illinois.edu/~huang/" target="_blank" rel="noopener">Prof. Thomas S. Huang</a>
+                        and <a href="https://www.humphreyshi.com/" target="_blank" rel="noopener">Prof. Humphrey Shi</a>.
+                    </p>
+                    <!-- <p>
+                        My research lies at the intersection of robotic manipulation, generalizable policy learning, and 3D perception.
+                        I study how large-scale demonstrations, multi-modal memory, and neural feature fields can enable robots to reason
+                        across tasks, embodiments, and environments.
+                    </p> -->
+                    <div class="social contact-icons">
+                        <a href="https://scholar.google.com/citations?user=YangFu" title="Google Scholar" target="_blank" rel="noopener">
+                            <i class="ai ai-google-scholar"></i>
+                        </a>
+                        <!-- <a href="https://github.com/yangfu" title="GitHub" target="_blank" rel="noopener">
+                            <i class="fab fa-github"></i>
+                        </a> -->
+                        <a href="https://www.linkedin.com/in/yang-fu-1b5793130" title="LinkedIn" target="_blank" rel="noopener">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="https://x.com/yangfu21" title="X" target="_blank" rel="noopener">
+                            <i class="fa-brands fa-x-twitter"></i>
+                        </a>
+                        <a href="mailto:yangfu@ucsd.edu" title="Email">
+                            <i class="fa-solid fa-square-envelope"></i>
+                        </a>
+                    </div>
+                </div>
+                <figure class="profile">
+                    <img src="assets/img/profile.png" alt="Yang Fu" loading="lazy">
+                </figure>
+            </section>
+
+            <!-- <section id="news" class="news">
+                <h2>News</h2>
+                <ul class="news-list">
+                    <li>
+                        <span class="news-date">Jun 2025</span>
+                        <span class="news-text">Dex1B was accepted to RSS 2025 &mdash; see you in Detroit for the presentation!</span>
+                    </li>
+                    <li>
+                        <span class="news-date">May 2025</span>
+                        <span class="news-text">Released our soft gripper co-design preprint that combines neural physics with differentiable fabrication constraints.</span>
+                    </li>
+                    <li>
+                        <span class="news-date">Mar 2025</span>
+                        <span class="news-text">3D-Spatial Multimodal Memory is heading to ICLR 2025; I led the manipulation benchmarking efforts.</span>
+                    </li>
+                    <li>
+                        <span class="news-date">Oct 2024</span>
+                        <span class="news-text">Started collaborating with CMU on large-scale mobile manipulation, resulting in the GEFF project.</span>
+                    </li>
+                </ul>
+            </section> -->
+
+            <section id="publications" class="publications-section">
+                <h2><a href="#publications">Publications</a></h2>
+                
+                <h3 class="pub-category">Preprints</h3>
+                <ol class="bibliography">
+                    <li>
+                        <div class="pub-row">
+                            <div class="pub-abbr">
+                                <video autoplay loop muted playsinline loading="lazy">
+                                    <source src="https://www.anjiecheng.me/assets/img/teasers/sr3d.mp4" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                                <span class="badge badge-preprint">preprint</span>
+                            </div>
+                            <div class="pub-details" id="cheng2025region">
+                                <h3 class="pub-title">3D Aware Region Prompted Vision Language Model</h3>
+                                <p class="pub-authors">An-Chieh Cheng, <strong>Yang Fu</strong>, Yukang Chen, Zhijian Liu, Xiaolong Li, Subhashree Radhakrishnan, Song Han, Yao Lu, Jan Kautz, Pavlo Molchanov, Hongxu Yin, Xiaolong Wang, Sifei Liu</p>
+                                <p class="pub-venue"><em>arXiv preprint</em>, 2025</p>
+                                <div class="pub-links">
+                                    <a href="https://www.anjiecheng.me/assets/SR3D/sr3d.pdf" class="btn btn-sm" target="_blank" rel="noopener">PDF</a>
+                                    <a href="https://www.anjiecheng.me/sr3d" class="btn btn-sm" target="_blank" rel="noopener">Website</a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <!-- <li>
+                        <div class="pub-row">
+                            <div class="pub-abbr">
+                                <img src="https://jianglongye.com/assets/img/publication_preview/codesign.gif" alt="Co-design soft gripper" loading="lazy">
+                                <span class="badge badge-preprint">preprint</span>
+                            </div>
+                            <div class="pub-details" id="yi2025codesign">
+                                <h3 class="pub-title">Co-Design of Soft Grippers with Neural Physics</h3>
+                                <p class="pub-authors">Sha Yi, Xueqian Bai, Adabhav Singh, <strong>Yang Fu</strong>, Michael T. Tolley, and Xiaolong Wang</p>
+                                <p class="pub-venue"><em>arXiv:2505.20404</em>, 2025</p>
+                                <div class="pub-links">
+                                    <a href="https://arxiv.org/pdf/2505.20404" class="btn btn-sm" target="_blank" rel="noopener">PDF</a>
+                                    <a href="https://yswhynot.github.io/codesign-soft/" class="btn btn-sm" target="_blank" rel="noopener">Project</a>
+                                </div>
+                            </div>
+                        </div>
+                    </li> -->
+                </ol>
+
+                <h3 class="pub-category">Conference Papers</h3>
+                <ol class="bibliography">
+                    <li>
+                        <div class="pub-row">
+                            <div class="pub-abbr">
+                                <img src="https://jianglongye.com/assets/img/publication_preview/geff.gif" alt="GEFF project" loading="lazy">
+                                <span class="badge">IROS</span>
+                            </div>
+                            <div class="pub-details" id="qiu2025geff">
+                                <h3 class="pub-title">Learning Generalizable Feature Fields for Mobile Manipulation</h3>
+                                <p class="pub-authors">Ri-Zhao Qiu*, Yafei Hu*, Ge Yang, Yuchen Song, <strong>Yang Fu</strong>, Jianglong Ye, Jiteng Mu, Ruihan Yang, Nikolay Atanasov, Sebastian Scherer, and Xiaolong Wang</p>
+                                <p class="pub-venue"><em>International Conference on Intelligent Robots and Systems</em> (IROS), 2025</p>
+                                <div class="pub-links">
+                                    <a href="https://arxiv.org/pdf/2403.07563.pdf" class="btn btn-sm" target="_blank" rel="noopener">PDF</a>
+                                    <a href="https://geff-b1.github.io/" class="btn btn-sm" target="_blank" rel="noopener">Website</a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="pub-row">
+                            <div class="pub-abbr">
+                                <video autoplay loop muted playsinline loading="lazy">
+                                    <source src="https://www.anjiecheng.me/assets/SpatialRGPT/img/twitter-video-v6-compressed_.mp4" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                                <span class="badge">NeurIPS</span>
+                            </div>
+                            <div class="pub-details" id="cheng2024spatialrgpt">
+                                <h3 class="pub-title">SpatialRGPT: Grounded Spatial Reasoning in Vision Language Model</h3>
+                                <p class="pub-authors">An-Chieh Cheng, Hongxu Yin, <strong>Yang Fu</strong>, Qiushan Guo, Ruihan Yang, Jan Kautz, Xiaolong Wang, Sifei Liu</p>
+                                <p class="pub-venue"><em>Conference on Neural Information Processing Systems</em> (NeurIPS), 2024</p>
+                                <div class="pub-links">
+                                    <a href="https://www.anjiecheng.me/assets/SpatialRGPT/Spatial_RGPT.pdf" class="btn btn-sm" target="_blank" rel="noopener">PDF</a>
+                                    <a href="https://www.anjiecheng.me/SpatialRGPT" class="btn btn-sm" target="_blank" rel="noopener">Website</a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="pub-row">
+                            <div class="pub-abbr">
+                                <img src="https://raymondjiangkw.github.io/cogs.github.io/assets/12_views.gif" alt="Sparse View Synthesis" loading="lazy">
+                                <span class="badge">SIGGRAPH</span>
+                            </div>
+                            <div class="pub-details" id="jiang2024construct">
+                                <h3 class="pub-title">A Construct-Optimize Approach to Sparse View Synthesis without Camera Pose</h3>
+                                <p class="pub-authors">Kaiwen Jiang, <strong>Yang Fu</strong>, Yash Belhe, Xiaolong Wang, Hao Su, Ravi Ramamoorthi</p>
+                                <p class="pub-venue"><em>ACM SIGGRAPH</em>, 2024</p>
+                                <div class="pub-links">
+                                    <a href="https://arxiv.org/pdf/2405.03659" class="btn btn-sm" target="_blank" rel="noopener">PDF</a>
+                                    <a href="https://raymondjiangkw.github.io/cogs.github.io/" class="btn btn-sm" target="_blank" rel="noopener">Website</a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="pub-row">
+                            <div class="pub-abbr">
+                                <video autoplay loop muted playsinline loading="lazy">
+                                    <source src="assets/videos/cf3dgs_teaser.mp4" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                                <span class="badge badge-highlight">CVPR</span>
+                            </div>
+                            <div class="pub-details" id="fu2024colmap">
+                                <h3 class="pub-title">COLMAP-Free 3D Gaussian Splatting</h3>
+                                <p class="pub-authors"><strong>Yang Fu</strong>, Sifei Liu, Amey Kulkarni, Jan Kautz, Alexei A. Efros, Xiaolong Wang</p>
+                                <p class="pub-venue"><em>IEEE/CVF Conference on Computer Vision and Pattern Recognition</em> (CVPR), 2024 <strong>Highlight</strong></p>
+                                <div class="pub-links">
+                                    <a href="https://arxiv.org/pdf/2312.07504" class="btn btn-sm" target="_blank" rel="noopener">PDF</a>
+                                    <a href="colmap-free-3dgs/" class="btn btn-sm" target="_blank" rel="noopener">Website</a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="pub-row">
+                            <div class="pub-abbr">
+                                <video autoplay loop muted playsinline loading="lazy">
+                                    <source src="assets/videos/wildrgbd_teaser.mp4" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                                <span class="badge">CVPR</span>
+                            </div>
+                            <div class="pub-details" id="xia2024rgbd">
+                                <h3 class="pub-title">RGBD Objects in the Wild: Scaling Real-World 3D Object Learning from RGB-D Videos</h3>
+                                <p class="pub-authors">Hongchi Xia*, <strong>Yang Fu*</strong>, Sifei Liu, Xiaolong Wang</p>
+                                <p class="pub-venue"><em>IEEE/CVF Conference on Computer Vision and Pattern Recognition</em> (CVPR), 2024</p>
+                                <div class="pub-links">
+                                    <a href="https://arxiv.org/pdf/2401.12592" class="btn btn-sm" target="_blank" rel="noopener">PDF</a>
+                                    <a href="https://wildrgbd.github.io/" class="btn btn-sm" target="_blank" rel="noopener">Website</a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="pub-row">
+                            <div class="pub-abbr">
+                                <video autoplay loop muted playsinline loading="lazy">
+                                    <source src="https://mq-zhang1.github.io/HOIDiffusion/static/images/teaser_video.mp4" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                                <span class="badge">CVPR</span>
+                            </div>
+                            <div class="pub-details" id="zhang2024hoidiffusion">
+                                <h3 class="pub-title">HOIDiffusion: Generating Realistic 3D Hand-Object Interaction Data</h3>
+                                <p class="pub-authors">Mengqi Zhang*, <strong>Yang Fu*</strong>, Zheng Ding, Sifei Liu, Zhuowen Tu, Xiaolong Wang</p>
+                                <p class="pub-venue"><em>IEEE/CVF Conference on Computer Vision and Pattern Recognition</em> (CVPR), 2024</p>
+                                <div class="pub-links">
+                                    <a href="https://arxiv.org/pdf/2403.12011" class="btn btn-sm" target="_blank" rel="noopener">PDF</a>
+                                    <a href="https://mq-zhang1.github.io/HOIDiffusion/" class="btn btn-sm" target="_blank" rel="noopener">Website</a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="pub-row">
+                            <div class="pub-abbr">
+                                <video autoplay loop muted playsinline loading="lazy">
+                                    <source src="assets/videos/neuralprior_teaser.mp4" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                                <span class="badge">ICLR</span>
+                            </div>
+                            <div class="pub-details" id="fu2024reconstruction">
+                                <h3 class="pub-title">3D Reconstruction with Generalizable Neural Fields using Scene Priors</h3>
+                                <p class="pub-authors"><strong>Yang Fu</strong>, Shalini De Mello, Xueting Li, Amey Kulkarni, Jan Kautz, Xiaolong Wang, Sifei Liu</p>
+                                <p class="pub-venue"><em>International Conference on Learning Representations</em> (ICLR), 2024</p>
+                                <div class="pub-links">
+                                    <a href="https://arxiv.org/pdf/2309.15164v2" class="btn btn-sm" target="_blank" rel="noopener">PDF</a>
+                                    <a href="neural-prior/" class="btn btn-sm" target="_blank" rel="noopener">Website</a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="pub-row">
+                            <div class="pub-abbr">
+                                <video autoplay loop muted playsinline loading="lazy">
+                                    <source src="assets/videos/mononerf_teaser.m4v" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                                <span class="badge">ICML</span>
+                            </div>
+                            <div class="pub-details" id="fu2023mononerf">
+                                <h3 class="pub-title">MonoNeRF: Learning Generalizable NeRFs from Monocular Videos without Camera Poses</h3>
+                                <p class="pub-authors"><strong>Yang Fu</strong>, Ishan Misra, Xiaolong Wang</p>
+                                <p class="pub-venue"><em>International Conference on Machine Learning</em> (ICML), 2023</p>
+                                <div class="pub-links">
+                                    <a href="https://arxiv.org/pdf/2210.07181" class="btn btn-sm" target="_blank" rel="noopener">PDF</a>
+                                    <a href="mononerf/" class="btn btn-sm" target="_blank" rel="noopener">Website</a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="pub-row">
+                            <div class="pub-abbr">
+                                <video autoplay loop muted playsinline loading="lazy">
+                                    <source src="https://kywind.github.io/vids/self-pose/teaser.mp4" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                                <span class="badge">ICLR</span>
+                            </div>
+                            <div class="pub-details" id="zhang2023geometric">
+                                <h3 class="pub-title">Self-supervised Geometric Correspondence for Category-level 6D Object Pose Estimation in the Wild</h3>
+                                <p class="pub-authors">Kaifeng Zhang, <strong>Yang Fu</strong>, Shubhankar Borse, Hong Cai, Fatih Porikli, Xiaolong Wang</p>
+                                <p class="pub-venue"><em>International Conference on Learning Representations</em> (ICLR), 2023</p>
+                                <div class="pub-links">
+                                    <a href="https://arxiv.org/pdf/2210.07199" class="btn btn-sm" target="_blank" rel="noopener">PDF</a>
+                                    <a href="https://kywind.github.io/self-pose" class="btn btn-sm" target="_blank" rel="noopener">Website</a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="pub-row">
+                            <div class="pub-abbr">
+                                <video autoplay loop muted playsinline loading="lazy">
+                                    <source src="assets/videos/wild6d_teaser.mp4" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                                <span class="badge">NeurIPS</span>
+                            </div>
+                            <div class="pub-details" id="fu2022category">
+                                <h3 class="pub-title">Category-Level 6D Object Pose Estimation in the Wild: A Semi-Supervised Learning Approach and A New Dataset</h3>
+                                <p class="pub-authors"><strong>Yang Fu</strong>, Xiaolong Wang</p>
+                                <p class="pub-venue"><em>Conference on Neural Information Processing Systems</em> (NeurIPS), 2022</p>
+                                <div class="pub-links">
+                                    <a href="https://arxiv.org/pdf/2206.15436" class="btn btn-sm" target="_blank" rel="noopener">PDF</a>
+                                    <a href="semi-pose/" class="btn btn-sm" target="_blank" rel="noopener">Website</a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="pub-row">
+                            <div class="pub-abbr">
+                                <a href="https://www.youtube.com/watch?v=J6rV-ADVGHo" target="_blank" rel="noopener" style="position: relative; display: block;">
+                                    <img src="https://img.youtube.com/vi/J6rV-ADVGHo/maxresdefault.jpg" alt="DexMV Preview" loading="lazy">
+                                    <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 48px; height: 48px; background: rgba(0,0,0,0.7); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
+                                    </div>
+                                </a>
+                                <span class="badge">ECCV</span>
+                            </div>
+                            <div class="pub-details" id="qin2022dexmv">
+                                <h3 class="pub-title">DexMV: Imitation Learning for Dexterous Manipulation from Human Videos</h3>
+                                <p class="pub-authors">Yuzhe Qin, Yueh-Hua Wu, Shaowei Liu, Hanwen Jiang, Ruihan Yang, <strong>Yang Fu</strong>, Xiaolong Wang</p>
+                                <p class="pub-venue"><em>European Conference on Computer Vision</em> (ECCV), 2022</p>
+                                <div class="pub-links">
+                                    <a href="https://arxiv.org/pdf/2108.05877" class="btn btn-sm" target="_blank" rel="noopener">PDF</a>
+                                    <a href="https://yuzheqin.github.io/DexMV/" class="btn btn-sm" target="_blank" rel="noopener">Website</a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="pub-row">
+                            <div class="pub-abbr">
+                                <img src="assets/img/semitrack_teaser.png" alt="Track Instances" loading="lazy">
+                                <span class="badge badge-highlight">CVPR</span>
+                            </div>
+                            <div class="pub-details" id="fu2021track">
+                                <h3 class="pub-title">Learning to Track Instances without Video Annotations</h3>
+                                <p class="pub-authors"><strong>Yang Fu</strong>, Sifei Liu, Shalini De Mello, Umar Iqbal, Humphrey Shi, Jan Kautz</p>
+                                <p class="pub-venue"><em>IEEE/CVF Conference on Computer Vision and Pattern Recognition</em> (CVPR), 2021 <strong>Oral</strong></p>
+                                <div class="pub-links">
+                                    <a href="https://openaccess.thecvf.com/content/CVPR2021/papers/Fu_Learning_to_Track_Instances_without_Video_Annotations_CVPR_2021_paper.pdf" class="btn btn-sm" target="_blank" rel="noopener">PDF</a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="pub-row">
+                            <div class="pub-abbr">
+                                <img src="assets/img/compfeat_teaser.png" alt="CompFeat" loading="lazy">
+                                <span class="badge">AAAI</span>
+                            </div>
+                            <div class="pub-details" id="fu2021compfeat">
+                                <h3 class="pub-title">CompFeat: Comprehensive Feature Aggregation for Video Instance Segmentation</h3>
+                                <p class="pub-authors"><strong>Yang Fu</strong>, Linjie Yang, Ding Liu, Thomas S. Huang, Humphrey Shi</p>
+                                <p class="pub-venue"><em>AAAI Conference on Artificial Intelligence</em> (AAAI), 2021</p>
+                                <div class="pub-links">
+                                    <a href="https://arxiv.org/pdf/2012.03400" class="btn btn-sm" target="_blank" rel="noopener">PDF</a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="pub-row">
+                            <div class="pub-abbr">
+                                <img src="assets/img/ssg_teaser.png" alt="Self-similarity grouping" loading="lazy">
+                                <span class="badge badge-highlight">ICCV</span>
+                            </div>
+                            <div class="pub-details" id="fu2019selfsimilarity">
+                                <h3 class="pub-title">Self-similarity Grouping: A Simple Unsupervised Cross Domain Adaptation Approach for Person Re-identification</h3>
+                                <p class="pub-authors"><strong>Yang Fu</strong>, Yunchao Wei, Guanshuo Wang, Yuqian Zhou, Honghui Shi, Thomas S Huang</p>
+                                <p class="pub-venue"><em>IEEE/CVF International Conference on Computer Vision</em> (ICCV), 2019 <strong>Oral</strong></p>
+                                <div class="pub-links">
+                                    <a href="https://openaccess.thecvf.com/content_ICCV_2019/papers/Fu_Self-Similarity_Grouping_A_Simple_Unsupervised_Cross_Domain_Adaptation_Approach_for_ICCV_2019_paper.pdf2" class="btn btn-sm" target="_blank" rel="noopener">PDF</a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <!-- <li>
+                        <div class="pub-row">
+                            <div class="pub-abbr">
+                                <img src="assets/img/placeholder.svg" alt="STA" loading="lazy">
+                                <span class="badge">AAAI</span>
+                            </div>
+                            <div class="pub-details" id="fu2019sta">
+                                <h3 class="pub-title">STA: Spatial-Temporal Attention for Large-Scale Video-based Person Re-Identification</h3>
+                                <p class="pub-authors"><strong>Yang Fu</strong>, Xiaoyang Wang, Yunchao Wei, Thomas Huang</p>
+                                <p class="pub-venue"><em>AAAI Conference on Artificial Intelligence</em> (AAAI), 2019</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="pub-row">
+                            <div class="pub-abbr">
+                                <img src="assets/img/placeholder.svg" alt="HPM" loading="lazy">
+                                <span class="badge">AAAI</span>
+                            </div>
+                            <div class="pub-details" id="fu2019hpm">
+                                <h3 class="pub-title">Horizontal Pyramid Matching for Person Re-identification</h3>
+                                <p class="pub-authors"><strong>Yang Fu</strong>, Yunchao Wei, Yuqian Zhou, Honghui Shi, Gao Huang, Xinchao Wang, Zhiqiang Yao, Thomas Huang</p>
+                                <p class="pub-venue"><em>AAAI Conference on Artificial Intelligence</em> (AAAI), 2019</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="pub-row">
+                            <div class="pub-abbr">
+                                <img src="assets/img/placeholder.svg" alt="Vertebra matching" loading="lazy">
+                                <span class="badge">MIPR</span>
+                            </div>
+                            <div class="pub-details" id="yu2019vertebra">
+                                <h3 class="pub-title">A Novel Framework for 3D-2D Vertebra Matching</h3>
+                                <p class="pub-authors">Hanchao Yu, <strong>Yang Fu</strong>, Haichao Yu, Yunchao Wei, Xinchao Wang, Jianbo Jiao, Matthew Bramlet, Thenkurussi Kesavadas, Honghui Shi, Zhangyang Wang, Bihan Wen, Thomas Huang</p>
+                                <p class="pub-venue"><em>IEEE Conference on Multimedia Information Processing and Retrieval</em> (MIPR), 2019</p>
+                            </div>
+                        </div>
+                    </li> -->
+                </ol>
+            </section>
+        </article>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <p>© 2024 Yang Fu · Powered by plain HTML/CSS · Last updated: November 2024.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

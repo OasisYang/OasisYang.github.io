@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="COLMAP-Free 3D Gaussian Splatting.">
+    <!-- <meta name="keywords" content="Nerfies, D-NeRF, NeRF">
+    <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+    <title>COLMAP-Free 3D Gaussian Splatting</title>
+
+    <!-- <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+    <link rel="stylesheet" href="./static/css/bulma.min.css">
+    <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+    <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+    <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+    <link rel="stylesheet" href="./static/css/index.css"> -->
+
+
+    <!-- <link href="./static/css/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script defer src="./static/js/fontawesome.all.min.js"></script>
+    <script src="./static/js/bulma-carousel.min.js"></script>
+    <script src="./static/js/bulma-slider.min.js"></script>
+    <script src="./static/js/index.js"></script> -->
+    <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+    <link rel="stylesheet" href="./static/css/bulma.min.css">
+    <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+    <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+    <link rel="stylesheet" href="./static/css/tab_gallery.css">
+    <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+    <link rel="stylesheet" href="./static/css/index.css">
+    <link rel="stylesheet" href="juxtapose/css/juxtapose.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script defer src="./static/js/fontawesome.all.min.js"></script>
+    <script src="./static/js/bulma-carousel.min.js"></script>
+    <script src="./static/js/bulma-slider.min.js"></script>
+    <script src="./static/js/index.js"></script>
+    <script src="./static/js/magnifier.js"></script>
+    <link href="https://fonts.cdnfonts.com/css/menlo" rel="stylesheet">
+    <link rel="stylesheet" href="./static/css/image_card_fader.css">
+    <link rel="stylesheet" href="./static/css/image_card_slider.css">
+
+
+</head>
+
+<body>
+
+    <section class="hero">
+        <div class="hero-body">
+            <div class="container is-max-desktop">
+                <div class="columns is-centered">
+                    <div class="column has-text-centered">
+                        <h1 class="title is-1 publication-title">COLMAP-Free 3D Gaussian Splatting</h1>
+                        <div class="is-size-5 publication-authors">
+                            <span class="author-block">
+                                <a href="https://oasisyang.github.io/">Yang Fu</a><sup>1</sup>,</span>
+                            <span class="author-block">
+                                <a href="https://research.nvidia.com/person/sifei-liu">Sifei Liu</a><sup>2</sup></span>
+                            <span class="author-block">Amey Kulkarni<sup>2</sup>,</span>
+                            <span class="author-block">
+                                <a href="https://jankautz.com/">Jan Kautz</a><sup>2</sup>,</span>
+                            <span class="author-block">
+                                <a href="https://people.eecs.berkeley.edu/~efros/">Alexei A.
+                                    Efros</a><sup>3</sup>,</span>
+                            <span class="author-block">
+                                <a href="https://xiaolonw.github.io/">Xiaolong Wang</a><sup>1</sup></span>
+                        </div>
+    
+                        <div class="is-size-5 publication-authors">
+                            <span class="author-block"><sup>1</sup>UC San Diego</span>
+                            <span class="author-block"><sup>2</sup>NVIDIA</span>
+                            <span class="author-block"><sup>3</sup>UC Berkeley</span>
+                        </div>
+
+                        <div class="is-size-5 publication-authors">
+                            <span class="univerity-block" style="color: rgb(169, 16, 151);">CVPR 2024, Seattle</span>
+                        </div>
+                
+                        <div class="is-size-5 publication-authors">
+                            <span class="univerity-block" style="color: rgb(252, 118, 0);"><b>✨ Highlight ✨</b> </span>
+                        </div>
+                        
+                        <div class="column has-text-centered">
+                            <div class="publication-links">
+                                <span class="link-block">
+                                    <a href="https://arxiv.org/abs/2312.07504"
+                                        class="external-link button is-normal is-rounded is-dark">
+                                        <span class="icon">
+                                            <i class="ai ai-arxiv"></i>
+                                        </span>
+                                        <span>arXiv</span>
+                                    </a>
+                                </span>
+                                <!-- Video Link. -->
+                                <span class="link-block">
+                                    <a href="https://youtu.be/mGeVQS4ExK4?si=kqu3dbXopDdNg0wX"
+                                        class="external-link button is-normal is-rounded is-dark">
+                                        <span class="icon">
+                                            <i class="fab fa-youtube"></i>
+                                        </span>
+                                        <span>Video</span>
+                                    </a>
+                                </span>
+                                <span class="link-block">
+                                    <a href="https://drive.google.com/file/d/17Vf8LeTreb7V3JXSCTfiROrHhgVWqzHy/view?usp=sharing"
+                                        class="external-link button is-normal is-rounded is-dark">
+                                        <span class="icon">
+                                            <i class="fab fa-google-drive"></i>
+                                        </span>
+                                        <span>Slides</span>
+                                    </a>
+                                </span>
+                                <!-- Code Link. -->
+                                <span class="link-block">
+                                    <a href="https://github.com/NVlabs/CF-3DGS"
+                                        class="external-link button is-normal is-rounded is-dark">
+                                        <span class="icon">
+                                            <i class="fab fa-github"></i>
+                                        </span>
+                                        <span>Code</span>
+                                    </a>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="hero teaser">
+        <div class="container is-max-desktop">
+            <div class="hero-body">
+                <video id="teaser" autoplay muted loop playsinline height="100%">
+                    <!-- <source src="static/videos/3dgs_pose_teaser_small.mp4" type="video/mp4"> -->
+                    <source src="static/videos/3dgs_pose_teaser.mp4" type="video/mp4">
+                </video>
+            </div>
+        </div>
+    </section>
+
+    <section class="hero is-light is-small">
+        <div class="hero-body">
+          <div class="container is-max-desktop has-text-centered">
+            <div class="has-text-justified">
+    
+            <p>
+              Our COLMAP-Free 3D Gaussian Splatting approach successfully synthesizes photo-realistic 
+              novel view images efficiently, offering reduced training time and real-time rendering capabilities,
+              while eliminating the dependency on COLMAP processing.
+
+            </p>
+            </div>
+            <!-- The expanding image container -->
+            <div class="tab_container">
+              <!-- Close the image -->
+              <!-- <span onclick="this.parentElement.style.display='none'" class="closebtn">&times;</span> -->
+      
+              <!-- Expanded image -->
+              <div id="juxtapose-embed" data-startingposition="30%" data-animate="true">
+              </div>
+      
+              <div>
+                <div id="juxtapose-hidden"></div>
+              </div>
+              
+              <!-- Image text -->
+              <div id="imgtext"></div>
+            </div>
+      
+            <!-- The grid: four columns -->
+            <div class="tab_row">
+              <div class="tab_column">
+                <img src="./static/images/tanks_family_0020_nope.png" onclick="tab_gallery_click('tanks_family_0020');">
+              </div>
+              <div class="tab_column">
+                <img src="./static/images/tanks_ballroom_0002_nope.png"  onclick="tab_gallery_click('tanks_ballroom_0002');">
+              </div>
+              <div class="tab_column">
+                <img src="./static/images/tanks_barn_0005_nope.png"  onclick="tab_gallery_click('tanks_barn_0005');">
+              </div>
+              <div class="tab_column">
+                <img src="./static/images/tanks_church_0036_nope.png"  onclick="tab_gallery_click('tanks_church_0036');">
+              </div>
+              <div class="tab_column">
+                <img src="./static/images/tanks_francis_0002_nope.png"  onclick="tab_gallery_click('tanks_francis_0002');">
+              </div>
+              <div class="tab_column">
+                <img src="./static/images/tanks_horse_0000_nope.png"  onclick="tab_gallery_click('tanks_horse_0000');">
+              </div>
+              <div class="tab_column">
+                <img src="./static/images/tanks_ignatius_0012_nope.png"  onclick="tab_gallery_click('tanks_ignatius_0012');">
+              </div>
+              <div class="tab_column">
+                <img src="./static/images/tanks_museum_0000_nope.png"  onclick="tab_gallery_click('tanks_museum_0000');">
+              </div>
+              <!-- <div class="tab_column">
+                <img src="./static/images/co3d_apple_2_0000_nope.png"  onclick="tab_gallery_click('co3d_apple_2_0000');">
+              </div> -->
+              <div class="tab_column">
+                <img src="./static/images/co3d_bench_0005_nope.png"  onclick="tab_gallery_click('co3d_bench_0005');">
+              </div>
+              <div class="tab_column">
+                <img src="./static/images/co3d_skate_0003_nope.png"  onclick="tab_gallery_click('co3d_skate_0003');">
+              </div>
+              <!-- <div class="tab_column">
+                <img src="./static/images/co3d_skate_2_0001_nope.png"  onclick="tab_gallery_click('co3d_skate_2_0001');">
+              </div> -->
+            </div>
+          </div>
+        </div>
+    </section>
+
+    <section class="hero is-light is-small">
+        <div class="hero-body">
+            <div class="container is-max-desktop">
+                <!-- Abstract. -->
+                <div class="columns is-centered has-text-centered">
+                    <!-- <div class="column is-four-fifths"> -->
+                    <div class="column is-full-width">
+                        <h2 class="title is-3 has-text-centered">Abstract</h2>
+                        <div class="content has-text-justified">
+                        <p>
+                            While neural rendering has led to impressive advances in scene reconstruction and novel view synthesis, 
+                            it relies heavily on accurately pre-computed camera poses. To relax this constraint, 
+                            multiple efforts have been made to train Neural Radiance Fields (NeRFs) without pre-processed camera poses. 
+                            However, the implicit representations of NeRFs provide extra challenges to optimize the 3D structure and 
+                            camera poses at the same time. On the other hand, the recently proposed 3D Gaussian Splatting provides 
+                            new opportunities given its explicit point cloud representations. This paper leverages both the explicit 
+                            geometric representation and the continuity of the input video stream to perform novel view synthesis 
+                            without any SfM preprocessing. We process the input frames in a sequential manner and progressively grow 
+                            the 3D Gaussians set by taking one input frame at a time, without the need to pre-compute the camera poses. 
+                            Our method significantly improves over previous approaches in view synthesis and camera pose estimation 
+                            under large motion changes.
+                        </p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Paper video. -->
+            </div>
+    </section>
+
+    <section class="section" id="BibTeX">
+        <div class="container is-max-desktop content">
+            <h2 class="title">BibTeX</h2>
+            Due to some technical issues, you may cannot find our paper via Google Scholar. 
+            Please use the following BibTeX entry to cite our paper.
+            <pre><code>
+                @InProceedings{Fu_2024_CVPR,
+                    author    = {Fu, Yang and Liu, Sifei and Kulkarni, Amey and Kautz, Jan and Efros, Alexei A. and Wang, Xiaolong},
+                    title     = {COLMAP-Free 3D Gaussian Splatting},
+                    booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+                    month     = {June},
+                    year      = {2024},
+                    pages     = {20796-20805}
+                }
+        </code></pre>
+        </div>
+    </section>  
+
+
+    <section class="section">
+        <div class="container is-max-desktop">
+            <!-- Method. -->
+            <div class="columns is-centered has-text-centered">
+                <div class="column is-full-width">
+                    <h2 class="title is-3 has-text-centered">Approach</h2>
+                    <video id="dollyzoom" autoplay controls muted loop height="100%">
+                        <source src="static/videos/3dgs_pose_method.m4v" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="section">
+        <div class="container is-max-desktop">
+            <div class="columns is-centered has-text-centered">
+                <div class="column is-full-width">
+                    <h2 class="title is-3 has-text-centered">Novel View Synthesis</h2>
+                </div>
+            </div>
+            <div class="content has-text-justified">
+                <p>
+                    We show novel views from a Bezier curve which is 
+                    fitted to estimated camera poses.
+                </p>
+            </div>
+
+            <div class="columns is-centered has-text-centered">
+                <div class="column is-full-width">
+                    <div class="columns is-centered">
+                        <div class="column has-text-centered">
+                            <p> <b> Progressively Grow of Gaussians </b> </p>
+                            <!-- <video id="dollyzoom" autoplay controls muted loop height="100%">
+                                <source src="static/videos/Horse_grow.m4v" type="video/mp4">
+                            </video>
+                            <video id="dollyzoom" autoplay controls muted loop height="100%">
+                                <source src="static/videos/Barn_grow.m4v" type="video/mp4">
+                            </video>
+                            <video id="dollyzoom" autoplay controls muted loop height="100%">
+                                <source src="static/videos/Family_grow.m4v" type="video/mp4">
+                            </video>
+                            <video id="dollyzoom" autoplay controls muted loop height="100%">
+                                <source src="static/videos/Ballroom_grow.m4v" type="video/mp4">
+                            </video>
+                            <video id="dollyzoom" autoplay controls muted loop height="100%">
+                                <source src="static/videos/Ignatius_grow.m4v" type="video/mp4">
+                            </video>
+                            <video id="dollyzoom" autoplay controls muted loop height="100%">
+                                <source src="static/videos/Museum_grow.m4v" type="video/mp4">
+                            </video> -->
+                            <video id="dollyzoom" autoplay controls muted loop height="100%">
+                                <source src="static/videos/demo_Horse.mp4" type="video/mp4">
+                            </video>
+                            <video id="dollyzoom" autoplay controls muted loop height="100%">
+                                <source src="static/videos/demo_Barn.mp4" type="video/mp4">
+                            </video>
+                            <video id="dollyzoom" autoplay controls muted loop height="100%">
+                                <source src="static/videos/demo_Family.mp4" type="video/mp4">
+                            </video>
+                            <video id="dollyzoom" autoplay controls muted loop height="100%">
+                                <source src="static/videos/demo_Ballroom.mp4" type="video/mp4">
+                            </video>
+                            <video id="dollyzoom" autoplay controls muted loop height="100%">
+                                <source src="static/videos/demo_Ignatius.mp4" type="video/mp4">
+                            </video>
+                            <video id="dollyzoom" autoplay controls muted loop height="100%">
+                                <source src="static/videos/demo_Museum.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="column has-text-centered">
+                            <p><b>Novel View Synthesis</b></p>
+                            <!-- <video autoplay muted loop playsinline height="100%"> -->
+                            <video id="dollyzoom" autoplay controls muted loop height="100%">
+                                <source src="static/videos/Horse_compare.mp4" type="video/mp4">
+                            </video>
+                            <!-- <video autoplay muted loop playsinline height="100%"> -->
+                            <video id="dollyzoom" autoplay controls muted loop height="100%">
+                                <source src="static/videos/Barn_compare.mp4" type="video/mp4">
+                            </video>
+                            <!-- <video autoplay muted loop playsinline height="100%"> -->
+                            <video id="dollyzoom" autoplay controls muted loop height="100%">
+                                <source src="static/videos/Family_compare.mp4" type="video/mp4">
+                            </video>
+                            <!-- <video autoplay muted loop playsinline height="100%"> -->
+                            <video id="dollyzoom" autoplay controls muted loop height="100%">
+                                <source src="static/videos/Ballroom_compare.mp4" type="video/mp4">
+                            </video>
+                            <!-- <video autoplay muted loop playsinline height="100%"> -->
+                            <video id="dollyzoom" autoplay controls muted loop height="100%">
+                                <source src="static/videos/Ignatius_compare.mp4" type="video/mp4">
+                            </video>
+                            <!-- <video autoplay muted loop playsinline height="100%"> -->
+                            <video id="dollyzoom" autoplay controls muted loop height="100%">
+                                <source src="static/videos/Museum_compare.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="content has-text-justified">
+                <p>
+                    We show the synthesized images from testing views.
+                </p>
+            </div>
+            <div class="columns is-centered">
+                <div class="column is-full-width">
+                     <!-- <video autoplay muted loop playsinline height="100%"> -->
+                    <video id="dollyzoom" autoplay controls muted loop height="100%">
+                        <source src="static/videos/3dgs_pose_compare.m4v" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+
+            <div class="columns is-centered has-text-centered">
+                <div class="column is-full-width">
+                    <h2 class="title is-3 has-text-centered">Camera Pose Estimation</h2>
+                </div>
+            </div>
+            <div class="content has-text-justified">
+                <p>
+                    We visualise the  <b style="color: #d62728">estimated pose trajectories </b> 
+                    against <b style="color: #036ef1">ground truth trajectories</b>. 
+                 </p>
+            </div>
+            <div class="columns is-centered">
+                <div class="column is-full-width">
+                    <!-- <video autoplay muted loop playsinline height="100%"> -->
+                    <video id="dollyzoom" autoplay controls muted loop height="100%">
+                        <source src="static/videos/3dgs_pose_result_1.m4v" type="video/mp4">
+                    </video>
+                    <!-- <video autoplay muted loop playsinline height="100%"> -->
+                    <video id="dollyzoom" autoplay controls muted loop height="100%">
+                        <source src="static/videos/3dgs_pose_result_2.m4v" type="video/mp4">
+                    </video>
+                </div>
+                <div class="column is-full-width">
+                    <!-- <video autoplay muted loop playsinline height="100%"> -->
+                    <video id="dollyzoom" autoplay controls muted loop height="100%">
+                        <source src="static/videos/3dgs_pose_result_3.m4v" type="video/mp4">
+                    </video>
+                    <!-- <video autoplay muted loop playsinline height="100%"> -->
+                    <video id="dollyzoom" autoplay controls muted loop height="100%">
+                        <source src="static/videos/3dgs_pose_result_4.m4v" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="sora" class="section">
+        <div class="container">
+            <div class="columns is-centered has-text-centered">
+                <div class="column is-four-fifths">
+                    <h2 class="title is-3 has-text-centered">Reconstructing 3D scenes from Sora Videos</h2>
+                </div>
+            </div>
+            <div class="content has-text-justified">
+                <p>
+                    Recently, OpenAI released <a href https://openai.com/sora> Sora</a>, a text-to-video generative model that creates rich and 
+                    realistic videos from text instructions. We run our COLMAP-Free 3DGS reconstruction pipeline on a few 
+                    released videos from Sora. Here are videos of our reconstruction and a live demo of the generated 
+                    3D Gaussian Splatting models. These encouraging results are demonstrates the potential of generating 
+                    infinite 3D data from a few lines of text.
+                    We thank <a href="https://www.episodeyang.com/">Ge Yang</a> for developing the 
+                    visualization toolkit <a href="https://docs.vuer.ai/en/latest/">VUER</a>. 
+                </p>
+            </div>
+            
+            <div class="columns is-centered">
+                <!-- <iframe src="https://drive.google.com/file/d/VIDEO_ID/preview" width="640" height="480" allow="autoplay"></iframe> -->
+                <div class="column is-four-fifths">
+                    <div class="publication-video">
+                        <iframe width="100%" height="100%"
+                            src="https://drive.google.com/file/d/1Agz8hiodehy2MCeebwm-0bIGuBUiNxCo/preview"
+                            title="YouTube video player" frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                            collapseMenu=True>
+                        </iframe>
+                    </div>
+                    <div class="publication-video">
+                        <iframe width="100%" height="100%"
+                            title="YouTube video player" frameborder="0"
+                            src="https://drive.google.com/file/d/1keaSRxQ4kvTlCwpiGNmVIu0n3xJm408d/preview"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                            collapseMenu=True>
+                        </iframe>
+                    </div>
+                </div>
+
+                <div class="column is-four-fifths">
+                    <div class="publication-video">
+                        <iframe style="clip-path: inset(1px 1px)" width="100%" height="100%"
+                        src="https://vuer.ai/?grid=False&scene=3gAEqGNoaWxkcmVukd4ABqhjaGlsZHJlbpCjdGFnpVNwbGF0o2tleadiaWdfc3Vyo3NyY9lIaHR0cHM6Ly9vYXNpc3lhbmcuZ2l0aHViLmlvL2NvbG1hcC1mcmVlLTNkZ3Mvc3RhdGljL3NwbGF0cy9iaWctc3VyLnNwbGF0qHBvc2l0aW9uk8u%2F4AAAAAAAAADLP%2FgAAAAAAACocm90YXRpb26TAMu%2F5At4AAAAAACsaHRtbENoaWxkcmVukKtyYXdDaGlsZHJlbpCqYmdDaGlsZHJlbpA%3D" frameborder="0"
+                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; fullscreen"
+                        collapseMenu=True>  </iframe>
+                        <!-- mozallowfullscreen="true" webkitallowfullscreen="true"></iframe> -->
+                    </div>
+                    <div class="publication-video">
+                        <iframe style="clip-path: inset(1px 1px)" width="100%" height="100%"
+                        src="https://vuer.ai/?grid=False&scene=3gAEqGNoaWxkcmVukd4AB6hjaGlsZHJlbpCjdGFnpVNwbGF0o2tleadiaWdfc3Vyo3NyY9lLaHR0cHM6Ly9vYXNpc3lhbmcuZ2l0aHViLmlvL2NvbG1hcC1mcmVlLTNkZ3Mvc3RhdGljL3NwbGF0cy9hcnQtbXVzZXVtLnNwbGF0pXNjYWxlyz%2FgAAAAAAAAqHBvc2l0aW9uk%2F%2FLP%2BszM0AAAAABqHJvdGF0aW9uk8u%2F4SVnwAAAAMu%2F2bD1gAAAAMu%2F0MFSQAAAAKxodG1sQ2hpbGRyZW6Qq3Jhd0NoaWxkcmVukKpiZ0NoaWxkcmVukA%3D%3D" frameborder="0"
+                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; fullscreen"
+                        collapseMenu=True></iframe>
+                        <!-- mozallowfullscreen="true" webkitallowfullscreen="true"></iframe> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>  
+
+
+    <section class="section">
+        <div class="container">
+            <div class="columns is-centered has-text-centered">
+                <div class="column is-four-fifths">
+                    <h2 class="title is-3">Video</h2>
+                    <div class="publication-video">
+                        <iframe width="560" height="315" 
+                            src="https://www.youtube.com/embed/mGeVQS4ExK4?si=kqu3dbXopDdNg0wX" 
+                            title="YouTube video player" frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>    
+      
+    <footer class="footer">
+        <div class="container">
+            <div class="columns is-centered">
+                <div class="content">
+                    <p>
+                        The template is borrowed from <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="juxtapose/js/juxtapose.js"></script>
+
+    <script>
+        var slider;
+        let origImages = [
+        {"src": "./static/images/tanks_family_0020_nope.png", "label": "Nope-NeRF (~20 hr)",},
+        {"src": "./static/images/tanks_family_0020_ours.png", "label": "Ours (~2 hr)",}
+        ];
+        let origOptions = {
+            "makeResponsive": true,
+            "showLabels": true,
+            "mode": "horizontal",
+            "showCredits": true,
+            "animate": true,
+            "startingPosition": "50"
+        };
+
+        const juxtaposeSelector = "#juxtapose-embed";
+        const transientSelector = "#juxtapose-hidden";
+
+
+        function tab_gallery_click(name) {
+        // Get the expanded image
+        let inputImage = {
+            label: "Nope-NeRF (~20 hr)",
+        };
+        let outputImage = {
+            label: "Ours (~2 hr)",
+        };
+
+        inputImage.src = "./static/images/".concat(name, "_nope.png")
+        outputImage.src = "./static/images/".concat(name, "_ours.png")
+
+        let images = [inputImage, outputImage];
+        let options = slider.options;
+        options.callback = function(obj) {
+            var newNode = document.getElementById(obj.selector.substring(1));
+            var oldNode = document.getElementById(juxtaposeSelector.substring(1));
+            console.log(obj.selector.substring(1));
+            console.log(newNode.children[0]);
+            oldNode.replaceChild(newNode.children[0], oldNode.children[0]);
+            //newNode.removeChild(newNode.children[0]);
+            
+        };
+        
+        slider = new juxtapose.JXSlider(transientSelector, images, options);
+        };
+
+
+
+        (function() {
+            slider = new juxtapose.JXSlider(
+                juxtaposeSelector, origImages, origOptions);
+            //document.getElementById("left-button").onclick = replaceLeft;
+            //document.getElementById("right-button").onclick = replaceRight;
+        })();
+        // Get the image text
+        var imgText = document.getElementById("imgtext");
+        // Use the same src in the expanded image as the image being clicked on from the grid
+        // expandImg.src = imgs.src;
+        // Use the value of the alt attribute of the clickable image as text inside the expanded image
+        imgText.innerHTML = name;
+        // Show the container element (hidden with CSS)
+        // expandImg.parentElement.style.display = "block";
+
+        $(".flip-card").click(function() {
+                    console.log("fading in")
+                    div_back = $(this).children().children()[1]
+                    div_front = $(this).children().children()[0]
+                    // console.log($(this).children("div.flip-card-back"))
+                    console.log(div_back)
+                    $(div_front).addClass("out");
+                    $(div_front).removeClass("in");
+
+                    $(div_back).addClass("in");
+                    $(div_back).removeClass("out");
+
+        });
+
+        $(".flip-card").mouseleave(function() {
+                    console.log("fading in")
+                    div_back = $(this).children().children()[1]
+                    div_front = $(this).children().children()[0]
+                    // console.log($(this).children("div.flip-card-back"))
+                    console.log(div_back)
+                    $(div_front).addClass("in");
+                    $(div_front).removeClass("out");
+
+                    $(div_back).addClass("out");
+                    $(div_back).removeClass("in");
+
+        });
+
+    </script>
+        <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script>  
+
+</body>
+
+</html>
+
+
+
+
+
+
+
+

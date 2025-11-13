@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <!-- <meta name="description"
+        content="Deformable Neural Radiance Fields creates free-viewpoint portraits (nerfies) from casually captured videos.">
+  <meta name="keywords" content="Nerfies, D-NeRF, NeRF">
+  <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+  <title>3D Reconstruction with Generalizable Neural Fields using Scene Priors</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+
+  <!-- Bootstrap -->
+  <link href="./static/css/bootstrap.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+
+<body>
+
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title">3D Reconstruction with Generalizable Neural Fields using Scene
+              Priors</h1>
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">
+                <a href="https://oasisyang.github.io/">Yang Fu</a><sup>1</sup>,</span>
+              <span class="author-block">
+                <a href="https://research.nvidia.com/person/shalini-gupta">Shalini De Mello</a><sup>2</sup>,</span>
+              <span class="author-block">
+                <a href="https://sunshineatnoon.github.io/">Xueting Li</a><sup>2</sup>,</span>
+              <span class="author-block">
+                Amey Kulkarni<sup>2</sup>,</span>
+              <span class="author-block">
+                <a href="https://jankautz.com/">Jan Kautz</a><sup>2</sup>,</span>
+              <span class="author-block">
+                <a href="https://xiaolonw.github.io/">Xiaolong Wang</a><sup>1</sup>,</span>
+              <span class="author-block">
+                <a href="https://research.nvidia.com/person/sifei-liu">Sifei Liu</a><sup>2</sup></span>
+            </div>
+
+            <div class="is-size-5 publication-authors">
+              <span class="author-block"><sup>1</sup>University of California San Diego</span>
+              <span class="author-block"><sup>2</sup>NVIDIA</span>
+
+            </div>
+
+            <div class="column has-text-centered">
+              <div class="publication-links">
+                <!-- PDF Link. -->
+                <!-- <span class="link-block">
+                  <a href="" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                    </span>
+                    <span>Paper</span>
+                  </a>
+                </span> -->
+                <span class="link-block">
+                  <a href="https://arxiv.org/abs/2309.15164v2"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                    </span>
+                    <span>arXiv</span>
+                  </a>
+                </span>
+                <!-- Video Link. -->
+                <span class="link-block">
+                  <a href="https://youtu.be/cqVzTk3U6e4" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                    </span>
+                    <span>Video</span>
+                  </a>
+                </span>
+                <!-- Code Link. -->
+                <!-- <span class="link-block">
+                <a href="https://github.com/OasisYang/Wild6D"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span> -->
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="hero teaser">
+    <div class="container is-max-desktop">
+      <div class="hero-body">
+        <div class="columns is-centered">
+          <div class="column is-four-fifths">
+            <div class="content has-text-justified">
+              <!-- <div class="col-sm-6">
+          <video id="teaser" autoplay muted loop playsinline height="100%">
+            <source src="static/videos/priors/scene0000.mp4"
+                    type="video/mp4">
+          </video>
+        </div> -->
+              <video id="teaser" autoplay muted loop playsinline height="100%">
+                <source src="static/videos/scene0001_track.mp4" type="video/mp4">
+              </video>
+            </div>
+          </div>
+        </div>
+        <!-- <video id="teaser" autoplay muted loop playsinline height="100%">
+        <source src="static/videos/teaser_vid.mp4"
+                type="video/mp4">
+      </video>
+      <h2 class="subtitle has-text-centered" style="margin-top: 15px">
+
+      </h2>
+      <video id="teaser" autoplay muted loop playsinline height="100%">
+        <source src="static/videos/teaser_demo.mp4"
+                type="video/mp4">
+      </video>
+      <h2 class="subtitle has-text-centered" style="margin-top: 15px">
+
+      </h2> -->
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <!-- Abstract. -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Abstract</h2>
+          <div class="content has-text-justified">
+            High-fidelity 3D scene reconstruction has been substantially advanced by recent progress in neural fields.
+            However, most existing methods require per-scene optimization by training one network from scratch each
+            time.
+            This is not scalable, inefficient, and unable to yield good results given limited views.
+            While learning-based multi-view stereo methods alleviate this issue to some extent,
+            their multi-view setting makes it less flexible to scale up and to broad applications.
+            Instead, we introduce training generalizable Neural Fields incorporating scene Priors (NFPs).
+            The NFP network maps any single-view RGB-D image into signed distance and radiance values.
+            A complete scene can be reconstructed by merging individual frames in the volumetric space
+            WITHOUT a fusion module, which provides better flexibility. The scene priors can be trained on large-scale
+            datasets,
+            allowing fast adaptation to the reconstruction of a new scene with fewer views. NFP not only demonstrates
+            OTA scene reconstruction performance and efficiency, but it also supports single-image novel-view synthesis,
+            which is under-explored in neural fields.
+          </div>
+          <div class="content has-text-justified">
+            <img src="static/images/framework_new.png" width="100%">
+            <p>Given the RGBD input, we first extract the geometric and texture pixel feature using two encoders.
+              Then, we construct the continuous surface representation upon the discrete surface feature.
+              Next, we introduce a two-stage paradigm to learn the generalizable geometric and texture prior,
+              optimized via multiple objectives. Finally, the learnt prior can be further optimized on a specific scene
+              to obatin a high-fidelity reconstruction.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Paper video. -->
+      <!-- <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Video</h2>
+        <div class="publication-video">
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/pYvig8rL_1s" title="YouTube video player" 
+          frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+          allowfullscreen></iframe>
+        </div>
+      </div>
+    </div> -->
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3 has-text-centered">Qualitative Resutls</h2>
+          <h3 class="title is-4">Per-scene Reconstruction with Textures</h3>
+          <div class="content has-text-justified">
+            <p> Here we show the per-scene reconstruction results on ScanNet. With the learnt NFP,
+              we can achieve the high-fidelity reconstruction with photo-realisitc texture within 20 mins.</p>
+          </div>
+          <div class="row justify-content-left">
+            <div class="col-sm-6">
+              <video id="dollyzoom" autoplay controls muted loop height="100%">
+                <source src="static/videos/scene0050_color.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="col-sm-6">
+              <div class="embed-responsive embed-responsive-16by9">
+                <iframe style="clip-path: inset(1px 1px)" width="100%" height="100%"
+                  src="https://sketchfab.com/models/c61aaac0f4b74eeca63d2bb6ce2576d5/embed?autostart=1" frameborder="0"
+                  allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; fullscreen"
+                  mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+              </div>
+              <br>
+            </div>
+          </div>
+
+          <div class="row justify-content-left">
+            <div class="col-sm-6">
+              <video id="dollyzoom" autoplay controls muted loop height="100%">
+                <source src="static/videos/scene0084_color.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="col-sm-6">
+              <div class="embed-responsive embed-responsive-16by9">
+                <iframe style="clip-path: inset(1px 1px)" width="100%" height="100%"
+                  src="https://sketchfab.com/models/af9286af9947474b8e47bfec1deb0c63/embed?autostart=1" frameborder="0"
+                  allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; fullscreen"
+                  mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+              </div>
+              <br>
+            </div>
+          </div>
+
+          <div class="row justify-content-left">
+            <div class="col-sm-6">
+              <video id="dollyzoom" autoplay controls muted loop height="100%">
+                <source src="static/videos/scene0580_color.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="col-sm-6">
+              <div class="embed-responsive embed-responsive-16by9">
+                <iframe style="clip-path: inset(1px 1px)" width="100%" height="100%"
+                  src="https://sketchfab.com/models/4f479c7ae1a64d419c2aaa39da4527a1/embed?autostart=1" frameborder="0"
+                  allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; fullscreen"
+                  mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+              </div>
+              <br>
+            </div>
+          </div>
+
+          <div class="row justify-content-left">
+            <div class="col-sm-6">
+              <video id="dollyzoom" autoplay controls muted loop height="100%">
+                <source src="static/videos/scene0616_color.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="col-sm-6">
+              <div class="embed-responsive embed-responsive-16by9">
+                <iframe style="clip-path: inset(1px 1px)" width="100%" height="100%"
+                  src="https://sketchfab.com/models/9ada082c2b274a84b00e186330919842/embed?autostart=1" frameborder="0"
+                  allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; fullscreen"
+                  mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+              </div>
+              <br>
+            </div>
+          </div>
+
+
+          <!-- <div class="row justify-content-left">
+            <div class="col-sm-6">
+              <video id="dollyzoom" autoplay controls muted loop height="100%">
+                <source src="static/videos/scene0001_track.mp4"
+                        type="video/mp4">
+              </video>
+            </div>
+            <div class="col-sm-6">
+              <div class="embed-responsive embed-responsive-16by9">
+                <iframe style="clip-path: inset(1px 1px)" width="100%" height="100%" src="https://sketchfab.com/models/a4e09171ea394102afcdc72e00c1aa5e/embed" 
+                frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; fullscreen" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+              </div>
+              <br>
+            </div>
+          </div> -->
+
+          <div class="content has-text-justified">
+            <p> Zoom in the model viewer by scrolling. You can toggle the “Single Sided” option in Model Inspector
+              (pressing I key) to enable back-face culling (see through walls).
+              Select “Matcap” to inspect the geometry without textures.</p>
+          </div>
+
+          <h3 class="title is-4">Comparision with State-of-the-arts</h3>
+          <table style="table-layout: centered; width: 90%;">
+            <thead>
+              <tr>
+                <th>ManhattanSDF*</th>
+                <th>MonoSDF*</th>
+                <th>Ours (NFP)</th>
+              </tr>
+            </thead>
+          </table>
+          <div class="content has-text-justified">
+
+            <video id="dollyzoom" autoplay controls muted loop height="100%">
+              <source src="static/videos/scene0050_compare.mp4" type="video/mp4">
+            </video>
+            <video id="dollyzoom" autoplay controls muted loop height="100%">
+              <source src="static/videos/scene0084_compare.mp4" type="video/mp4">
+            </video>
+            <video id="dollyzoom" autoplay controls muted loop height="100%">
+              <source src="static/videos/scene0580_compare.mp4" type="video/mp4">
+            </video>
+            <video id="dollyzoom" autoplay controls muted loop height="100%">
+              <source src="static/videos/scene0616_compare.mp4" type="video/mp4">
+            </video>
+            <p>
+              Note that the ManhattanSDF* and MonoSDF* are trained under the same setting with ground truth depths as
+              ours.
+            </p>
+          </div>
+          <h3 class="title is-4">Feed-forwarding Reconstruction</h3>
+          <div class="content has-text-justified">
+            <p>We additionally show the feed-forwarding reconstruction results without any optimizations,
+              which could further demonstrate the generalizability of our learnt priors.
+              Comparing with the existing works which require time-consuming per-scene optimization,
+              our method can achieve comparable results in around 10 sceonds.
+              Feed-forwarding reconstruction results are shown in the left column,
+              while the per-scene optimizaiton results are shown in the right column
+              as the reference.</p>
+          </div>
+          <div class="columns is-centered">
+            <div class="column has-text-centered">
+              <h6>Feed-forwarding Reconstruction</h6>
+              <video autoplay muted loop playsinline height="100%">
+                <source src="static/videos/priors/scene0158_prior.mp4" type="video/mp4">
+              </video>
+              <video autoplay muted loop playsinline height="100%">
+                <source src="static/videos/priors/scene0316_prior.mp4" type="video/mp4">
+              </video>
+              <video autoplay muted loop playsinline height="100%">
+                <source src="static/videos/priors/scene0521_prior.mp4" type="video/mp4">
+              </video>
+              <video autoplay muted loop playsinline height="100%">
+                <source src="static/videos/priors/scene0653_prior.mp4" type="video/mp4">
+              </video>
+              <video autoplay muted loop playsinline height="100%">
+                <source src="static/videos/priors/scene0711_prior.mp4" type="video/mp4">
+              </video>
+              <video autoplay muted loop playsinline height="100%">
+                <source src="static/videos/priors/scene0784_prior.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="column has-text-centered">
+              <h6>Per-scene optimization</h6>
+              <video autoplay muted loop playsinline height="100%">
+                <source src="static/videos/priors/scene0158.mp4" type="video/mp4">
+              </video>
+              <video autoplay muted loop playsinline height="100%">
+                <source src="static/videos/priors/scene0316.mp4" type="video/mp4">
+              </video>
+              <video autoplay muted loop playsinline height="100%">
+                <source src="static/videos/priors/scene0521.mp4" type="video/mp4">
+              </video>
+              <video autoplay muted loop playsinline height="100%">
+                <source src="static/videos/priors/scene0653.mp4" type="video/mp4">
+              </video>
+              <video autoplay muted loop playsinline height="100%">
+                <source src="static/videos/priors/scene0711.mp4" type="video/mp4">
+              </video>
+              <video autoplay muted loop playsinline height="100%">
+                <source src="static/videos/priors/scene0784.mp4" type="video/mp4">
+              </video>
+            </div>
+          </div>
+          <!-- <video id="dollyzoom" autoplay controls muted loop height="100%">
+            <source src="static/videos/scene0050_priro.mp4"
+                    type="video/mp4">
+          </video>
+          <video id="dollyzoom" autoplay controls muted loop height="100%">
+            <source src="static/videos/scene0084_prior.mp4"
+                    type="video/mp4">
+          </video>
+          <video id="dollyzoom" autoplay controls muted loop height="100%">
+            <source src="static/videos/scene0580_prior.mp4"
+                    type="video/mp4">
+          </video>
+          <video id="dollyzoom" autoplay controls muted loop height="100%">
+            <source src="static/videos/scene0616_prior.mp4"
+                    type="video/mp4">
+          </video>
+          <p>Feed-forwarding reconstruction results are shown in the left column, 
+            while the per-scene optimizaiton results are shown in the right column 
+            as the reference.</p>
+        </div> -->
+
+          <h3 class="title is-4">Reconstruction on self-captured living room</h3>
+          <div class="embed-responsive embed-responsive-16by9">
+            <iframe style="clip-path: inset(1px 1px)" width="100%" height="100%"
+              src="https://sketchfab.com/models/21991a574c9241ed9ea2c8bedab747ae/embed?autostart=1" frameborder="0"
+              allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; fullscreen"
+              mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+          </div>
+          <p>The video is captured from the living room of Isaac Deutsch@NVIDIA. We would like to thank Isaac Deutsch
+            for sharing this data.</p>
+
+
+          <h3 class="title is-4">Single-view Novel View Synthesis</h3>
+          <div class="content has-text-justified">
+            <p>Given a sinlge RGB-D image, our approach can also generate some nearby views via learnt neural priors.
+              The following results are generated from the input images shown below.
+            </p>
+          </div>
+          <div class="columns is-centered">
+            <div class="column has-text-centered">
+              <h6>Input Image</h6>
+              <img src="static/videos/single_view/input_view99.jpg" width="100%">
+              <img src="static/videos/single_view/input_view179.jpg" width="100%">
+            </div>
+
+
+
+            <div class="column has-text-centered">
+              <h6>Novel View Synthesis</h6>
+              <video autoplay muted loop playsinline height="100%">
+                <source src="static/videos/single_view/scene0553_00_swing.mov" type="video/mp4">
+              </video>
+              <video autoplay muted loop playsinline height="100%">
+                <source src="static/videos/single_view/swing.mov" type="video/mp4">
+              </video>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+      <section class="section">
+        <div class="container is-max-desktop">
+          <h2 class="title is-3 has-text-centered">Approach</h2>
+          <div class="content has-text-justified">
+            <p>Given an RGB-D image, we propose to decompose the NFPs into the geometric neural prior
+              and the texuture neural prior, and contruct the signed distance fields and
+              the radiance fields from a continuous surface representation,</p>
+
+            <video id="dollyzoom" autoplay controls muted loop height="100%">
+              <source src="static/videos/npf_method_animation.m4v" type="video/mp4">
+            </video>
+
+          </div>
+          <div class="content has-text-justified">
+            <p>With the pretrained NFPs, we could achieve the reconstruction by a single feedwarding step without any
+              optimization.
+              To obtain high-fidelity reconstruction, we further optimize the priors along with the pretrained decoders.
+            </p>
+            <video id="dollyzoom" autoplay controls muted loop height="100%">
+              <source src="static/videos/npf_optim_animation.m4v" type="video/mp4">
+            </video>
+
+          </div>
+        </div>
+      </section>
+
+
+
+      <!-- <section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Wild6D Dataset</h2>
+        <div class="content has-text-justified">
+          <p> 
+            <i>Wild6D</i> is a large-scale RGBD video dataset for 6D object 
+            pose estimation in the wild. Each video in the dataset shows multiple
+            views of one or multiple objects. In total, there are more 5,000 videos
+            over 5 categories: bottle, can, mug, laptop and camera.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="columns is-centered">
+      <div class="column content">
+        <video id="dollyzoom" autoplay controls muted loop height="100%">
+          <source src="static/videos/1.mp4"
+                  type="video/mp4">
+        </video>
+      </div>
+      <div class="column content">
+        <video id="dollyzoom" autoplay controls muted loop height="100%">
+          <source src="static/videos/2.mp4"
+                  type="video/mp4">
+        </video>
+      </div>
+    </div>
+    <div class="columns is-centered">
+      <div class="column content">
+        <video id="dollyzoom" autoplay controls muted loop height="100%">
+          <source src="static/videos/3.mp4"
+                  type="video/mp4">
+        </video>
+      </div>
+      <div class="column content">
+        <video id="dollyzoom" autoplay controls muted loop height="100%">
+          <source src="static/videos/4.mp4"
+                  type="video/mp4">
+        </video>
+      </div>
+    </div>
+    <div class="columns is-centered">
+      <div class="column content">
+        <video id="dollyzoom" autoplay controls muted loop height="100%">
+          <source src="static/videos/5.mp4"
+                  type="video/mp4">
+        </video>
+      </div>
+      <div class="column content">
+        <video id="dollyzoom" autoplay controls muted loop height="100%">
+          <source src="static/videos/6.mp4"
+                  type="video/mp4">
+        </video>
+      </div>
+    </div>
+  </div>
+</section> -->
+
+
+
+
+
+      <section class="section" id="BibTeX">
+        <div class="container is-max-desktop content">
+          <h2 class="title">BibTeX</h2>
+          <pre><code>@article{}
+</code></pre>
+        </div>
+      </section>
+
+      <footer class="footer">
+        <div class="container">
+          <div class="content has-text-centered">
+          </div>
+          <div class="columns is-centered">
+            <div class="column is-8">
+              <div class="content">
+                <p>
+                  <!-- This website is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>. -->
+                  This webpage template is from <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>.
+                  We sincerely thank <a href="https://keunhong.com/">Keunhong Park</a> for developing and open-sourcing
+                  this template.
+                </p>
+              </div>
+            </div>
+            <p></p>
+          </div>
+        </div>
+      </footer>
+
+</body>
+
+</html>

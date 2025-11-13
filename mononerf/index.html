@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>MonoNeRF: Learning Generalizable NeRFs from Monocular Videos without Camera Poses</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+    <link rel="stylesheet" href="./static/css/bulma.min.css">
+    <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+    <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+    <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+    <link rel="stylesheet" href="./static/css/index.css">
+
+    <!-- Bootstrap -->
+    <link href="./static/css/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script defer src="./static/js/fontawesome.all.min.js"></script>
+    <script src="./static/js/bulma-carousel.min.js"></script>
+    <script src="./static/js/bulma-slider.min.js"></script>
+    <script src="./static/js/index.js"></script>
+</head>
+
+<body>
+    <section class="hero">
+        <div class="hero-body">
+            <div class="container is-max-desktop">
+                <div class="columns is-centered">
+                    <div class="column has-text-centered">
+                        <h2 class="title is-2 publication-title">MonoNeRF: Learning Generalizable NeRFs from Monocular Videos without Camera Poses</h2>
+                        <div class="is-size-5 publication-authors">
+                            <span class="author-block">
+                                <a href="https://oasisyang.github.io/">Yang Fu</a><sup>1</sup>,</span>
+                            <span class="author-block">
+                                <a href="https://imisra.github.io/">Ishan Misra</a><sup>2</sup>,</span>
+                            <span class="author-block">
+                                <a href="https://xiaolonw.github.io/">Xiaolong Wang</a><sup>1</sup></span>
+                        </div>
+
+                        <div class="is-size-5 publication-authors">
+                            <span class="author-block"><sup>1</sup>University of California San Diego, </span>
+                            <span class="author-block"><sup>2</sup>FAIR Meta AI</span>
+                        </div>
+                        <!-- <div class="is-size-5 publication-authors">
+                  <span class="author-block"><sup>1</sup>,</span>
+                </div> -->
+
+                        <div class="column has-text-centered">
+                            <div class="publication-links">
+                                <!-- PDF Link. -->
+                                <!-- <span class="link-block">
+                      <a href=""
+                         class="external-link button is-normal is-rounded is-dark">
+                        <span class="icon">
+                            <i class="fas fa-file-pdf"></i>
+                        </span>
+                        <span>Paper</span>
+                      </a>
+                    </span> -->
+                                <span class="link-block">
+                                    <a href="https://arxiv.org/abs/2210.07181"
+                                        class="external-link button is-normal is-rounded is-dark">
+                                        <span class="icon">
+                                            <i class="ai ai-arxiv"></i>
+                                        </span>
+                                        <span>arXiv</span>
+                                    </a>
+                                </span>
+                                <!-- Video Link. -->
+                                <span class="link-block">
+                                    <a href="https://youtu.be/-BZYFyrvyYc"
+                                        class="external-link button is-normal is-rounded is-dark">
+                                        <span class="icon">
+                                            <i class="fab fa-youtube"></i>
+                                        </span>
+                                        <span>Video</span>
+                                    </a>
+                                </span>
+                                <!-- Code Link. -->
+                                <span class="link-block">
+                                    <a href="" class="external-link button is-normal is-rounded is-dark">
+                                        <span class="icon">
+                                            <i class="fab fa-github"></i>
+                                        </span>
+                                        <span>Code (coming soon)</span>
+                                    </a>
+                                </span>
+                                <!-- Dataset Link. -->
+                                <!-- <span class="link-block">
+                                    <a href="https://drive.google.com/drive/folders/1SjWUcuSvYMM5rPPd4aQhK0jo1IHbCJbT?usp=sharing"
+                                        class="external-link button is-normal is-rounded is-dark">
+                                        <span class="icon">
+                                            <i class="fa fa-database"></i>
+                                        </span>
+                                        <span>Dataset</span>
+                                    </a>
+                                </span> -->
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="hero teaser">
+        <div class="container is-max-desktop">
+            <div class="hero-body">
+                <video id="teaser" autoplay muted loop playsinline height="100%">
+                    <source src="static/videos/mononerf_teaser.m4v" type="video/mp4">
+                </video>
+                <h2 class="subtitle has-text" style="margin-top: 15px">
+                    Given a short clip of monoculr video, we learn a MonoNeRF from monocular videos that can be applied to 
+                    depth estimation, novel view synthesis, and camera pose estimation.
+                </h2>
+            </div>
+        </div>
+    </section>
+
+    <section class="hero is-light is-small">
+        <div class="hero-body">
+            <div class="container is-max-desktop">
+                <!-- Abstract. -->
+                <div class="columns is-centered has-text-centered">
+                    <!-- <div class="column is-four-fifths"> -->
+                    <div class="column is-full-width">
+                        <h2 class="title is-3 has-text-centered">Abstract</h2>
+                        <div class="content has-text-justified">
+                            <p>
+                            We propose a generalizable neural radiance fields - MonoNeRF, that can be trained on large-scale
+                            monocular videos of moving in static scenes without any ground-truth annotations of depth 
+                            and camera poses. MonoNeRF follows an Autoencoder-based architecture, where the encoder estimates 
+                            the monocular depth and the camera pose, and the decoder constructs a Multiplane NeRF representation 
+                            based on the depth encoder feature, and renders the input frames with the estimated camera. 
+                            The learning is supervised by the reconstruction error. Once the model is learned, it can be applied 
+                            to multiple applications including depth estimation, camera pose estimation, and single-image novel view synthesis.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Paper video. -->
+            </div>
+    </section>
+    <section class="section">
+        <div class="container is-max-desktop">
+            <!-- Method. -->
+            <div class="columns is-centered has-text-centered">
+                <div class="column is-full-width">
+                    <h2 class="title is-3 has-text-centered">Method</h2>
+                     <video autoplay muted loop playsinline height="100%">
+                        <source src="static/videos/mononerf_method.m4v" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="section">
+        <div class="container is-max-desktop">
+            <div class="columns is-centered ">
+                <div class="column is-full-width">
+                    <h2 class="title is-3 has-text-centered">Results</h2>
+
+                    <h3 class="title is-4">Novel View Synthesis</h3>
+                    <div class="columns is-centered">
+                        <div class="column has-text-centered">
+                            <h6>Input View</h6>
+                            <video autoplay muted loop playsinline height="100%">
+                                <source src="static/videos/mononerf/000c3ab189999a83_45979267_rgb.mp4" type="video/mp4">
+                            </video>
+                            <video autoplay muted loop playsinline height="100%">
+                                <source src="static/videos/mononerf/01eca393f86d37c5_89589500_rgb.mp4" type="video/mp4">
+                            </video>
+                            <video autoplay muted loop playsinline height="100%">
+                                <source src="static/videos/mononerf/01fa6190cd47d125_276843233_rgb.mp4" type="video/mp4">
+                            </video>
+                            <video autoplay muted loop playsinline height="100%">
+                                <source src="static/videos/mononerf/02ee66b3efbf3b0a_74508000_rgb.mp4" type="video/mp4">
+                            </video>
+                        </div>
+
+                        <div class="column has-text-centered">
+                            <h6>VideoAE</h6>
+                            <video autoplay muted loop playsinline height="100%">
+                                <source src="static/videos/videoae/video_000c3ab189999a83_45979267_pred.mp4" type="video/mp4">
+                            </video>
+                            <video autoplay muted loop playsinline height="100%">
+                                <source src="static/videos/videoae/video_01eca393f86d37c5_89589500_pred.mp4" type="video/mp4">
+                            </video>
+                            <video autoplay muted loop playsinline height="100%">
+                                <source src="static/videos/videoae/video_01fa6190cd47d125_276843233_pred.mp4" type="video/mp4">
+                            </video>
+                            <video autoplay muted loop playsinline height="100%">
+                                <source src="static/videos/videoae/video_02ee66b3efbf3b0a_74508000_pred.mp4" type="video/mp4">
+                            </video>
+                        </div>
+
+
+                        <!-- <div class="column has-text-centered">
+                            <h6>MonoNeRF</h6>
+                             <video autoplay muted loop playsinline height="100%">
+                                <source src="static/videos/novel_view/000c3ab189999a83_45979267_nvs.mp4" type="video/mp4">
+                            </video>
+                            <video autoplay muted loop playsinline height="100%">
+                                <source src="static/videos/novel_view/01eca393f86d37c5_89589500_nvs.mp4" type="video/mp4">
+                            </video>
+                            <video autoplay muted loop playsinline height="100%">
+                                <source src="static/videos/novel_view/01fa6190cd47d125_276843233_nvs.mp4" type="video/mp4">
+                            </video>
+                            <video autoplay muted loop playsinline height="100%">
+                                <source src="static/videos/novel_view/02ee66b3efbf3b0a_74508000_nvs.mp4" type="video/mp4">
+                            </video>
+                        </div> -->
+
+                        <div class="column has-text-centered">
+                            <h6>MonoNeRF</h6>
+                            <video autoplay muted loop playsinline height="100%">
+                                <source src="static/videos/mononerf/000c3ab189999a83_45979267.mp4" type="video/mp4">
+                            </video>
+                            <video autoplay muted loop playsinline height="100%">
+                                <source src="static/videos/mononerf/01eca393f86d37c5_89622867.mp4" type="video/mp4">
+                            </video>
+                            <video autoplay muted loop playsinline height="100%">
+                                <source src="static/videos/mononerf/01fa6190cd47d125_276876600.mp4" type="video/mp4">
+                            </video>
+                            <video autoplay muted loop playsinline height="100%">
+                                <source src="static/videos/mononerf/02ee66b3efbf3b0a_74541000.mp4" type="video/mp4">
+                            </video>
+                        </div>
+
+
+                        <div class="column has-text-centered">
+                            <h6>Input view</h6>
+                            <video autoplay muted loop playsinline height="100%">
+                                <source src="static/videos/mononerf/04db26572a791881_44811433_rgb.mp4" type="video/mp4">
+                            </video>
+                            <video autoplay muted loop playsinline height="100%">
+                                <source src="static/videos/mononerf/05ef56b2656c9318_143076267_rgb.mp4" type="video/mp4">
+                            </video>
+                            <video autoplay muted loop playsinline height="100%">
+                                <source src="static/videos/mononerf/007b4ae7c05f2ea2_67500767_rgb.mp4" type="video/mp4">
+                            </video>
+                            <video autoplay muted loop playsinline height="100%">
+                                <source src="static/videos/mononerf/021575237abe0684_154904000_rgb.mp4" type="video/mp4">
+                            </video>
+                        </div>
+
+                        <div class="column has-text-centered">
+                            <h6>VideoAE</h6>
+                            <video autoplay muted loop playsinline height="100%">
+                                <source src="static/videos/videoae/video_04db26572a791881_44811433_pred.mp4" type="video/mp4">
+                            </video>
+                            <video autoplay muted loop playsinline height="100%">
+                                <source src="static/videos/videoae/video_05ef56b2656c9318_143076267_pred.mp4" type="video/mp4">
+                            </video>
+                            <video autoplay muted loop playsinline height="100%">
+                                <source src="static/videos/videoae/video_007b4ae7c05f2ea2_67500767_pred.mp4" type="video/mp4">
+                            </video>
+                            <video autoplay muted loop playsinline height="100%">
+                                <source src="static/videos/videoae/video_021575237abe0684_154904000_pred.mp4" type="video/mp4">
+                            </video>
+                        </div>
+
+                        <!-- <div class="column has-text-centered">
+                            <h6>MonoNeRF</h6>
+                             <video autoplay muted loop playsinline height="100%">
+                                <source src="static/videos/novel_view/04db26572a791881_44811433_nvs.mp4" type="video/mp4">
+                            </video>
+                            <video autoplay muted loop playsinline height="100%">
+                                <source src="static/videos/novel_view/05ef56b2656c9318_143076267_nvs.mp4" type="video/mp4">
+                            </video>
+                            <video autoplay muted loop playsinline height="100%">
+                                <source src="static/videos/novel_view/007b4ae7c05f2ea2_67500767_nvs.mp4" type="video/mp4">
+                            </video>
+                            <video autoplay muted loop playsinline height="100%">
+                                <source src="static/videos/novel_view/021575237abe0684_154904000_nvs.mp4" type="video/mp4">
+                            </video>
+                        </div> -->
+
+                        <div class="column has-text-centered">
+                            <h6>MonoNeRF</h6>
+                            <video autoplay muted loop playsinline height="100%">
+                                <source src="static/videos/mononerf/04db26572a791881_44844800.mp4" type="video/mp4">
+                            </video>
+                            <video autoplay muted loop playsinline height="100%">
+                                <source src="static/videos/mononerf/05ef56b2656c9318_143109633.mp4" type="video/mp4">
+                            </video>
+                            <video autoplay muted loop playsinline height="100%">
+                                <source src="static/videos/mononerf/007b4ae7c05f2ea2_67534133.mp4" type="video/mp4">
+                            </video>
+                            <video autoplay muted loop playsinline height="100%">
+                                <source src="static/videos/mononerf/021575237abe0684_154946000.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+
+
+                    <h3 class="title is-4">Camera Trajectory</h3>
+                    <div class="columns is-centered">
+                        <div class="column has-text-centered">
+                            <h6>Input Video</h6>
+                             <video autoplay muted loop playsinline height="100%">
+                                <source src="static/videos/mononerf/0131c9aed0fb3940/0131c9aed0fb3940_input.mp4" type="video/mp4">
+                            </video>
+                            <video autoplay muted loop playsinline height="100%">
+                                <source src="static/videos/mononerf/02ee66b3efbf3b0a/02ee66b3efbf3b0a_input.mp4" type="video/mp4">
+                            </video>
+                            <video autoplay muted loop playsinline height="100%">
+                                <source src="static/videos/mononerf/04ec725465dc5329/04ec725465dc5329_input.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="column has-text-centered">
+                            <h6>VideoAE</h6>
+                             <video autoplay muted loop playsinline height="100%">
+                                <source src="static/videos/videoae/0131c9aed0fb3940_cam.mp4" type="video/mp4">
+                            </video>
+                            <video autoplay muted loop playsinline height="100%">
+                                <source src="static/videos/videoae/02ee66b3efbf3b0a_cam.mp4" type="video/mp4">
+                            </video>
+                            <video autoplay muted loop playsinline height="100%">
+                                <source src="static/videos/videoae/04ec725465dc5329_cam.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="column has-text-centered">
+                            <h6>MonoNeRF</h6>
+                             <video autoplay muted loop playsinline height="100%">
+                                <source src="static/videos/mononerf/0131c9aed0fb3940/0131c9aed0fb3940_cam.mp4" type="video/mp4">
+                            </video>
+                            <video autoplay muted loop playsinline height="100%">
+                                <source src="static/videos/mononerf/02ee66b3efbf3b0a/02ee66b3efbf3b0a_cam.mp4" type="video/mp4">
+                            </video>
+                            <video autoplay muted loop playsinline height="100%">
+                                <source src="static/videos/mononerf/04ec725465dc5329/04ec725465dc5329_cam.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="column has-text-centered">
+                            <h6>Input Video</h6>
+                             <video autoplay muted loop playsinline height="100%">
+                                <source src="static/videos/mononerf/05ef56b2656c9318/05ef56b2656c9318_input.mp4" type="video/mp4">
+                            </video>
+                            <video autoplay muted loop playsinline height="100%">
+                                <source src="static/videos/mononerf/01eca393f86d37c5/01eca393f86d37c5_input.mp4" type="video/mp4">
+                            </video>
+                            <video autoplay muted loop playsinline height="100%">
+                                <source src="static/videos/mononerf/0aa49c0b75e51ba4/0aa49c0b75e51ba4_input.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="column has-text-centered">
+                            <h6>VideoAE</h6>
+                             <video autoplay muted loop playsinline height="100%">
+                                <source src="static/videos/videoae/05ef56b2656c9318_cam.mp4" type="video/mp4">
+                            </video>
+                            <video autoplay muted loop playsinline height="100%">
+                                <source src="static/videos/videoae/01eca393f86d37c5_cam.mp4" type="video/mp4">
+                            </video>
+                            <video autoplay muted loop playsinline height="100%">
+                                <source src="static/videos/videoae/0aa49c0b75e51ba4_cam.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="column has-text-centered">
+                            <h6>MonoNeRF</h6>
+                             <video autoplay muted loop playsinline height="100%">
+                                <source src="static/videos/mononerf/05ef56b2656c9318/05ef56b2656c9318_cam.mp4" type="video/mp4">
+                            </video>
+                            <video autoplay muted loop playsinline height="100%">
+                                <source src="static/videos/mononerf/01eca393f86d37c5/01eca393f86d37c5_cam.mp4" type="video/mp4">
+                            </video>
+                            <video autoplay muted loop playsinline height="100%">
+                                <source src="static/videos/mononerf/0aa49c0b75e51ba4/0aa49c0b75e51ba4_cam.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+
+
+
+                    <h3 class="title is-4">Depth Estimation</h3>
+                    <div class="columns is-centered">
+                        <div class="column has-text-centered">
+                            <h6>Input video</h6>
+                            <video autoplay muted loop playsinline height="100%">
+                                <source src="static/videos/depth/04ec725465dc5329_04ec725465dc5329_rgb.mp4"
+                                    type="video/mp4">
+                            </video>
+                            <video autoplay muted loop playsinline height="100%">
+                                <source src="static/videos/depth/007876f71baf453f_007876f71baf453f_rgb.mp4"
+                                    type="video/mp4">
+                            </video>
+                            <video autoplay muted loop playsinline height="100%">
+                                <source src="static/videos/depth/scene0709_00_scene0709_00_rgb.mp4" type="video/mp4">
+                            </video>
+                             <video autoplay muted loop playsinline height="100%">
+                                <source src="static/videos/depth/scene0733_00_scene0733_00_rgb.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="column has-text-centered">
+                            <h6>Estimated Depth</h6>
+                            <video autoplay muted loop playsinline height="100%">
+                                <source src="static/videos/depth/04ec725465dc5329_04ec725465dc5329_depth.mp4"
+                                    type="video/mp4">
+                            </video>
+                            <video autoplay muted loop playsinline height="100%">
+                                <source src="static/videos/depth/007876f71baf453f_007876f71baf453f_depth.mp4"
+                                    type="video/mp4">
+                            </video>
+                             <video autoplay muted loop playsinline height="100%">
+                                <source src="static/videos/depth/scene0709_00_scene0709_00_depth.mp4" type="video/mp4">
+                            </video>
+                             <video autoplay muted loop playsinline height="100%">
+                                <source src="static/videos/depth/scene0733_00_scene0733_00_depth.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="column has-text-centered">
+                            <h6>Input video</h6>
+                            <video autoplay muted loop playsinline height="100%">
+                                <source src="static/videos/depth/0598fec76ecc7bd6_0598fec76ecc7bd6_rgb.mp4"
+                                    type="video/mp4">
+                            </video>
+                             <video autoplay muted loop playsinline height="100%">
+                                <source src="static/videos/depth/059058768c222bd6_059058768c222bd6_rgb.mp4"
+                                    type="video/mp4">
+                            </video>
+                             <video autoplay muted loop playsinline height="100%">
+                                <source src="static/videos/depth/scene0718_00_scene0718_00_rgb.mp4" type="video/mp4">
+                            </video>
+                             <video autoplay muted loop playsinline height="100%">
+                                <source src="static/videos/depth/scene0739_00_scene0739_00_rgb.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="column has-text-centered">
+                            <h6>Estimated Depth</h6>
+                            <video autoplay muted loop playsinline height="100%">
+                                <source src="static/videos/depth/0598fec76ecc7bd6_0598fec76ecc7bd6_depth.mp4"
+                                    type="video/mp4">
+                            </video>
+                             <video autoplay muted loop playsinline height="100%">
+                                <source src="static/videos/depth/059058768c222bd6_059058768c222bd6_depth.mp4"
+                                    type="video/mp4">
+                            </video>
+                             <video autoplay muted loop playsinline height="100%">
+                                <source src="static/videos/depth/scene0718_00_scene0718_00_depth.mp4" type="video/mp4">
+                            </video>
+                             <video autoplay muted loop playsinline height="100%">
+                                <source src="static/videos/depth/scene0739_00_scene0739_00_depth.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+                    <!-- <div class="columns is-centered">
+                        <div class="column has-text-centered">
+ 
+                        </div>
+                        <div class="column has-text-centered">
+
+                        </div>
+                        <div class="column has-text-centered">
+     
+                        </div>
+                        <div class="column has-text-centered">
+
+                        </div>
+                    </div> -->
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="columns is-centered has-text-centered">
+                <div class="column is-four-fifths">
+                    <h2 class="title is-3">Video</h2>
+                    <div class="publication-video">
+                        <iframe 
+                            width="560" height="315" src="https://www.youtube.com/embed/-BZYFyrvyYc" 
+                            title="YouTube video player" frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="BibTeX">
+        <div class="container is-max-desktop content">
+            <h2 class="title">BibTeX</h2>
+            <pre><code>
+            	@article{fu2022mononerf,
+			title={MonoNeRF: Learning Generalizable NeRFs from Monocular Videos without Camera Poses},
+  			author={Fu, Yang and Misra, Ishan and Wang, Xiaolong},
+  			journal={arXiv preprint arXiv:2210.07181},
+  			year={2022}
+		    }
+          </code></pre>
+        </div>
+    </section>
+
+
+    <footer class="footer">
+        <div class="container">
+            <div class="columns is-centered">
+                <div class="content">
+                    <p>
+                        The template is borrowed from <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+</body>
+
+</html>
