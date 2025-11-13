@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="SplatDistill: Generalizable Semantic 3D Gaussian Splatting via Feature Distillation">
+    <!-- <meta name="keywords" content="Nerfies, D-NeRF, NeRF">
+    <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+    <title>SplatDistill: Generalizable Semantic 3D Gaussian Splatting via Feature Distillation</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+    <link rel="stylesheet" href="./static/css/bulma.min.css">
+    <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+    <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+    <link rel="stylesheet" href="./static/css/tab_gallery.css">
+    <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+    <link rel="stylesheet" href="./static/css/index.css">
+    <link rel="stylesheet" href="juxtapose/css/juxtapose.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script defer src="./static/js/fontawesome.all.min.js"></script>
+    <script src="./static/js/bulma-carousel.min.js"></script>
+    <script src="./static/js/bulma-slider.min.js"></script>
+    <script src="./static/js/index.js"></script>
+    <script src="./static/js/magnifier.js"></script>
+    <link href="https://fonts.cdnfonts.com/css/menlo" rel="stylesheet">
+    <link rel="stylesheet" href="./static/css/image_card_fader.css">
+    <link rel="stylesheet" href="./static/css/image_card_slider.css">
+
+
+</head>
+
+<body>
+
+    <section class="hero">
+        <div class="hero-body">
+            <div class="container is-max-desktop">
+                <div class="columns is-centered">
+                    <div class="column has-text-centered">
+                        <h1 class="title is-1 publication-title">SplatDistill: Generalizable Semantic 3D Gaussian Splatting via Feature Distillation</h1>
+                        <div class="is-size-5 publication-authors">
+                            <span class="author-block">
+                                <a href="https://oasisyang.github.io/">Yang Fu</a><sup>1</sup>,</span>
+                            <span class="author-block">
+                                <a href="https://research.nvidia.com/person/sifei-liu">Sifei Liu</a><sup>2</sup></span>
+                            <span class="author-block">
+                                <a href="https://hongxu-yin.github.io/">Hongxu Yin</a><sup>2</sup></span>
+                            <span class="author-block">
+                                <a href="https://research.nvidia.com/person/ben-eckart">Benjamin Eckart</a><sup>2</sup></span>
+                            <span class="author-block">
+                                <a href="https://jankautz.com/">Jan Kautz</a><sup>2</sup>,</span>
+                            <span class="author-block">
+                                <a href="https://xiaolonw.github.io/">Xiaolong Wang</a><sup>1</sup>,</span>
+                            <span class="author-block">
+                                <a href="http://latentspace.cc/">Arash Vahdat</a><sup>2</sup>,</span>
+                            <span class="author-block">
+                                <a href="https://research.nvidia.com/labs/genair/author/chao-liu/">Chao Liu</a><sup>2</sup></span>
+                        </div>
+    
+                        <div class="is-size-5 publication-authors">
+                            <span class="author-block"><sup>1</sup>UC San Diego</span>
+                            <span class="author-block"><sup>2</sup>NVIDIA</span>
+                        </div>
+
+                        <!-- <div class="is-size-5 publication-authors">
+                            <span class="univerity-block" style="color: rgb(169, 16, 151);">CVPR 2024, Seattle</span>
+                        </div>
+                
+                        <div class="is-size-5 publication-authors">
+                            <span class="univerity-block" style="color: rgb(252, 118, 0);"><b>✨ Highlight ✨</b> </span>
+                        </div> -->
+                        
+                        <div class="column has-text-centered">
+                            <div class="publication-links">
+                                <span class="link-block">
+                                    <a href=""
+                                        class="external-link button is-normal is-rounded is-dark">
+                                        <span class="icon">
+                                            <!-- <i class="ai ai-arxiv"></i> -->
+                                            <i class="fas fa-file-pdf"></i>
+                                        </span>
+                                        <span>Paper</span>
+                                    </a>
+                                </span>
+                                <!-- Video Link. -->
+                                <span class="link-block">
+                                    <a href=""
+                                        class="external-link button is-normal is-rounded is-dark">
+                                        <span class="icon">
+                                            <i class="fab fa-youtube"></i>
+                                        </span>
+                                        <span>Video</span>
+                                    </a>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="hero teaser">
+        <div class="container is-max-desktop">
+            <div class="hero-body">
+                <video id="teaser" autoplay muted loop playsinline height="100%">
+                    <source src="static/videos/teaser.mp4" type="video/mp4">
+                </video>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="hero is-light is-small">
+        <div class="hero-body">
+            <div class="container is-max-desktop">
+                <!-- Abstract. -->
+                <div class="columns is-centered has-text-centered">
+                    <div class="column is-four-fifths">
+                    <!-- <div class="column is-full-width"> -->
+                        <h2 class="title is-3 has-text-centered">Abstract</h2>
+                        <div class="content has-text-justified">
+                        <p>
+                            3D Gaussian Splatting (3DGS) has emerged as an efficient and interpretable representation for 3D reconstruction and rendering, 
+                            and more recently, semantic understanding. However, current methods typically rely on per-scene optimization, leading to 
+                            long processing times and limited generalizability. In this paper, we introduce a feedforward network that processes 3DGS 
+                            representations to produce semantic features, enabling generalizable semantic understanding across various scenes without 
+                            per-scene optimization. Our Transformer-based 3D feature extraction network attaches semantic features — such as dense CLIP, 
+                            DINOv2, and SAM — to the 3DGS representations. We distill feature knowledge from large-scale 2D foundation models and align 
+                            the attached 3DGS features with their 2D counterparts, bridging the gap between 2D and 3D representations. Our approach offers 
+                            an efficient and scalable solution for semantic understanding in 3DGS-based reconstruction. Furthermore, by connecting 
+                            the 3DGS representation to pre-trained 2D LMMs, our model exhibits strong 3D reasoning capabilities.
+                        </p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Paper video. -->
+            </div>
+    </section> 
+
+
+    <section class="section">
+        <div class="container is-max-desktop">
+            <!-- Method. -->
+            <div class="columns is-centered has-text-centered">
+                <div class="column is-full-width">
+                    <h2 class="title is-3 has-text-centered">Approach</h2>
+                    <video id="dollyzoom" autoplay controls muted loop height="100%">
+                        <source src="static/videos/method.mov" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="section">
+        <div class="container is-max-desktop">
+            <div class="columns is-centered has-text-centered">
+                <div class="column is-full-width">
+                    <h2 class="title is-3 has-text-centered">Results</h2>
+                </div>
+            </div>
+            <div class="content has-text-justified">
+                <h3 class="title is-4">3D Scene Understanding</h3>
+                <p>
+                    3D object recognition and open vocabulary 3D instance segmentation results on the ScanNet dataset.
+                </p>
+                <!-- <figure style="margin-top: 5px; margin-bottom: 10px;">
+                    <img width="95%" src="./static/images/objrecon.png" style="margin-bottom: 15px;">
+                </figure>
+                <p>
+                    Open vocabulary 3D instance segmentation
+                </p>
+                <figure style="margin-top: 5px; margin-bottom: 10px;">
+                    <img width="95%" src="./static/images/instseg.png" style="margin-bottom: 15px;">
+                </figure> -->
+                <figure style="margin-top: 5px; margin-bottom: 10px;">
+                    <img width="95%" src="./static/images/merge.png" style="margin-bottom: 15px;">
+                </figure>
+            </div>
+            
+            <div class="content has-text-justified">
+                <h3 class="title is-4">3D Scene Reasoning and Grounding</h3>
+                <div class="columns  has-text-centered">
+                    <div class="column is-three-fifths">
+                        <img width="100%" src="./static/images/qa1.png">
+                        <img width="100%" src="./static/images/qa2.png">
+                    </div>
+                    <div class="column is-three-fifths">
+                        <img width="100%" src="./static/images/qa3.png">
+                        <img width="100%" src="./static/images/qa4.png">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- <section class="section">
+        <div class="container">
+            <div class="columns is-centered has-text-centered">
+                <div class="column is-four-fifths">
+                    <h2 class="title is-3">Video</h2>
+                    <div class="publication-video">
+                        <iframe width="560" height="315" 
+                            src="https://www.youtube.com/embed/mGeVQS4ExK4?si=kqu3dbXopDdNg0wX" 
+                            title="YouTube video player" frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>     -->
+      
+    <footer class="footer">
+        <div class="container">
+            <div class="columns is-centered">
+                <div class="content">
+                    <p>
+                        The template is borrowed from <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="juxtapose/js/juxtapose.js"></script>
+
+    <script>
+        var slider;
+        let origImages = [
+        {"src": "./static/images/tanks_family_0020_nope.png", "label": "Nope-NeRF (~20 hr)",},
+        {"src": "./static/images/tanks_family_0020_ours.png", "label": "Ours (~2 hr)",}
+        ];
+        let origOptions = {
+            "makeResponsive": true,
+            "showLabels": true,
+            "mode": "horizontal",
+            "showCredits": true,
+            "animate": true,
+            "startingPosition": "50"
+        };
+
+        const juxtaposeSelector = "#juxtapose-embed";
+        const transientSelector = "#juxtapose-hidden";
+
+
+        function tab_gallery_click(name) {
+        // Get the expanded image
+        let inputImage = {
+            label: "Nope-NeRF (~20 hr)",
+        };
+        let outputImage = {
+            label: "Ours (~2 hr)",
+        };
+
+        inputImage.src = "./static/images/".concat(name, "_nope.png")
+        outputImage.src = "./static/images/".concat(name, "_ours.png")
+
+        let images = [inputImage, outputImage];
+        let options = slider.options;
+        options.callback = function(obj) {
+            var newNode = document.getElementById(obj.selector.substring(1));
+            var oldNode = document.getElementById(juxtaposeSelector.substring(1));
+            console.log(obj.selector.substring(1));
+            console.log(newNode.children[0]);
+            oldNode.replaceChild(newNode.children[0], oldNode.children[0]);
+            //newNode.removeChild(newNode.children[0]);
+            
+        };
+        
+        slider = new juxtapose.JXSlider(transientSelector, images, options);
+        };
+
+
+
+        (function() {
+            slider = new juxtapose.JXSlider(
+                juxtaposeSelector, origImages, origOptions);
+            //document.getElementById("left-button").onclick = replaceLeft;
+            //document.getElementById("right-button").onclick = replaceRight;
+        })();
+        // Get the image text
+        var imgText = document.getElementById("imgtext");
+        // Use the same src in the expanded image as the image being clicked on from the grid
+        // expandImg.src = imgs.src;
+        // Use the value of the alt attribute of the clickable image as text inside the expanded image
+        imgText.innerHTML = name;
+        // Show the container element (hidden with CSS)
+        // expandImg.parentElement.style.display = "block";
+
+        $(".flip-card").click(function() {
+                    console.log("fading in")
+                    div_back = $(this).children().children()[1]
+                    div_front = $(this).children().children()[0]
+                    // console.log($(this).children("div.flip-card-back"))
+                    console.log(div_back)
+                    $(div_front).addClass("out");
+                    $(div_front).removeClass("in");
+
+                    $(div_back).addClass("in");
+                    $(div_back).removeClass("out");
+
+        });
+
+        $(".flip-card").mouseleave(function() {
+                    console.log("fading in")
+                    div_back = $(this).children().children()[1]
+                    div_front = $(this).children().children()[0]
+                    // console.log($(this).children("div.flip-card-back"))
+                    console.log(div_back)
+                    $(div_front).addClass("in");
+                    $(div_front).removeClass("out");
+
+                    $(div_back).addClass("out");
+                    $(div_back).removeClass("in");
+
+        });
+
+    </script>
+        <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script>  
+
+</body>
+
+</html>
+
+
+
+
+
+
+
+
