@@ -22,3 +22,6 @@ _backup_site/
 # Temporary files
 *.tmp
 .cache/
+
+# Large PDFs - host externally or on releases
+splat-distill/static/pdf/splatdistill.pdf

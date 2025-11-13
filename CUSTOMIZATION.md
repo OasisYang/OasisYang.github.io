@@ -20,17 +20,17 @@ Open `index.html` and find the profile section (around line 30):
 ```html
 <h1>Your Name</h1>
 <p>
-    I am a Ph.D. student/researcher at 
-    <a href="https://www.example.edu/" target="_blank">Your University</a> 
-    advised by 
-    <a href="#" target="_blank">Prof. Advisor Name</a>. 
-    I obtained my degree from 
-    <a href="#" target="_blank">Previous University</a>. 
-    I am interested in [your research interests], with a focus on [specific areas].
+  I am a Ph.D. student/researcher at
+  <a href="https://www.example.edu/" target="_blank">Your University</a>
+  advised by
+  <a href="#" target="_blank">Prof. Advisor Name</a>. I obtained my degree from
+  <a href="#" target="_blank">Previous University</a>. I am interested in [your
+  research interests], with a focus on [specific areas].
 </p>
 ```
 
 **Replace:**
+
 - `Your Name` - Your actual name
 - `Your University` - Link and text for your university
 - `Prof. Advisor Name` - Your advisor's name and website
@@ -57,6 +57,7 @@ Find the social icons section (around line 50):
 ```
 
 **Update the `href` attributes with your actual profiles:**
+
 - Google Scholar: `https://scholar.google.com/citations?user=YOUR_ID`
 - GitHub: `https://github.com/yourusername`
 - LinkedIn: `https://www.linkedin.com/in/yourusername`
@@ -69,35 +70,35 @@ Each publication follows this structure with a video demo:
 
 ```html
 <li class="publication-item">
-    <div class="pub-video">
-        <video autoplay loop muted playsinline>
-            <source src="assets/videos/YOUR_VIDEO.mp4" type="video/mp4">
-            <source src="assets/videos/YOUR_VIDEO.webm" type="video/webm">
-            Your browser does not support the video tag.
-        </video>
-        <span class="pub-badge">CVPR</span>  <!-- Change badge text -->
+  <div class="pub-video">
+    <video autoplay loop muted playsinline>
+      <source src="assets/videos/YOUR_VIDEO.mp4" type="video/mp4" />
+      <source src="assets/videos/YOUR_VIDEO.webm" type="video/webm" />
+      Your browser does not support the video tag.
+    </video>
+    <span class="pub-badge">CVPR</span>
+    <!-- Change badge text -->
+  </div>
+  <div class="pub-content">
+    <h3 class="pub-title">Your Paper Title</h3>
+    <div class="pub-authors">
+      Your Name,
+      <a href="#" target="_blank">Co-Author</a>, and
+      <a href="#" target="_blank">Last Author</a>
     </div>
-    <div class="pub-content">
-        <h3 class="pub-title">Your Paper Title</h3>
-        <div class="pub-authors">
-            Your Name, 
-            <a href="#" target="_blank">Co-Author</a>, 
-            and <a href="#" target="_blank">Last Author</a>
-        </div>
-        <div class="pub-venue">
-            <em>Conference Name</em> (ABBREVIATION), YEAR
-        </div>
-        <div class="pub-links">
-            <a href="paper.pdf" class="btn-pub" target="_blank">PDF</a>
-            <a href="https://..." class="btn-pub" target="_blank">Video</a>
-            <a href="https://github.com/..." class="btn-pub" target="_blank">Code</a>
-            <a href="https://..." class="btn-pub" target="_blank">Website</a>
-        </div>
+    <div class="pub-venue"><em>Conference Name</em> (ABBREVIATION), YEAR</div>
+    <div class="pub-links">
+      <a href="paper.pdf" class="btn-pub" target="_blank">PDF</a>
+      <a href="https://..." class="btn-pub" target="_blank">Video</a>
+      <a href="https://github.com/..." class="btn-pub" target="_blank">Code</a>
+      <a href="https://..." class="btn-pub" target="_blank">Website</a>
     </div>
+  </div>
 </li>
 ```
 
 **For each publication:**
+
 1. Add a short video demo to `assets/videos/` (MP4 format, 3-10 seconds)
    - Optional: Also provide WebM format for better compatibility
    - See `assets/videos/README.md` for video requirements and creation tips
@@ -106,6 +107,7 @@ Each publication follows this structure with a video demo:
 4. Link to PDF, video, code, and project website
 
 **Video Demo Tips:**
+
 - Keep videos short (3-10 seconds) for smooth looping
 - Use 720p resolution (1280x720) for good quality and small file size
 - Compress to under 5MB for fast loading
@@ -120,11 +122,11 @@ You can customize badge colors in `style.css`:
 
 ```css
 .pub-badge {
-    background: #4169e1;  /* Default blue */
+  background: #4169e1; /* Default blue */
 }
 
 .pub-badge-preprint {
-    background: #999999;  /* Gray for preprints */
+  background: #999999; /* Gray for preprints */
 }
 
 /* Add custom badges */
@@ -145,23 +147,25 @@ You can customize badge colors in `style.css`:
 Edit CSS variables in `style.css` (lines 1-30):
 
 **Light Theme:**
+
 ```css
 :root {
-    --bg-color: #ffffff;
-    --text-color: #000000;
-    --link-color: #0066cc;     /* Change link color */
-    --badge-bg: #4169e1;       /* Change badge background */
-    /* ... more variables */
+  --bg-color: #ffffff;
+  --text-color: #000000;
+  --link-color: #0066cc; /* Change link color */
+  --badge-bg: #4169e1; /* Change badge background */
+  /* ... more variables */
 }
 ```
 
 **Dark Theme:**
+
 ```css
 [data-theme="dark"] {
-    --bg-color: #1a1a1a;
-    --text-color: #e0e0e0;
-    --link-color: #6ba4ff;     /* Change link color */
-    /* ... more variables */
+  --bg-color: #1a1a1a;
+  --text-color: #e0e0e0;
+  --link-color: #6ba4ff; /* Change link color */
+  /* ... more variables */
 }
 ```
 
@@ -198,12 +202,14 @@ Then open `http://localhost:8000` in your browser.
 ## Deployment
 
 ### GitHub Pages
+
 1. Create a repository named `username.github.io`
 2. Push your files
 3. Enable GitHub Pages in settings
 4. Access at `https://username.github.io`
 
 ### Netlify
+
 1. Drag and drop your folder to [Netlify Drop](https://app.netlify.com/drop)
 2. Or connect your Git repository
 3. Your site will be live instantly
@@ -217,4 +223,3 @@ Then open `http://localhost:8000` in your browser.
 ---
 
 **Happy customizing!** 🎉
-
